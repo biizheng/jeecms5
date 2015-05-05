@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/jeecms_sys/head.html"/>
+<script type="text/javascript">
+function getTableForm() {
+	return document.getElementById('tableForm');
+}
+function optDelete() {
+	if(Pn.checkedCount('ids')<=0) {
+		alert("<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	if(!confirm("<@s.m 'global.confirm.delete'/>")) {
+		return;
+	}
+	var f = getTableForm();
+	f.action="o_delete.do";
+	f.submit();
+}
+</script>
+</head>
+<body>
+
+<div class="box-positon">
+	<div class="rpos"><@s.m "global.position"/>: <@s.m "notarization.function"/> - <@s.m "global.list"/></div>
+	<form class="ropt">
+		<input type="submit"  class="add" value="<@s.m "global.add"/>" onclick="this.form.action='v_add.do';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<form action="v_list.do" method="post" style="padding-top:5px;">
+<div style="margin-left:200px;">
+<@s.m "notarization.category"/>：
+<select name="category">
+<option value=""><@s.m "global.default"/></option>
+<option value="0"  <#if category?? && category==0 > selected="selected" </#if> ><@s.m "notarization.category.0"/></option>
+<option value="1" <#if category?? && category==1 > selected="selected" </#if>><@s.m "notarization.category.1"/></option>
+<option value="2" <#if category?? && category==2 > selected="selected" </#if>><@s.m "notarization.category.2"/></option>
+<option value="3" <#if category?? && category==3 > selected="selected" </#if>><@s.m "notarization.category.3"/></option>
+<option value="4" <#if category?? && category==4 > selected="selected" </#if>><@s.m "notarization.category.4"/></option>
+<option value="5" <#if category?? && category==5 > selected="selected" </#if>><@s.m "notarization.category.5"/></option>
+<option value="6" <#if category?? && category==6 > selected="selected" </#if>><@s.m "notarization.category.6"/></option>
+
+</select>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+<@s.m "notarization.title"/>：<input type="text" value="${title!}" name="title" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="query" type="submit" value="<@s.m "global.query"/>"/>
+</div>
+</form>
+<form id="tableForm" method="post">
+<input type="hidden" name="pageNo" value="${pageNo!}"/>
+<@p.table value=pagination;notarization,i,has_next><#rt/>
+	<@p.column title="<input type='checkbox' onclick='Pn.checkbox(\"ids\",this.checked)'/>" width="20">
+		<input type='checkbox' name='ids' value='${notarization.id}'/><#t/>
+	</@p.column><#t/>
+	<@p.column title="ID">${notarization.id}</@p.column><#t/>
+	<@p.column code="notarization.title">${notarization.title}</@p.column><#t/>
+	<@p.column code="notarization.category">
+	<#if notarization.category == 0> <@s.m "notarization.category.0"/>  <#elseif notarization.category == 1>  <@s.m "notarization.category.1"/>
+	<#elseif notarization.category == 2><@s.m "notarization.category.2"/> <#elseif notarization.category == 3><@s.m "notarization.category.3"/>
+	  </#if>
+	</@p.column><#t/>
+	<@p.column code="notarization.priority">${notarization.priority}</@p.column><#t/>
+	<@p.column code="global.operate" align="center">
+		<a href="v_edit.do?id=${notarization.id}&pageNo=${pageNo!}" class="pn-opt"><@s.m "global.edit"/></a> | <#rt/>
+		<a href="o_delete.do?ids=${notarization.id}&pageNo=${pageNo!}" onclick="if(!confirm('<@s.m "global.confirm.delete"/>')) {return false;}" class="pn-opt"><@s.m "global.delete"/></a><#t/>
+	</@p.column><#t/>
+</@p.table>
+<div><input type="button" value="<@s.m "global.delete"/>" onclick="optDelete();" class="del-button"/></div>
+</form>
+</div>
+<#include "/common/alert_message.html"/>
+</body>
+</html>

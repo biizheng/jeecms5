@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-9-13 12:13:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.jeecms.cms.entity.main">
+    <class name="Notarization" table="notarization" >
+    	<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="string">
+            <column name="title" length="200" not-null="true">
+                
+            </column>
+        </property>
+        <property name="resultPage" type="string">
+            <column name="result_page" length="50" not-null="false">
+                
+            </column>
+        </property>
+        <property name="formater" type="string">
+            <column name="formater" length="200">
+               
+            </column>
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" not-null="true">
+               
+            </column>
+        </property>
+        <property name="category" type="java.lang.Integer">
+            <column name="category" not-null="true">
+               
+            </column>
+        </property>
+        
+        <property name="position" type="java.lang.Integer">
+            <column name="position" >
+
+            </column>
+        </property>
+        <property name="siteId" type="java.lang.Integer">
+            <column name="site_id" not-null="true">
+               
+            </column>
+        </property>
+		<many-to-one name="next" column="next_id" class="Notarization" lazy="false" not-null="false"></many-to-one>
+		<many-to-one name="preview" column="preview_id" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+
+        <property name="priority" type="java.lang.Integer">
+            <column name="priority">
+            </column>
+        </property>
+        <property name="name1" type="string">
+            <column name="name1" length="20">
+            </column>
+        </property>
+        <property name="name2" type="string">
+            <column name="name2" length="20">
+            </column>
+        </property>
+        <property name="value1" type="string">
+            <column name="value1" length="200">
+            </column>
+        </property>
+        <property name="value2" type="string">
+            <column name="value2" length="200">
+            </column>
+        </property>
+        <property name="q1" type="string">
+            <column name="q1" length="100">
+            </column>
+        </property>
+        <property name="q2" type="string">
+            <column name="q2" length="100" />
+        </property>
+        <property name="q3" type="string">
+            <column name="q3" length="100" />
+        </property>
+        <property name="q4" type="string">
+            <column name="q4" length="100" />
+        </property>
+        <property name="q5" type="string">
+            <column name="q5" length="100" />
+        </property>
+        <property name="q6" type="string">
+            <column name="q6" length="100" />
+        </property>
+        <property name="q7" type="string">
+            <column name="q7" length="100" />
+        </property>
+        <property name="q8" type="string">
+            <column name="q8" length="100" />
+        </property>
+        <property name="r1" type="string">
+            <column name="r1" length="100">
+            </column>
+        </property>
+        <property name="r2" type="string">
+            <column name="r2" length="100" />
+        </property>
+        <property name="r3" type="string">
+            <column name="r3" length="100" />
+        </property>
+        <property name="r4" type="string">
+            <column name="r4" length="100" />
+        </property>
+        <property name="r5" type="string">
+            <column name="r5" length="100" />
+        </property>
+        <property name="r6" type="string">
+            <column name="r6" length="100" />
+        </property>
+        <property name="r7" type="string">
+            <column name="r7" length="100" />
+        </property>
+        <property name="r8" type="string">
+            <column name="r8" length="100" />
+        </property>
+		<many-to-one name="n1" column="n1" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n2" column="n2" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n3" column="n3" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n4" column="n4" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n5" column="n5" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n6" column="n6" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n7" column="n7" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+ 		<many-to-one name="n8" column="n8" class="Notarization"  lazy="false" not-null="false"></many-to-one>
+        
+
+    </class>
+</hibernate-mapping>

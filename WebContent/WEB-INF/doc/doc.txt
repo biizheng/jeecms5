@@ -1,0 +1,3 @@
+[@cms_advertising id='3']
+            <img src="${(tag_bean.attr.image_url)!?html}" width="${(tag_bean.attr.image_width)!?html}" height="${(tag_bean.attr.image_height)!?html}" />
+ [/@cms_advertising]

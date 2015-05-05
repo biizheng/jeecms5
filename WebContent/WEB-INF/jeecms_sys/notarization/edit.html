@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/jeecms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#jvForm").validate();
+});
+
+</script>
+</head>
+<body>
+<div class="box-positon">
+	<div class="rpos"><@s.m "global.position"/>:  <@s.m "cmsDictionary.function"/> - <@s.m "global.edit"/></div>
+	<form class="ropt">
+		<input type="submit" value="<@s.m "global.backToList"/>" onclick="this.form.action='v_list.do';" class="return-button"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<@p.form id="jvForm" action="o_update.do">
+<input type="hidden" name="id" value="${bean.id}" />
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.title" name="title" value=bean.title required="true" class="required" maxlength="50" />
+<@p.text colspan="1" width="25" label="notarization.formater" name="formater" value=bean.formater  maxlength="20" />
+<@p.select colspan="1" width="25" label="notarization.type" name="type" value=bean.type headerKey="" headerValue="global.default" list={"0":"notarization.type.0","1":"notarization.type.1"} required="true" class="required" /><@p.tr/>
+
+<#if bean.preview??>
+<#assign previewId=bean.preview.id />
+<#else>
+<#assign previewId=''/>
+</#if>
+<#if bean.next??>
+<#assign nextId=bean.next.id />
+<#else>
+<#assign nextId=''/>
+</#if>
+<@p.select colspan="1" width="50" label="notarization.preview" name="preview_id"  value=previewId  headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  />
+<@p.select colspan="1" width="25" label="notarization.next" name="next_id" value=nextId list=notzList headerKey="" headerValue="global.default" listKey="id" listValue="title"/>
+<@p.text colspan="1" width="25" label="notarization.priority" name="priority" value=bean.priority required="true" class="required" maxlength="20" /><@p.tr/>
+
+<@p.select colspan="1" width="25" label="notarization.position" name="position" value=bean.position headerKey="" headerValue="global.default" list={"0":"notarization.0","1":"notarization.1","2":"notarization.2"}  />
+<@p.select colspan="1" width="25" label="notarization.category" name="category" value=bean.category headerKey="" headerValue="global.default" list={"0":"notarization.category.0","1":"notarization.category.1", "2":"notarization.category.2", "3":"notarization.category.3", "4":"notarization.category.4", "5":"notarization.category.5", "6":"notarization.category.6"} required="true" class="required" />
+<@p.text colspan="1" width="25" label="notarization.resultPage"  name="resultPage" value=bean.resultPage id="resultPage"  maxlength="50" />
+
+<@p.tr/>
+
+
+<#if bean.n1??>
+<#assign n1=bean.n1.id />
+<#else>
+<#assign n1=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q1" name="q1" value=bean.q1 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r1" name="r1" value=bean.r1 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n1 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n2??>
+<#assign n2=bean.n2.id />
+<#else>
+<#assign n2=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q2" name="q2" value=bean.q2 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r2" name="r2" value=bean.r2 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n2 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n3??>
+<#assign n3=bean.n3.id />
+<#else>
+<#assign n3=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q3" name="q3" value=bean.q3 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r3" name="r3" value=bean.r3 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n3 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n4??>
+<#assign n4=bean.n4.id />
+<#else>
+<#assign n4=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q4" name="q4" value=bean.q4 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r4" name="r4" value=bean.r4 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n4 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n5??>
+<#assign n5=bean.n5.id />
+<#else>
+<#assign n5=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q5" name="q5" value=bean.q5 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r5" name="r5" value=bean.r5  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n5 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n6??>
+<#assign n6=bean.n6.id />
+<#else>
+<#assign n6=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q6" name="q6" value=bean.q6 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r6" name="r6" value=bean.r6 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n6 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n7??>
+<#assign n7=bean.n7.id />
+<#else>
+<#assign n7=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q7" name="q7" value=bean.q7 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r7" name="r7" value=bean.r7 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n7 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<#if bean.n8??>
+<#assign n8=bean.n8.id />
+<#else>
+<#assign n8=''/>
+</#if>
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q8" name="q8" value=bean.q8 maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r8" name="r8" value=bean.r8 maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" value=n8 headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+
+
+<@p.td colspan="3"><@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/></@p.td>
+</@p.form>
+</div>
+</body>
+</html>

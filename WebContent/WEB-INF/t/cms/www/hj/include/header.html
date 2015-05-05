@@ -1,0 +1,24 @@
+  <div class="h1_1">
+    <div class="h1_1_1">您好，欢迎访问<span class="sty1"><a href="#">湖北鸿锦建设工程</a></span>有限公司官方网站！</div>
+    <div class="h1_1_2"><img src="../../${res}/images/icon1.jpg" border="0" /> <a href="#">帮助中心</a>　<img src="../../${res}/images/icon2.jpg" border="0" /> <a href="#">设为首页</a>　<img src="../../${res}/images/icon3.jpg" border="0" /> <a href="#">加入收藏</a>　</div>
+  </div>
+  <div class="banner"><img src="../../${res}/images/banner.jpg" border="0" /></div>
+  <div class="nav">
+    <div class="nav_1">
+      <ul>
+        [@cms_channel_list]
+        <li>
+        <a href="${base}/" target="_self" [#if !channel??]class="nav_selected"[/#if]>首 页</a>
+        </li><li><img src="../../${res}/images/line.jpg" /></li>
+        [#list tag_list as c]
+        [#if c_index<8]
+        <li>
+        <a href="${c.url}" target="_self" [#if channel??&&channel.id==c.id] class="nav_selected" [/#if]>${c.name}</a>
+        </li><li><img src="../../${res}/images/line.jpg" /></li>
+        [/#if]
+        [/#list]
+        [/@cms_channel_list]
+      </ul>
+    </div>
+    <div class="nav_2">[#include "date.html"/]</div>
+  </div>

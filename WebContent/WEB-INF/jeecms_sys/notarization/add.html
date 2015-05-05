@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/jeecms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#jvForm").validate();
+});
+
+</script>
+</head>
+<body>
+<div class="box-positon">
+	<div class="rpos"><@s.m "global.position"/>: <@s.m "notarization.function"/> - <@s.m "global.add"/></div>
+	<form class="ropt">
+		<input type="submit" value="<@s.m "global.backToList"/>" onclick="this.form.action='v_list.do';" class="return-button"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<@p.form id="jvForm" action="o_save.do" >
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.title" name="title" required="true" class="required" maxlength="50" />
+<@p.text colspan="1" width="25" label="notarization.formater" name="formater"  maxlength="20" />
+<@p.select colspan="1" width="25" label="notarization.type" name="type" value="0" headerKey="" headerValue="global.default" list={"0":"notarization.type.0","1":"notarization.type.1"}  required="true" class="required"/><@p.tr/>
+
+
+<@p.select colspan="1" width="50" label="notarization.preview" name="preview_id" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  />
+<@p.select colspan="1" width="25" label="notarization.next" name="next_id" list=notzList headerKey="" headerValue="global.default" listKey="id" listValue="title"/>
+<@p.text colspan="1" width="25" label="notarization.priority" name="priority" required="true" class="required" maxlength="20" /><@p.tr/>
+
+<@p.select colspan="1" width="25" label="notarization.position" name="position" value="1" headerKey="" headerValue="global.default" list={"0":"notarization.0", "1":"notarization.1", "2":"notarization.2"}  />
+<@p.select colspan="1" width="25" label="notarization.category" name="category" value="0" headerKey="" headerValue="global.default" list={"0":"notarization.category.0","1":"notarization.category.1","2":"notarization.category.2","3":"notarization.category.3","4":"notarization.category.4","5":"notarization.category.5","6":"notarization.category.6"}  required="true" class="required"/>
+<@p.text colspan="1" width="25" label="notarization.resultPage"  name="resultPage" id="resultPage"  maxlength="50" />
+<@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q1" name="q1"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r1" name="r1"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q2" name="q2"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r2" name="r2"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q3" name="q3"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r3" name="r3"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q4" name="q4"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r4" name="r4"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q5" name="q5"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r5" name="r5"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q6" name="q6"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r6" name="r6"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q7" name="q7"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r7" name="r7"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+<@p.text colspan="1" width="50" style="width:260px" label="notarization.q8" name="q8"  maxlength="200" />
+<@p.text colspan="1" width="25" label="notarization.r8" name="r8"  maxlength="50" />
+<@p.select colspan="1" width="25" label="notarization.n" name="nexts" headerKey="" headerValue="global.default" list=notzList listKey="id" listValue="title"  /><@p.tr/>
+
+
+
+<@p.td colspan="3"><@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/></@p.td>
+</@p.form>
+</div>
+</body>
+</html>

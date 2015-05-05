@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>${title} - ${site.name}</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="${content.tagStr!}" http-equiv="keywords" />
+<meta content="${content.description!}" http-equiv="description" />
+
+<!--[if lt IE 9]>
+<script src="${resSys}/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="/${res}/js/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+Cms.attachment("${base}","${content.id}","${content.attachments?size}","attach");
+Cms.viewCount("${base}","${content.id}");
+Cms.siteFlow("${base}", location.href, document.referrer);
+});
+</script>
+<body>
+<div class="contain">
+ <div class="con">
+[#include "../include/header.html"/]
+  <div class=" main">
+    <div class="mc">
+[#include "../include/left.html"/] 
+      <div class="z_right">
+        <div class="z_rt">
+          <div class="z_rt2">${channel.name!}</div>
+        </div>
+        <div class="z_rc">
+          <div class="z_n2_t"> ${content.title}</div>
+          <div class="z_n2_t2">发布人：${content.author!'管理员'}　　发布时间：${content.releaseDate}  浏览次数：<span id="views"></span></div>
+          <div class="z_n2_c">${txt!}
+          </div>
+          <div class="page"></div>
+        </div>
+      </div>  
+      <div class="mc mar_t">
+[#include "../include/foot.html"/]
+
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+</body>
+</html>

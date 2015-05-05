@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/jeecms_sys/head.html"/>
+<script type="text/javascript">
+function getTableForm() {
+	return document.getElementById('tableForm');
+}
+function optDelete() {
+	if(Pn.checkedCount('ids')<=0) {
+		alert("<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	if(!confirm("<@s.m 'global.confirm.delete'/>")) {
+		return;
+	}
+	var f = getTableForm();
+	f.action="o_delete.do";
+	f.submit();
+}
+</script>
+</head>
+<body>
+
+<div class="box-positon">
+	<div class="rpos"><@s.m "global.position"/>: <@s.m "notzResult.function"/> - <@s.m "global.list"/></div>
+	<div class="clear"></div>
+</div>
+<div class="body-box">
+<form action="v_list.do" method="post" style="padding-top:5px;">
+<div>
+
+<input class="query" type="submit" value="<@s.m "global.query"/>"/>
+</div>
+</form>
+<form id="tableForm" method="post">
+<input type="hidden" name="pageNo" value="${pageNo!}"/>
+<@p.table value=pagination;notzResult,i,has_next><#rt/>
+	<@p.column title="<input type='checkbox' onclick='Pn.checkbox(\"ids\",this.checked)'/>" width="20">
+		<input type='checkbox' name='ids' value='${notzResult.id}'/><#t/>
+	</@p.column><#t/>
+	<@p.column title="ID">${notzResult.id}</@p.column><#t/>
+	<@p.column code="notzResult.result">${notzResult.result}</@p.column><#t/>
+	<@p.column code="notzResult.name">${notzResult.name}</@p.column><#t/>
+	<@p.column code="notzResult.tel">${notzResult.tel}</@p.column><#t/>
+	<@p.column code="notzResult.email">${notzResult.email}</@p.column><#t/>
+	<@p.column code="notzResult.createDate">${notzResult.createDate}</@p.column><#t/>
+	<@p.column code="notzResult.status" align="center">
+	<#if notzResult.status == 1> <@s.m "notzResult.status.1"/>  <#elseif notzResult.status == 2>  <@s.m "notzResult.status.2"/>
+	<#elseif notzResult.status == 3><@s.m "notzResult.status.3"/> <#elseif notzResult.status == 4><@s.m "notzResult.status.4"/>
+	  </#if>
+		
+	</@p.column><#t/>
+	<@p.column code="global.operate" align="center">
+		<a href="v_edit.do?id=${notzResult.id}&pageNo=${pageNo!}" class="pn-opt"><@s.m "global.edit"/></a> | <#rt/>
+		<a href="o_delete.do?ids=${notzResult.id}&pageNo=${pageNo!}" onclick="if(!confirm('<@s.m "global.confirm.delete"/>')) {return false;}" class="pn-opt"><@s.m "global.delete"/></a><#t/>
+	</@p.column><#t/>
+</@p.table>
+<div><input type="button" value="<@s.m "global.delete"/>" onclick="optDelete();" class="del-button"/></div>
+</form>
+</div>
+<#include "/common/alert_message.html"/>
+</body>
+</html>

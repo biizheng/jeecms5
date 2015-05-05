@@ -1,0 +1,27 @@
+<div class="z_left">
+        <div class="z_lc">
+          <div class="z_lc1">
+            <ul>
+              <li><a href="#">公正要求</a></li>
+              <li><a href="#">公正流程</a></li>
+              <li><a href="#">特色服务</a></li>
+            </ul>
+          </div>
+          <div class="z_lc2 mar_t2 border">
+            <div class="m1_t"><span class="icon mar_r2"><img src="../../${res}/images/icon3.jpg" border="0" /> </span>公正表格列表</div>
+            <div class="z_lc2c">
+              <ul>
+       [@cms_channel_list parentId=98]
+       
+       [#list tag_list as c]
+       [#if c_index<14]
+                <li><a href="${c.url}">${c.name}</a></li>
+        [/#if]
+       [/#list]
+       [/@cms_channel_list]
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>

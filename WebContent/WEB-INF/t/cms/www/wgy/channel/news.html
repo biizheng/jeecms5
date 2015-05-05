@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+<head>
+<!--[if lt IE 9]>
+<script src="${resSys}/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+});
+</script>
+</head>
+<body>
+<div class="contain">
+ <div class="con">
+
+ [#include "../include/header.html"/] 
+  <div class=" main">
+    <div class="mc">
+   [#include "../include/left.html"/]
+      <div class="z_right">
+        <div class="z_rt">
+          <div class="z_rt2">${channel.name}</div>
+        </div>
+        <div class="z_rc">
+        [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+          <ul>
+                  
+        [#list tag_pagination.list as a]
+            <li><span>${a.date?string(dateFormat)}</span><img src="../../${res}/images/icon4.jpg" border="0" class="mar_r" />          <a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=22 /]
+            </a></li>
+ 		  [/#list]
+           </ul>
+          <div class="page">[@cms_pagination sysPage='1'/]</div>
+        [/@cms_content_page]
+        </div>
+      </div>  
+      <div class="mc mar_t">
+
+ [#include "../include/foot.html"/] 
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+</body>
+</html>

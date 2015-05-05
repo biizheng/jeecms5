@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head xmlns="">
+        <title>${title} - ${site.name}</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <meta content="${content.tagStr!}" http-equiv="keywords" />
+        <meta content="${content.description!}" http-equiv="description" />
+        <link href="/${res}/css/css.css" type="text/css" rel="stylesheet" />
+        <script src="${resSys}/jquery.js" type="text/javascript"></script>
+        <script src="${resSys}/front.js" type="text/javascript"></script>
+        <script src="/${res}/js/common.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+		$(function() {
+		  Cms.attachment("${base}","${content.id}","${content.attachments?size}","attach");
+		  Cms.viewCount("${base}","${content.id}");
+		  Cms.siteFlow("${base}", location.href, document.referrer);
+		});
+		</script>
+		<body>
+		
+		[#include "../include/head.html"/]
+       <div class="contain">
+  <div class="main mar_t2">
+    <div class="main">
+      <div class="z_weizhi">您当前的位置：> [#list channel.nodeList as n]<a target="_blank" href="${n.url}">${n.name}</a>[#if n_has_next] > [/#if][/#list] > 正文</div>
+    </div>
+    <div class="main mar_t2">
+[#include "../include/left.html"/]
+      <div class="z_r border">
+        <div class="m1_t"><span class="icon mar_r2"><img src="../../${res}/images/icon2.jpg" border="0" /> </span>知名律师</div>
+        <div class="z_rc">
+           <div class="z_nc">
+             <div class="zp2_c1"><img src="../../${res}/images/p1.jpg" border="0" /></div>
+             <div class="zp2_c2">
+               <ul>
+                 <li><strong>${content.title}</strong></li>
+                 <li>手机：${content.author}</li>
+                 <li>邮箱：${content.origin}</li>
+               </ul>
+             </div>
+           </div>
+           <div class="z_nc mar_t">
+             <div class="m1_t">律师简介：</div>
+             <div class="z_nc mar_t">
+        ${txt!}
+             </div>
+           </div>
+           <div class="z_nc mar_t">
+             <div class="m1_t">在线预约：</div>
+             <div class="z_nc mar_t">
+                您的姓名：<input name="" type="text" />　　　您的电话：<input name="" type="text" />　　<input type="button" value="提交预约" />
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ [#include "../include/foot.html"/]
+    </body>
+</html>
