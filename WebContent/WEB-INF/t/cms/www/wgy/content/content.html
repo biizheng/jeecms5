@@ -23,31 +23,86 @@ Cms.siteFlow("${base}", location.href, document.referrer);
 });
 </script>
 <body>
-<div class="contain">
- <div class="con">
-[#include "../include/header.html"/]
-  <div class=" main">
-    <div class="mc">
-[#include "../include/left.html"/] 
-      <div class="z_right">
-        <div class="z_rt">
-          <div class="z_rt2">${channel.name!}</div>
-        </div>
-        <div class="z_rc">
-          <div class="z_n2_t"> ${content.title}</div>
-          <div class="z_n2_t2">发布人：${content.author!'管理员'}　　发布时间：${content.releaseDate}  浏览次数：<span id="views"></span></div>
-          <div class="z_n2_c">${txt!}
-          </div>
-          <div class="page"></div>
-        </div>
-      </div>  
-      <div class="mc mar_t">
-[#include "../include/foot.html"/]
-
-      </div>
-    </div>
-  </div>
- </div>
+[#include "../include/top.html"/]
+<div id="xhywz">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
+    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
+    <td width="14%">会员名：中南世</td>
+    <td width="10%">地区：吉林</td>
+    <td width="16%">QQ号：10880555</td>
+    <td width="8%">心情标签</td>
+    <td width="8%">心情标签</td>
+    <td width="8%">心情标签</td>
+    <td width="22%">心情标签</td>
+  </tr>
+</table>
 </div>
+
+<div id="com">
+<div style="width:1360px; margin:0 auto;">
+[#include "../include/left.html"/]
+  <div id="center">
+  <div id="nav">
+     <ul>
+        <li><a href="#">亲子关系</a></li>
+        <li><a href="#">学生减压</a></li>
+        <li><a href="#">婚恋情感</a></li>
+        <li><a href="#">机体健康</a></li>
+        <li class="li"><a href="#">职场EAP</a></li>
+        <li class="li"><a href="#">生涯规划</a></li>
+        <li class="li"><a href="#">危机干预</a></li>
+     </ul>
+  </div>
+  <div id="nav1">
+     <ul>
+        <li><a href="#"><img src="../../${res}/img/011.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/020.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/030.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/040.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/050.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/060.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/070.jpg" /></a></li>
+     </ul>
+  </div>
+  <div id="dy_ejy">
+     <div id="dy_left">
+     <div class="zzj_sjy">
+     <h2>${content.title}</h2>
+     <br/>
+     <img src="${content.titleImg!site.typeImg}" />
+${txt!}
+     </div>
+            <ul>
+            <li><strong>上一篇：</strong>[@cms_content id=content.id next='1' channelId=channel.id][#if tag_bean??]<a href="${tag_bean.url}">${tag_bean.title}</a>[#else]没有了[/#if][/@cms_content]</li>
+            <li><strong>下一篇：</strong>[@cms_content id=content.id next='0' channelId=channel.id][#if tag_bean??]<a href="${tag_bean.url}">${tag_bean.title}</a>[#else]没有了[/#if][/@cms_content]</li>
+            </ul>
+       <br/>
+     </div>
+   
+  </div>    
+       [#include "../include/right.html"/]
+    <div id="sjxtk">
+          <div id="sjxtk_left">
+            升级你的内在系统
+          </div>
+          <div id="sjxtk_right">
+            <ul>
+               <li><a href="#"><img src="../../${res}/img/ld01.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld02.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld03.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld04.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld05.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld06.jpg" /></a></li>
+            </ul>
+            </div>
+       </div>  
+      
+  </div>
+   </div>
+</div>
+
+[#include "../include/foot.html"/]
 </body>
 </html>
