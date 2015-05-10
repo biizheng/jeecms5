@@ -72,7 +72,7 @@ Cms.siteFlow("${base}", location.href, document.referrer);
      <h2>${content.title}</h2>
      <br/>
      <img src="${content.titleImg!site.typeImg}" />
-${txt!}
+	${txt!}
      </div>
             <ul>
             <li><strong>上一篇：</strong>[@cms_content id=content.id next='1' channelId=channel.id][#if tag_bean??]<a href="${tag_bean.url}">${tag_bean.title}</a>[#else]没有了[/#if][/@cms_content]</li>
