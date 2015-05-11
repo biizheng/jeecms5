@@ -435,3 +435,8 @@ a img{ border:none;}
 #scrollbox_8 .box ul li,#scrollbox_9 .box ul li{float:left;display:inline;padding:0px;margin:0 10px;}
 #scrollbox_8 .box ul li img,#scrollbox_9 .box ul li img{ width:150px;}
 #scrollbox_8 .box ul li p,#scrollbox_9 .box ul li p{ text-align:center; line-height:20px; padding:10px 0px;}
+
+.tp_list{ height:275px; padding-top:30px;}
+.tp_list ul{ width:990px;}
+.tp_list ul li{ width:100px; float:left; margin:0 43px;}
+.tp_list ul li img{ width:80px; height:80px;}
