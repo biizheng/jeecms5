@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jeecms.cms.entity.main.CmsConfig;
 import com.jeecms.cms.entity.main.CmsSite;
+import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.cms.entity.main.CmsUserExt;
 import com.jeecms.cms.entity.main.MemberConfig;
 import com.jeecms.cms.manager.main.CmsUserMng;
@@ -46,10 +47,10 @@ public class RegisterAct {
 	private static final Logger log = LoggerFactory
 			.getLogger(RegisterAct.class);
 
-	public static final String REGISTER = "tpl.register";
-	public static final String REGISTER_RESULT = "tpl.registerResult";
-	public static final String REGISTER_ACTIVE_SUCCESS = "tpl.registerActiveSuccess";
-	public static final String LOGIN_INPUT = "tpl.loginInput";
+	public static final String REGISTER = "register";
+	public static final String REGISTER_RESULT = "registerResult";
+	public static final String REGISTER_ACTIVE_SUCCESS = "registerActiveSuccess";
+	public static final String LOGIN_INPUT = "loginInput";
 
 	@RequestMapping(value = "/register.jspx", method = RequestMethod.GET)
 	public String input(HttpServletRequest request,
@@ -65,8 +66,10 @@ public class RegisterAct {
 			return FrontUtils.showMessage(request, model,
 					"member.registerClose");
 		}
+		;
 		FrontUtils.frontData(request, model, site);
 		model.addAttribute("mcfg", mcfg);
+		model.addAttribute("areaList", CmsUser.areaList);
 		return FrontUtils.getTplPath(request, site.getSolutionPath(),
 				TPLDIR_MEMBER, REGISTER);
 	}

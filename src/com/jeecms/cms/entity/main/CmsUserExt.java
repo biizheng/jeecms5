@@ -24,11 +24,17 @@ public class CmsUserExt extends BaseCmsUserExt {
 		if (StringUtils.isBlank(getPhone())) {
 			setPhone(null);
 		}
-		if (StringUtils.isBlank(getMsn())) {
-			setMsn(null);
+		if (StringUtils.isBlank(getArea())) {
+			setArea(null);
 		}
 		if (StringUtils.isBlank(getQq())) {
 			setQq(null);
+		}
+		if (StringUtils.isBlank(getWeixin())) {
+			setWeixin(null);
+		}
+		if (StringUtils.isBlank(getWeibo())) {
+			setWeibo(null);
 		}
 	}
 

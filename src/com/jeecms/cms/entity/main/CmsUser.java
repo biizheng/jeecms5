@@ -1,9 +1,11 @@
 package com.jeecms.cms.entity.main;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.jeecms.cms.entity.assist.CmsJobApply;
@@ -15,6 +17,46 @@ import com.jeecms.core.entity.UnifiedUser;
 public class CmsUser extends BaseCmsUser implements PriorityInterface {
 	private static final long serialVersionUID = 1L;
 
+    public static List<String> areaList = new ArrayList<String>();
+    static {
+    	areaList.add("北京市");
+    	areaList.add("天津市");
+    	areaList.add("河北省");
+    	areaList.add("山西省");
+    	areaList.add("内蒙古");	
+    	areaList.add("辽宁省");
+    	areaList.add("吉林省");
+    	areaList.add("黑龙江省");
+    	areaList.add("上海市");	
+    	areaList.add("江苏省");
+    	areaList.add("浙江省");
+    	areaList.add("安徽省");
+    	areaList.add("福建省");
+    	areaList.add("江西省");
+    	areaList.add("山东省");
+    	areaList.add("河南省");
+    	areaList.add("湖北省");
+    	areaList.add("湖南省");
+    	areaList.add("广东省");
+    	areaList.add("广西省");
+    	areaList.add("海南省");
+    	areaList.add("重庆市");
+    	areaList.add("四川省");
+    	areaList.add("贵州省");
+    	areaList.add("云南省");
+    	areaList.add("西藏");	
+    	areaList.add("陕西省");
+    	areaList.add("甘肃省");
+    	areaList.add("青海省");
+    	areaList.add("宁夏");
+    	areaList.add("新疆");
+    	areaList.add("台湾省");
+    	areaList.add("香港");
+    	areaList.add("澳门");
+  }
+
+
+	
 	public Byte getCheckStep(Integer siteId) {
 		CmsUserSite us = getUserSite(siteId);
 		if (us != null) {
@@ -77,11 +119,27 @@ public class CmsUser extends BaseCmsUser implements PriorityInterface {
 			return null;
 		}
 	}
-
-	public String getMsn() {
+	public String getWeixin() {
 		CmsUserExt ext = getUserExt();
 		if (ext != null) {
-			return ext.getMsn();
+			return ext.getWeixin();
+		} else {
+			return null;
+		}
+	}
+	
+	public String getWeibo() {
+		CmsUserExt ext = getUserExt();
+		if (ext != null) {
+			return ext.getWeibo();
+		} else {
+			return null;
+		}
+	}
+	public String getArea() {
+		CmsUserExt ext = getUserExt();
+		if (ext != null) {
+			return ext.getArea();
 		} else {
 			return null;
 		}

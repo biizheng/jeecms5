@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>注册新帐号 - ${site.name} - Powered by JEECMS</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $("#jvForm").validate();
+    });
+</script>
+</head>
+<body>
+[#include "../include/top.html"/]
+<div id="com">
+<div style="width:1360px; margin:0 auto;">
+   <div id="left">
+     <table width="70%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
+         <td><a href="#">微信</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
+  <div id="center">
+    <div class="zc1">
+      <table cellspacing="0" cellpadding="0" align="center" border="0">
+        <tr>
+          <td width="130px" bgcolor="#FCD12C" style="padding:0px 25px;"><a href="#"><img src="../../${res}/img/zc_vip1.jpg" /></a></td>
+          <td width="130px" bgcolor="#F3E17F" style="padding:0px 25px;"><a href="#"><img src="../../${res}/img/zc_xs1.jpg" /></a></td>
+        </tr>
+        </table>
+                   <form id="jvForm" action="${base}/register.jspx" method="post" style="padding-top: 20px">
+                    <table cellspacing="0" cellpadding="0" align="center" border="0">
+                        <tbody>
+
+                            <tr>
+                                <td align="right" width="120" height="30">用户名：</td>
+                                <td ><input class="input2" id="username" vld="{required:true,rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在！'}}" name="username" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"  height="30">密 码：</td>
+                                <td><input class="input2 required" id="password" type="password" name="password" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"  height="30">确认密码：</td>
+                                <td><input class="input2" type="password" equalto="#password" /></td>
+                            </tr>
+                     
+                            <tr>
+                                <td align="right"  height="30">地区：</td>
+                                <td>
+                                <select name="area">
+                                [#list areaList as area]
+                                <option value="${area}">${area}</option>
+                                [/#list]
+                                </select>
+                                </td>
+                            </tr>
+                     
+                            <tr>
+                                <td align="right"  height="30">QQ：</td>
+                                <td><input class="input2" id="qq" maxlength="30"  name="email" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"  height="30">微信：</td>
+                                <td><input class="input2" id="weixin" maxlength="30"  name="email" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"  height="30">微博：</td>
+                                <td><input class="input2" id="weibo" maxlength="30"  name="email" type="text" /></td>
+                            </tr>
+                            <tr>
+                                <td align="right"   height="30">验证码：</td>
+                                <td  ><input class="input required" maxlength="20" name="captcha" type="text" /><img id="guestbookCaptcha" height="25px;" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl" /></td>
+                            </tr>
+
+                            <tr>
+                                <td align="center" colspan="2" height="40"><input class="regist-submit" type="submit" name="register" value="注册" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+      
+    </div>
+    <div class="zc2">
+        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="46%" scope="col" align="right"><img src="../../${res}/img/ql_vip.jpg" /></th>
+          <th width="54%" scope="col" align="left">会员&nbsp;服务条款</th>
+        </tr>
+        <tr>
+          <td colspan="2"><p>个人成长平台</p>
+            <p>春季班&nbsp;&nbsp;第一季度：3-5月&nbsp;&nbsp;￥150元</p>
+            <p>夏季班&nbsp;&nbsp;第一季度：6-8月&nbsp;&nbsp;￥150元</p>
+            <p>秋季班&nbsp;&nbsp;第一季度：9-11月&nbsp;&nbsp;￥150元</p>
+            <p>冬季班&nbsp;&nbsp;第一季度：12-2月&nbsp;&nbsp;￥150元</p>
+            <p>不尚贤，使民不争；不贵难得之货，使民不為盗；不见可欲，使民心不乱。是以圣人之治，虚其心，实其腹，弱其志，强其骨。常使民无知无欲。使夫智者不敢為也。為无為，则无不治。 </p></td>
+          </tr>
+      </table>
+    </div> 
+    <div class="zc3">
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="11%" rowspan="2" scope="col"><div class="jsjj"><img src="../../${res}/img/sc01.jpg" />安妮老师<br />
+国家二级心理咨询师</div></th>
+          <th width="35%" scope="col" align="right" style=" height:50px; padding-top:10px;"><img src="../../${res}/img/ql_vip.jpg" /></th>
+          <th width="54%" scope="col" align="left" style=" height:50px; padding-top:10px;">会员&nbsp;授课讲师&nbsp;简介</th>
+        </tr>
+        <tr>
+          <td colspan="2"><div style="height:230px;"><p>任用贤才，富国强兵，而后取列国的为一统，本是春秋战国时代从以血缘关系为纽带的世卿世禄制向封建的中央集权制国家发展之一大时代特征。对人才的重视、使用乃至研究，成了长达五个半世纪的先秦社会中的热点问题。先秦时代是诸子的时代、士的时代和知识分子的黄金时代。由于列国都重视人才的使用，知识...</p>
+            <p>在上一章里，老子提出了“无为”的概念，认为要顺应自然规律，做到“无为”。本章里，老子进一步阐述了他的社会政治思想。老子所说的无为，并非不为，而是不妄为，不非为。他认为，体现“道”的“圣人”，要治理百姓，就应当不尊尚贤才异能，以使人民不要争夺权位功名利禄。前面说到，先秦时代关于选贤...</p>
+            </div></td>
+          </tr>
+      </table>
+    </div>
+     <!--
+    <div class="zf">
+       <div class="zf_left">
+         <table width="70%" border="0" cellspacing="0" cellpadding="0"><form id="form2" name="form2" method="post" action="">
+           <tr>
+             <td width="50%" align="right"><img src="../../${res}/img/ql_vip.jpg" alt="" /></td>
+             <td width="50%" align="left">会员</td>
+           </tr>
+           <tr>
+             <td colspan="2"><p>服务开通</p>
+              <p>（显示QQ号码）</p></td>
+            </tr>
+           <tr>
+             <td colspan="2">
+             <label>
+             <input type="checkbox" name="zc_dxk" id="zc_dxk" />
+             </label>
+          同意服务条款</td>
+           </tr>
+           <tr>
+             <td colspan="2"> <label>
+               <input type="submit" name="kt" id="kt" value="开通" />
+               <input type="submit" name="zs" id="zs" value="赠送" />
+             </label></td>
+           </tr>
+         </form>
+         </table>
+       </div>
+       <div class="zf_right">
+         <table width="90%" border="0" cellspacing="0" cellpadding="0">
+         <form id="form3" name="form3" method="post" action="">
+           <tr>
+             <td width="13%">开通服务</td>
+             <td width="87%"><div class="sl_an"><a href="#">季度会员</a></div>
+               <div class="ql_an"><a href="#">年度会员</a></div></td>
+           </tr>
+           <tr>
+             <td>付费模式</td>
+             <td><div class="sl_an"><a href="#">季度付费</a></div>
+             <div class="ql_an"><a href="#">年度付费</a></div></td>
+           </tr>
+           <tr>
+             <td>开通时长</td>
+             <td><label>
+               <input type="text" name="ff1" id="ff1" />
+               季
+             </label></td>
+           </tr>
+           <tr>
+             <td>应付金额</td>
+             <td><label>
+               <input type="text" name="ff2" id="ff2" />
+             元</label></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><label>
+               <input type="checkbox" name="ff3" id="ff3" />
+             使用会员积分
+             <input type="text" name="ff4" id="ff4" />
+             （100积分，可抵10元）</label></td>
+           </tr>
+           <tr>
+             <td>开通方式</td>
+             <td><div class="sl_an"><a href="#">支付宝付费</a></div><div class="ql_an"><a href="#">银行卡付费</a></div></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><div class="zf_xxk">在上一章里，老子提出了“无为”的概念，认为要顺应自然规律，做到“无为”。本章里，老子进一步阐述了他的社会政治思想。老子所说的无为，并非不为，而是不妄为，不非为。他认为，体现“道”的“圣人”，要治理百姓，就应当不尊尚贤才异能，以使人民不要争夺权位功名利禄。前面...</div></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><div class="sl_an"><a href="#">确认支付</a></div></td>
+           </tr></form>
+         </table>
+       </div>
+    </div> 不知道你看了效果图没有，这里和下面是交替出现的 -->
+    <div class="zf">
+       <div class="zf_left">
+         <table width="70%" border="0" cellspacing="0" cellpadding="0"><form id="form2" name="form2" method="post" action="">
+           <tr>
+             <td width="50%" align="right"><img src="../../${res}/img/ql_vip.jpg" alt="" /></td>
+             <td width="50%" align="left">会员</td>
+           </tr>
+           <tr>
+             <td colspan="2"><p>服务开通</p>
+              <p>（显示QQ号码）</p></td>
+            </tr>
+           <tr>
+             <td colspan="2">
+             <label>
+             <input type="checkbox" name="zc_dxk" id="zc_dxk" />
+             </label>
+          同意服务条款</td>
+           </tr>
+           <tr>
+             <td colspan="2"> <label>
+               <input type="submit" name="kt" id="kt" value="开通" />
+               <input type="submit" name="zs" id="zs" value="赠送" />
+             </label></td>
+           </tr>
+         </form>
+         </table>
+       </div>
+       <div class="zf_right">
+         <table width="90%" border="0" cellspacing="0" cellpadding="0">
+         <form id="form3" name="form3" method="post" action="">
+           <tr>
+             <td width="13%">开通服务</td>
+             <td width="87%"><div class="sl_an"><a href="#">季度会员</a></div>
+               <div class="ql_an"><a href="#">年度会员</a></div></td>
+           </tr>
+           <tr>
+             <td>付费模式</td>
+             <td><div class="sl_an"><a href="#">季度付费</a></div>
+             <div class="ql_an"><a href="#">年度付费</a></div></td>
+           </tr>
+           <tr>
+             <td>开通时长</td>
+             <td><label>
+               <input type="text" name="ff1" id="ff1" />
+               季
+             </label></td>
+           </tr>
+           <tr>
+             <td>应付金额</td>
+             <td><label>
+               <input type="text" name="ff2" id="ff2" />
+             元</label></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><label>
+               <input type="checkbox" name="ff3" id="ff3" />
+             使用会员积分
+             <input type="text" name="ff4" id="ff4" />
+             （100积分，可抵10元）</label></td>
+           </tr>
+           <tr>
+             <td>开通方式</td>
+             <td><div class="ql_an"><a href="#">支付宝付费</a></div>
+             <div class="sl_an"><a href="#">银行卡付费</a></div></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><div class="zf_xxk1">
+               <p>农业银行：</p>
+               <p>中信银行：</p>
+               <p>工商银行：</p>
+               <p>交通银行：</p>
+             </div></td>
+           </tr>
+           <tr>
+             <td>&nbsp;</td>
+             <td><div class="sl_an"><a href="#">确认支付</a></div></td>
+           </tr></form>
+         </table>
+       </div>
+    </div>
+  </div>
+   </div>
+</div>
+
+[#include "../include/foot.html"/]
+</body>
+</html>
