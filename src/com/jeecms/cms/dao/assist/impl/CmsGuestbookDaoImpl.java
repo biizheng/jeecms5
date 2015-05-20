@@ -13,10 +13,10 @@ import com.jeecms.common.page.Pagination;
 @Repository
 public class CmsGuestbookDaoImpl extends
 		HibernateBaseDao<CmsGuestbook, Integer> implements CmsGuestbookDao {
-	public Pagination getPage(Integer siteId, Integer ctgId,Integer userId,Boolean recommend,
+	public Pagination getPage(Integer siteId, Integer ctgId,Integer userId, Integer adminId, Boolean recommend,
 			Boolean checked, boolean asc, boolean cacheable, int pageNo,
 			int pageSize) {
-		Finder f = createFinder(siteId, ctgId, userId,recommend, checked, asc,
+		Finder f = createFinder(siteId, ctgId, userId, adminId, recommend, checked, asc,
 				cacheable);
 		return find(f, pageNo, pageSize);
 	}
@@ -25,14 +25,14 @@ public class CmsGuestbookDaoImpl extends
 	public List<CmsGuestbook> getList(Integer siteId, Integer ctgId,
 			Boolean recommend, Boolean checked, boolean desc,
 			boolean cacheable, int first, int max) {
-		Finder f = createFinder(siteId, ctgId, null,recommend, checked, desc,
+		Finder f = createFinder(siteId, ctgId, null, null, recommend, checked, desc,
 				cacheable);
 		f.setFirstResult(first);
 		f.setMaxResults(max);
 		return find(f);
 	}
 
-	private Finder createFinder(Integer siteId, Integer ctgId,Integer userId,
+	private Finder createFinder(Integer siteId, Integer ctgId,Integer userId,Integer adminId,
 			Boolean recommend, Boolean checked, boolean desc, boolean cacheable) {
 		Finder f = Finder.create("from CmsGuestbook bean where 1=1");
 		if (siteId != null) {
@@ -46,6 +46,11 @@ public class CmsGuestbookDaoImpl extends
 		if (userId != null) {
 			f.append(" and bean.member.id=:userId");
 			f.setParam("userId", userId);
+		}
+		//回复人
+		if (adminId != null) {
+			f.append(" and bean.admin.id=:adminId");
+			f.setParam("adminId", adminId);
 		}
 		if (recommend != null) {
 			f.append(" and bean.recommend=:recommend");

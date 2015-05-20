@@ -1,6 +1,7 @@
 package com.jeecms.cms.action.member;
 
 import static com.jeecms.cms.Constants.TPLDIR_MEMBER;
+import static com.jeecms.common.page.SimplePage.cpn;
 
 import java.io.IOException;
 
@@ -19,11 +20,15 @@ import com.jeecms.cms.entity.main.CmsSite;
 import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.cms.entity.main.CmsUserExt;
 import com.jeecms.cms.entity.main.MemberConfig;
+import com.jeecms.cms.manager.assist.CmsGuestbookMng;
 import com.jeecms.cms.manager.main.CmsUserExtMng;
 import com.jeecms.cms.manager.main.CmsUserMng;
+import com.jeecms.cms.manager.main.ContentMng;
 import com.jeecms.cms.web.CmsUtils;
 import com.jeecms.cms.web.FrontUtils;
 import com.jeecms.cms.web.WebErrors;
+import com.jeecms.common.page.Pagination;
+import com.jeecms.common.web.CookieUtils;
 import com.jeecms.common.web.ResponseUtils;
 
 /**
@@ -33,10 +38,13 @@ import com.jeecms.common.web.ResponseUtils;
 public class MemberAct {
 	private static final Logger log = LoggerFactory.getLogger(MemberAct.class);
 
-	public static final String MEMBER_CENTER = "tpl.memberCenter";
-	public static final String MEMBER_PROFILE = "tpl.memberProfile";
-	public static final String MEMBER_PORTRAIT = "tpl.memberPortrait";
-	public static final String MEMBER_PASSWORD = "tpl.memberPassword";
+	public static final String MEMBER_CENTER = "memberCenter";
+	public static final String MEMBER_CENTER_VIP = "memberCenter_VIP";
+	//心师页面
+	public static final String MEMBER_CENTER_XS = "memberCenter_XS";
+	public static final String MEMBER_PROFILE = "memberProfile";
+	public static final String MEMBER_PORTRAIT = "memberPortrait";
+	public static final String MEMBER_PASSWORD = "memberPassword";
 
 	/**
 	 * 会员中心页
@@ -66,6 +74,49 @@ public class MemberAct {
 				TPLDIR_MEMBER, MEMBER_CENTER);
 	}
 
+	
+	/**
+	 * 根据用户类型选择不同的用户中心
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/member/center.jspx", method = RequestMethod.GET)
+	public String indexByUserType(HttpServletRequest request,Integer typeId, Integer pageNo,
+			HttpServletResponse response, ModelMap model) {
+		CmsSite site = CmsUtils.getSite(request);
+		CmsUser user = CmsUtils.getUser(request);
+		FrontUtils.frontData(request, model, site);
+		MemberConfig mcfg = site.getConfig().getMemberConfig();
+		String gotoPage = this.MEMBER_CENTER_VIP;
+		// 没有开启会员功能
+		if (!mcfg.isMemberOn()) {
+			return FrontUtils.showMessage(request, model, "member.memberClose");
+		}
+		if (user == null) {
+			return FrontUtils.showLogin(request, model, site);
+		}else{
+			Pagination contentPage = contentMng.getPageForMember(null, null, site.getId(), user.getId(), cpn(pageNo), 20);
+			model.addAttribute("contentPage", contentPage);
+			
+			Pagination bookPage = null ;
+			if(user.getGroup().getId().equals(1)){
+				bookPage = cmsGuestbookMng.getPage(site.getId(), null,user.getId(), null,
+						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
+			}else if(user.getGroup().getId().equals(2)){
+				gotoPage = this.MEMBER_CENTER_XS;
+				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
+						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
+			}
+			model.addAttribute("bookPage", bookPage);
+			model.addAttribute("pageNo", bookPage.getPageNo());
+		}
+		
+		
+		return FrontUtils.getTplPath(request, site.getSolutionPath(),
+				TPLDIR_MEMBER, gotoPage);
+	}
 	/**
 	 * 个人资料输入页
 	 * 
@@ -247,9 +298,14 @@ public class MemberAct {
 		}
 		return errors;
 	}
-
+	
+	@Autowired
+	private ContentMng contentMng;
 	@Autowired
 	private CmsUserMng cmsUserMng;
 	@Autowired
 	private CmsUserExtMng cmsUserExtMng;
+	@Autowired
+	private CmsGuestbookMng cmsGuestbookMng;
+	
 }

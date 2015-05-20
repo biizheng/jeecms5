@@ -7,9 +7,13 @@ import static com.jeecms.core.action.front.LoginAct.PROCESS_URL;
 import static com.jeecms.core.action.front.LoginAct.RETURN_URL;
 import static com.jeecms.core.manager.AuthenticationMng.AUTH_KEY;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
@@ -29,8 +33,10 @@ import com.jeecms.cms.web.FrontUtils;
 import com.jeecms.common.security.BadCredentialsException;
 import com.jeecms.common.security.DisabledException;
 import com.jeecms.common.security.UsernameNotFoundException;
+import com.jeecms.common.util.Msg;
 import com.jeecms.common.web.CookieUtils;
 import com.jeecms.common.web.RequestUtils;
+import com.jeecms.common.web.ResponseUtils;
 import com.jeecms.common.web.session.SessionProvider;
 import com.jeecms.core.entity.Authentication;
 import com.jeecms.core.entity.Config.ConfigLogin;
@@ -47,9 +53,9 @@ public class CasLoginAct {
 			.getLogger(CasLoginAct.class);
 
 	public static final String COOKIE_ERROR_REMAINING = "_error_remaining";
-	public static final String LOGIN_INPUT = "tpl.loginInput";
-	public static final String LOGIN_STATUS = "tpl.loginStatus";
-	public static final String TPL_INDEX = "tpl.index";
+	public static final String LOGIN_INPUT = "loginInput";
+	public static final String LOGIN_STATUS = "loginStatus";
+	public static final String TPL_INDEX = "index";
 
 	@RequestMapping(value = "/login.jspx", method = RequestMethod.GET)
 	public String input(HttpServletRequest request, ModelMap model) {
@@ -71,7 +77,70 @@ public class CasLoginAct {
 		}
 		return FrontUtils.getTplPath(request, sol, TPLDIR_MEMBER, LOGIN_INPUT);
 	}
+/**
+ * new add by liye
+ * @param companyNo
+ * @param username
+ * @param password
+ * @param code
+ * @param request
+ * @param response
+ */
+	@RequestMapping(value = "loginByAjax.jspx", method = RequestMethod.POST)
+	public void loginSubmit(String username, String password, String captcha, String message,
+			HttpServletRequest request, HttpServletResponse response,
+			ModelMap model) {
+		Integer errorRemaining = unifiedUserMng.errorRemaining(username);
+		CmsSite site = CmsUtils.getSite(request);
+		String sol = site.getSolutionPath();
+		WebErrors errors = validateSubmit(username, password, captcha,
+				errorRemaining, request, response);
+		Msg msg = new Msg();
+		msg.setSuccess(false);
+		if (!errors.hasErrors()) {
+			try {
+				String ip = RequestUtils.getIpAddr(request);
+				Authentication auth = authMng.login(username, password, ip,
+						request, response, session);
+				// 是否需要在这里加上登录次数的更新？按正常的方式，应该在process里面处理的，不过这里处理也没大问题。
+				cmsUserMng.updateLoginInfo(auth.getUid(), ip);
+				CmsUser user = cmsUserMng.findById(auth.getUid());
+				if (user.getDisabled()) {
+					// 如果已经禁用，则推出登录。
+					authMng.deleteById(auth.getId());
+					session.logout(request, response);
+					throw new DisabledException("user disabled");
+				}
+				removeCookieErrorRemaining(request, response);
+				FrontUtils.frontData(request, model, site);
+				msg.setSuccess(true);
+			} catch (UsernameNotFoundException e) {
+				errors.addErrorString(e.getMessage());
+				msg.setTitle("用户名或密码错误");
+			} catch (BadCredentialsException e) {
+				errors.addErrorString(e.getMessage());
+			} catch (DisabledException e) {
+				errors.addErrorString(e.getMessage());
+			}
+		}else{
+			// 登录失败
+			writeCookieErrorRemaining(errorRemaining, request, response, model);
+			errors.toModel(model);
+			FrontUtils.frontData(request, model, site);
+			if (!StringUtils.isBlank(message)) {
+				model.addAttribute(MESSAGE, message);
+			}
+			msg.setTitle("请正确输入");
+			msg.setSuccess(false);
+		}
 
+	//	return FrontUtils.getTplPath(request, sol, TPLDIR_MEMBER, LOGIN_INPUT);
+
+		JSONObject jsonObject = JSONObject.fromObject(msg);
+		//String json_data = JsonResult.ajax(msg.getSuccess(), msg.getTitle());
+		ResponseUtils.renderJson(response, jsonObject.toString());
+	}
+	
 	@RequestMapping(value = "/login.jspx", method = RequestMethod.POST)
 	public String submit(String username, String password, String captcha, String message,
 			HttpServletRequest request, HttpServletResponse response,

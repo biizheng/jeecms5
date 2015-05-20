@@ -76,7 +76,7 @@ public class RegisterAct {
 
 	@RequestMapping(value = "/register.jspx", method = RequestMethod.POST)
 	public String submit(String username, String email, String password,
-			CmsUserExt userExt, String captcha, String nextUrl,
+			CmsUserExt userExt, Integer groupId, String captcha, String nextUrl,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws IOException {
 		CmsSite site = CmsUtils.getSite(request);
@@ -98,7 +98,7 @@ public class RegisterAct {
 				model.addAttribute("status", 5);
 			} else {
 				try {
-					cmsUserMng.registerMember(username, email, password, ip, null, userExt,
+					cmsUserMng.registerMember(username, email, password, ip, groupId, userExt,
 							false, sender, msgTpl);
 					model.addAttribute("status", 0);
 				} catch (UnsupportedEncodingException e) {
@@ -123,7 +123,7 @@ public class RegisterAct {
 						TPLDIR_MEMBER, REGISTER_RESULT);
 			}
 		}else{
-			cmsUserMng.registerMember(username, email, password, ip, null, userExt);
+			cmsUserMng.registerMember(username, email, password, ip, groupId, userExt);
 			log.info("member register success. username={}", username);
 			FrontUtils.frontData(request, model, site);
 			FrontUtils.frontPageData(request, model);
@@ -219,7 +219,7 @@ public class RegisterAct {
 				mcfg.getPasswordMinLen(), 100)) {
 			return errors;
 		}
-		if (errors.ifNotEmail(email, "email", 100)) {
+		if (!StringUtils.isBlank(email) && errors.ifNotEmail(email, "email", 100)) {
 			return errors;
 		}
 		// 保留字检查不通过，返回false。
