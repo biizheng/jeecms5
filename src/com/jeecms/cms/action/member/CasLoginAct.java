@@ -132,6 +132,7 @@ public class CasLoginAct {
 			}
 			msg.setTitle("请正确输入");
 			msg.setSuccess(false);
+			msg.setStatus("1");
 		}
 
 	//	return FrontUtils.getTplPath(request, sol, TPLDIR_MEMBER, LOGIN_INPUT);

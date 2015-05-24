@@ -109,7 +109,7 @@ public class MemberAct {
 				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
 			}
-			model.addAttribute("bookPage", bookPage);
+			model.addAttribute("pagination", bookPage);
 			model.addAttribute("pageNo", bookPage.getPageNo());
 		}
 		
