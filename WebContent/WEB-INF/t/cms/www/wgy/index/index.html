@@ -11,15 +11,48 @@
 <script src="${resSys}/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
-<script src="${resSys}/jquery.1.8.2.js" type="text/javascript"></script>
+<script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
 <SCRIPT type=text/javascript src="/${res}/js/slide.js"></SCRIPT>
 <SCRIPT src="/${res}/js/ScrollPic.js" type=text/javascript></SCRIPT>
 <script type="text/javascript" src="/${res}/js/pptBox.js"></script>
-
+<script src="${resSys}/front.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function() {
 	Cms.siteFlow("${base}", location.href, document.referrer);
 });
+
+function loginSubmit(){
+	
+	var captcha = $('#captcha').val();  
+	var userName = $('#username').val();
+	var passWord = $('#password').val();
+
+	
+	
+//	$('#btnOK').attr('disabled',"true");
+	
+	$.ajax({
+	            type: "post",//使用get方法访问后台
+	            dataType: "json",//返回json格式的数据
+	            url: "${base}/loginByAjax.jspx",
+	            data: {
+	            	captcha:captcha,
+	            	username:userName,
+	            	password:passWord
+	            },
+	            complete : function(){}, //AJAX请求完成时隐藏loading提示
+                success: function(data){ //msg为返回的数据，在这里做数据绑定
+               // 	$('#btnOK').removeAttr("disabled"); 
+                    if(data.success){
+                         window.location.href='${base}/member/index.jspx';
+                   } else{
+                        alert(data.title);
+                   }
+                 }
+
+       });
+	
+}
 </script>
 
 </head>
@@ -102,10 +135,15 @@ $(function() {
    
    <!--  fudonghuiyuan  -->
       <div id="zd_center_float">
-     <table border="0" cellspacing="0" cellpadding="0"><form id="form1" name="form1" method="post" action="">
+      [#if user??]
+<div>欢迎您: ${user.username} &nbsp; ${user.group.name} &nbsp; <a href="logout.jspx?returnUrl=/">退出登录</a></div>
+[#else]
+ <form id="jvForm" method="post">
+     <table border="0" cellspacing="0" cellpadding="0">
+    
         <tr>
           <td width="74">          </td>
-          <td colspan="2" class="float_hs" style="border-bottom:none;"><a href="#">会员注册</a></td>
+          <td colspan="2" class="float_hs" style="border-bottom:none;"><a href="./register.jspx">会员注册</a></td>
           </tr>
         <tr>
           <td>&nbsp;</td>
@@ -114,25 +152,25 @@ $(function() {
         <tr>
           <td>用户名</td>
           <td colspan="2"><label>
-            <input type="text" name="yhm" id="yhm" />
+            <input type="text" id="username" name="username" class="required" size="12" title="用户名不能为空"/>
           </label></td>
           </tr>
         <tr>
           <td>密码</td>
           <td colspan="2"><label>
-            <input type="text" name="mm" id="mm" />
+            <input type="password" id="password" name="password" class="required" size="12" title="密码不能为空"/>
           </label></td>
           </tr>
         <tr>
           <td>验证码</td>
           <td width="94" ><label>
-            <input type="text" name="yzm" id="yzm" />
+          <input class="input required" maxlength="5" name="captcha" size="12" type="text" />
           </label></td>
-          <td width="56"><img src="../../${res}/img/yanzheng.jpg" width="56" height="30" /></td>
+          <td width="56"><img id="guestbookCaptcha" height="25px;" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl" /></td>
         </tr>
         <tr>
           <td colspan="3" align="center"><label>
-            <input type="submit" name="sy_dl" id="sy_dl" value="登录" />
+            <input type="button" name="sy_dl" id="sy_dl" onclick="loginSubmit();return false;" value="登录" />
           </label>          </td>
         </tr>
         <tr>
@@ -149,8 +187,10 @@ $(function() {
             </table>
           
           </td>
-          </tr></form>
+          </tr>
       </table>
+      </form>
+      [/#if]
       </div>
       
   </div>
@@ -166,10 +206,10 @@ $(function() {
 </div>
 <div id="sy_qk">
    <ul>
-      <li><a href="#"><img src="../../${res}/img/xl01.jpg" /></a></li>
+      <li><a href="${base}/myself/index.htm"><img src="../../${res}/img/xl01.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl02.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl03.jpg" /></a></li>
-      <li><a href="#"><img src="../../${res}/img/xl04.jpg" /></a></li>
+      <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl05.jpg" /></a></li>
       <li class="ts_li"><a href="#"><img src="../../${res}/img/xl06.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl07.jpg" /></a></li>

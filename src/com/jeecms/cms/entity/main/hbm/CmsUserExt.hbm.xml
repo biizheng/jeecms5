@@ -13,7 +13,9 @@
 		<property name="intro" column="intro" type="string" not-null="false" length="255"/>
 		<property name="comefrom" column="comefrom" type="string" not-null="false" length="150"/>
 		<property name="qq" column="qq" type="string" not-null="false" length="100"/>
-		<property name="msn" column="msn" type="string" not-null="false" length="100"/>
+		<property name="weixin" column="weixin" type="string" not-null="false" length="100"/>
+		<property name="weibo" column="weibo" type="string" not-null="false" length="100"/>
+		<property name="area" column="area" type="string" not-null="false" length="100"/>
 		<property name="phone" column="phone" type="string" not-null="false" length="50"/>
 		<property name="mobile" column="mobile" type="string" not-null="false" length="50"/>
 		<property name="userImg" column="user_img" type="string" not-null="false" length="255"/>

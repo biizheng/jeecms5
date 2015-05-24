@@ -158,6 +158,15 @@
 		<servlet-name>DbFile</servlet-name>
 		<url-pattern>/dbfile.svl</url-pattern>
 	</servlet-mapping>
+	
+  <servlet>  
+  <servlet-name>upload</servlet-name>  
+  <servlet-class>com.jeecms.cms.action.front.ImageUploadServletAct</servlet-class>  
+</servlet>  
+<servlet-mapping>  
+  <servlet-name>upload</servlet-name>  
+  <url-pattern>/servlet/upload</url-pattern>  
+</servlet-mapping>  
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

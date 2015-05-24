@@ -5,8 +5,9 @@ import static com.jeecms.cms.Constants.TPLDIR_SPECIAL;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import com.jeecms.cms.manager.assist.CmsGuestbookCtgMng;
 import com.jeecms.cms.manager.assist.CmsGuestbookMng;
 import com.jeecms.cms.web.CmsUtils;
 import com.jeecms.cms.web.FrontUtils;
+import com.jeecms.common.util.Msg;
 import com.jeecms.common.web.RequestUtils;
 import com.jeecms.common.web.ResponseUtils;
 import com.jeecms.common.web.session.SessionProvider;
@@ -103,6 +105,9 @@ public class GuestbookAct {
 			HttpServletResponse response, ModelMap model) throws JSONException {
 		CmsSite site = CmsUtils.getSite(request);
 		CmsUser member = CmsUtils.getUser(request);
+		Msg msg = new Msg();
+		msg.setSuccess(false);
+		msg.setStatus("1");
 		if (siteId == null) {
 			siteId = site.getId();
 		}
@@ -127,7 +132,10 @@ public class GuestbookAct {
 				phone, qq);
 		json.put("success", true);
 		json.put("status", 0);
-		ResponseUtils.renderJson(response, json.toString());
+		msg.setSuccess(true);
+		msg.setStatus("0");
+		JSONObject jsonObject = JSONObject.fromObject(msg);
+		ResponseUtils.renderJson(response, jsonObject.toString());
 	}
 
 	@Autowired

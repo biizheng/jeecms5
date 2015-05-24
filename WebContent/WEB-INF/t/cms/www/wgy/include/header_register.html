@@ -1,0 +1,18 @@
+
+ <div id="xhywz">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  [#if user??]
+    <td width="7%">[#if user.userImg??]<img src="${user.userImg!}" />[/#if]</td>
+    <td width="7%">[#if user.group.id==1]<img src="../../${res}/img/VIP.jpg" />[/#if]</td>
+    <td width="14%">会员名： ${user.username}</td>
+    <td width="10%">地区：${user.area!}</td>
+    <td width="16%">QQ号：${user.qq!}</td>
+    <td width="8%">${user.userSignature!}</td>
+    [#else]
+    <td width="8%">请登录</td>
+[/#if]
+  </tr>
+</table>
+</div>
+

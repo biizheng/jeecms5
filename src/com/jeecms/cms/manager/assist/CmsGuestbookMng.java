@@ -10,7 +10,7 @@ import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.common.page.Pagination;
 
 public interface CmsGuestbookMng {
-	public Pagination getPage(Integer siteId, Integer ctgId,Integer userId, Boolean recommend,
+	public Pagination getPage(Integer siteId, Integer ctgId,Integer userId, Integer adminId, Boolean recommend,
 			Boolean checked, boolean desc, boolean cacheable, int pageNo,
 			int pageSize);
 

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<head>
+<!--[if lt IE 9]>
+<script src="${resSys}/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="/${res}/js/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+});
+</script>
+</head>
+<body>
+[#include "../include/top.html"/]
+<div id="xhywz">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
+    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
+    <td width="14%">会员名：中南世</td>
+    <td width="10%">地区：吉林</td>
+    <td width="16%">QQ号：10880555</td>
+    <td width="8%">心情标签</td>
+    <td width="8%">心情标签</td>
+    <td width="8%">心情标签</td>
+    <td width="22%">心情标签</td>
+  </tr>
+</table>
+</div>
+
+<div id="com">
+<div style="width:1360px; margin:0 auto;">
+[#include "../include/left.html"/]
+  <div id="center">
+  <div id="nav">
+     <ul>
+        <li><a href="#">亲子关系</a></li>
+        <li><a href="#">学生减压</a></li>
+        <li><a href="#">婚恋情感</a></li>
+        <li><a href="#">机体健康</a></li>
+        <li class="li"><a href="#">职场EAP</a></li>
+        <li class="li"><a href="#">生涯规划</a></li>
+        <li class="li"><a href="#">危机干预</a></li>
+     </ul>
+  </div>
+  <div id="nav1">
+     <ul>
+        <li><a href="#"><img src="../../${res}/img/011.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/020.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/030.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/040.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/050.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/060.jpg" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/070.jpg" /></a></li>
+     </ul>
+  </div>
+  <div id="dy_ejy">
+     <div id="dy_left">
+     <div class="js_top">
+      <ul>
+        [@cms_content_list count='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+         [#if a_index==0]
+        <li>
+         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+            <img src="${a.titleImg!site.typeImg}" border="0" style=" width:330px;height: 200px;"/>
+            </a>
+        </li>
+        <li><p>[@text_cut s=a.description len=200 /]</p></li>
+		[/#if]
+         [#if a_index==1]
+        <li><p>[@text_cut s=a.description len=200 /]</p></li>
+        <li>
+         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+            <img src="${a.titleImg!site.typeImg}" border="0" style=" width:330px;height: 200px;"/>
+            </a>
+        </li>
+		[/#if]
+		
+        [/#list]
+    [/@cms_content_list]
+      </ul>
+     </div>
+	[@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+     <div class="js_list">
+       <ul>
+       [#list tag_pagination.list as a]
+         <li><a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=22 /]
+            </a></li>
+         [/#list]
+       </ul>
+       
+       </div>
+     <div id="fy_xin">
+     <div class="page">[@cms_pagination sysPage='1'/]</div>
+   </div>
+	[/@cms_content_page]
+       
+       
+     </div>
+[#include "../include/right.html"/]
+
+  </div>    
+      
+  </div>
+  </div>
+</div>
+<div id="sjxtk">
+          <div id="sjxtk_left">
+            升级你的内在系统
+          </div>
+          <div id="sjxtk_right">
+            <ul>
+               <li><a href="#"><img src="../../${res}/img/ld01.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld02.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld03.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld04.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld05.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld06.jpg" /></a></li>
+            </ul>
+            </div>
+       </div>
+[#include "../include/foot.html"/]
+</body>
+</html>

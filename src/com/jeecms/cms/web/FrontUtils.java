@@ -45,19 +45,19 @@ public class FrontUtils {
 	/**
 	 * 页面没有找到
 	 */
-	public static final String PAGE_NOT_FOUND = "tpl.pageNotFound";
+	public static final String PAGE_NOT_FOUND = "pageNotFound";
 	/**
 	 * 操作成功页面
 	 */
-	public static final String SUCCESS_PAGE = "tpl.successPage";
+	public static final String SUCCESS_PAGE = "successPage";
 	/**
 	 * 操作失败页面
 	 */
-	public static final String ERROR_PAGE = "tpl.errorPage";
+	public static final String ERROR_PAGE = "errorPage";
 	/**
 	 * 信息提示页面
 	 */
-	public static final String MESSAGE_PAGE = "tpl.messagePage";
+	public static final String MESSAGE_PAGE = "messagePage";
 	/**
 	 * 系统资源路径
 	 */

@@ -16,6 +16,7 @@ public class CmsSiteCompanyMngImpl implements CmsSiteCompanyMng {
 	public CmsSiteCompany save(CmsSite site,CmsSiteCompany bean) {
 		site.setSiteCompany(bean);
 		bean.setSite(site);
+		bean.setName(site.getName());
 		dao.save(bean);
 		return bean;
 	}

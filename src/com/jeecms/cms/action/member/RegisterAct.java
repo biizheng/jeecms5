@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jeecms.cms.entity.main.CmsConfig;
 import com.jeecms.cms.entity.main.CmsSite;
+import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.cms.entity.main.CmsUserExt;
 import com.jeecms.cms.entity.main.MemberConfig;
 import com.jeecms.cms.manager.main.CmsUserMng;
@@ -46,10 +47,10 @@ public class RegisterAct {
 	private static final Logger log = LoggerFactory
 			.getLogger(RegisterAct.class);
 
-	public static final String REGISTER = "tpl.register";
-	public static final String REGISTER_RESULT = "tpl.registerResult";
-	public static final String REGISTER_ACTIVE_SUCCESS = "tpl.registerActiveSuccess";
-	public static final String LOGIN_INPUT = "tpl.loginInput";
+	public static final String REGISTER = "register";
+	public static final String REGISTER_RESULT = "registerResult";
+	public static final String REGISTER_ACTIVE_SUCCESS = "registerActiveSuccess";
+	public static final String LOGIN_INPUT = "loginInput";
 
 	@RequestMapping(value = "/register.jspx", method = RequestMethod.GET)
 	public String input(HttpServletRequest request,
@@ -65,15 +66,17 @@ public class RegisterAct {
 			return FrontUtils.showMessage(request, model,
 					"member.registerClose");
 		}
+		;
 		FrontUtils.frontData(request, model, site);
 		model.addAttribute("mcfg", mcfg);
+		model.addAttribute("areaList", CmsUser.areaList);
 		return FrontUtils.getTplPath(request, site.getSolutionPath(),
 				TPLDIR_MEMBER, REGISTER);
 	}
 
 	@RequestMapping(value = "/register.jspx", method = RequestMethod.POST)
 	public String submit(String username, String email, String password,
-			CmsUserExt userExt, String captcha, String nextUrl,
+			CmsUserExt userExt, Integer groupId, String captcha, String nextUrl,
 			HttpServletRequest request, HttpServletResponse response,
 			ModelMap model) throws IOException {
 		CmsSite site = CmsUtils.getSite(request);
@@ -95,7 +98,7 @@ public class RegisterAct {
 				model.addAttribute("status", 5);
 			} else {
 				try {
-					cmsUserMng.registerMember(username, email, password, ip, null, userExt,
+					cmsUserMng.registerMember(username, email, password, ip, groupId, userExt,
 							false, sender, msgTpl);
 					model.addAttribute("status", 0);
 				} catch (UnsupportedEncodingException e) {
@@ -120,7 +123,7 @@ public class RegisterAct {
 						TPLDIR_MEMBER, REGISTER_RESULT);
 			}
 		}else{
-			cmsUserMng.registerMember(username, email, password, ip, null, userExt);
+			cmsUserMng.registerMember(username, email, password, ip, groupId, userExt);
 			log.info("member register success. username={}", username);
 			FrontUtils.frontData(request, model, site);
 			FrontUtils.frontPageData(request, model);
@@ -216,7 +219,7 @@ public class RegisterAct {
 				mcfg.getPasswordMinLen(), 100)) {
 			return errors;
 		}
-		if (errors.ifNotEmail(email, "email", 100)) {
+		if (!StringUtils.isBlank(email) && errors.ifNotEmail(email, "email", 100)) {
 			return errors;
 		}
 		// 保留字检查不通过，返回false。

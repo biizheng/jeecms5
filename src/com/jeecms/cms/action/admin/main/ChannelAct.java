@@ -44,13 +44,14 @@ public class ChannelAct {
 	@RequestMapping("/channel/v_left.do")
 	public String left() {
 		return "channel/left";
+		
 	}
 
 	@RequestMapping(value = "/channel/v_tree.do")
 	public String tree(String root, HttpServletRequest request,
 			HttpServletResponse response, ModelMap model) {
 		log.debug("tree path={}", root);
-		boolean isRoot;
+		boolean isRoot; 
 		// jquery treeview的根请求为root=source
 		if (StringUtils.isBlank(root) || "source".equals(root)) {
 			isRoot = true;

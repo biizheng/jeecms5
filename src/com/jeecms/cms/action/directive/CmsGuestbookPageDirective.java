@@ -43,7 +43,7 @@ public class CmsGuestbookPageDirective extends AbstractCmsGuestbookDirective {
 		int pageNo = FrontUtils.getPageNo(env);
 		int count = FrontUtils.getCount(params);
 		Pagination page = cmsGuestbookMng.getPage(getSiteId(params),
-				getCtgId(params),null, getRecommend(params), getChecked(params),
+				getCtgId(params),null, null, getRecommend(params), getChecked(params),
 				getDesc(params), true, pageNo, count);
 
 		Map<String, TemplateModel> paramWrap = new HashMap<String, TemplateModel>(

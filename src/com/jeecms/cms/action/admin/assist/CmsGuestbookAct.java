@@ -38,7 +38,7 @@ public class CmsGuestbookAct {
 			Boolean queryChecked, Integer pageNo, HttpServletRequest request,
 			ModelMap model) {
 		CmsSite site = CmsUtils.getSite(request);
-		Pagination pagination = manager.getPage(site.getId(), queryCtgId,null,
+		Pagination pagination = manager.getPage(site.getId(), queryCtgId,null, null,
 				queryRecommend, queryChecked, true, false, cpn(pageNo),
 				CookieUtils.getPageSize(request));
 		model.addAttribute("pagination", pagination);

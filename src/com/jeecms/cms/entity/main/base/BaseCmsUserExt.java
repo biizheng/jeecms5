@@ -57,7 +57,9 @@ public abstract class BaseCmsUserExt  implements Serializable {
 	private java.lang.String intro;
 	private java.lang.String comefrom;
 	private java.lang.String qq;
-	private java.lang.String msn;
+	private java.lang.String weixin;
+	private java.lang.String weibo;
+	private java.lang.String area;
 	private java.lang.String phone;
 	private java.lang.String mobile;
 	private java.lang.String userImg;
@@ -186,21 +188,32 @@ public abstract class BaseCmsUserExt  implements Serializable {
 	}
 
 
-	/**
-	 * Return the value associated with the column: msn
-	 */
-	public java.lang.String getMsn () {
-		return msn;
+	public java.lang.String getWeixin() {
+		return weixin;
 	}
 
-	/**
-	 * Set the value related to the column: msn
-	 * @param msn the msn value
-	 */
-	public void setMsn (java.lang.String msn) {
-		this.msn = msn;
+	public void setWeixin(java.lang.String weixin) {
+		this.weixin = weixin;
 	}
 
+	public java.lang.String getWeibo() {
+		return weibo;
+	}
+
+	public void setWeibo(java.lang.String weibo) {
+		this.weibo = weibo;
+	}
+
+
+
+
+	public java.lang.String getArea() {
+		return area;
+	}
+
+	public void setArea(java.lang.String area) {
+		this.area = area;
+	}
 
 	/**
 	 * Return the value associated with the column: phone
