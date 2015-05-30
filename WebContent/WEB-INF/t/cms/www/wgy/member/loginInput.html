@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>五感源 登录</title>
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.validate.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+});
+
+function loginSubmit(){
+	
+	var captcha = $('#captcha').val();  
+	var userName = $('#username').val();
+	var passWord = $('#password').val();
+
+	
+	
+//	$('#btnOK').attr('disabled',"true");
+
+	$.ajax({
+	            type: "post",//使用get方法访问后台
+	            dataType: "json",//返回json格式的数据
+	            url: "${base}/loginByAjax.jspx",
+	            data: {
+	            	captcha:captcha,
+	            	username:userName,
+	            	password:passWord
+	            },
+	            complete : function(){}, //AJAX请求完成时隐藏loading提示
+                success: function(data){ //msg为返回的数据，在这里做数据绑定
+               // 	$('#btnOK').removeAttr("disabled"); 
+                    if(data.success){
+                         window.location.href='${base}/member/index.jspx';
+                   } else{
+                        alert(data.title);
+                   }
+                 }
+
+       });
+	
+}
+</script>
+</head>
+
+<body>
+[#include "../include/top.html"/]
+<div id="com">
+  <div style="width:1360px; margin:0 auto;">
+   <div id="left">
+     <table width="70%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
+         <td><a href="#">微信</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
+<div id="center" style="margin-bottom:5px;">
+  <div class="hydl">
+    <div class="dl_box">
+     <form id="loginForm" name="loginForm" method="post" action="">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+     
+        <tr>
+         
+          <td colspan="3"><a href="#"  ><img src="../../${res}/img/zc_vip1.jpg" width="145" height="40" id="Image16" /></a><a href="#" ><img src="../../${res}/img/zc_xs.jpg" width="145" height="40" id="Image18" /></a></td>
+          </tr>
+        <tr>
+          <td>会员名</td>
+          <td colspan="2"><label for="hydl01"></label>
+          
+            <input type="text" id="username" name="username" style="height:30px;margin: 6px;" class="required"  title="用户名不能为空"/>
+          </td>
+          </tr>
+        <tr>
+          <td>密码</td>
+          <td colspan="2"><label for="hydl02"></label>
+            <input type="password" id="password" name="password" style="height:30px;margin: 6px;" class="required"  title="密码不能为空"/>
+          </tr>
+        <tr>
+          <td>验证码</td>
+          <td width="53%"><label for="hydl03"></label>
+           <input class="input required" maxlength="5" name="captcha"  style="height:30px;margin: 6px;" type="text" /></td>
+          <td width="24%"><img id="guestbookCaptcha" height="35px;" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl" /></td>
+          </tr>
+        <tr>
+          <td colspan="3" align="center"><input type="button" onclick="loginSubmit();return false;" name="hydl_an" id="hydl_an" value="登录" /></td>
+          </tr>
+     
+      </table>
+       </form>
+      <p>尊敬的会员您好：如果您忘记密码，请联系QQ客服/微信客服，请客服来协助您找回密码；</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+[#include "../include/foot.html"/]
+</body>
+</html>

@@ -26,8 +26,23 @@ $(function() {
 	
 	
     $("#guestbookForm").validate({
-	        submitHandler : function(form) {
-		        $(form).ajaxSubmit( {
+/*         $.post( "${base}/guestbook.jspx", $("#guestbookForm").serialize(),function (data){
+            if(data.success){
+            	alert("留言提交成功");
+            	location.reload();
+           } else if(data.status==1) {
+		        alert("验证码错误");
+		        $("#guestbookCaptcha").click();
+	        } else {
+	        	alert("留言提交失败");
+	        }
+           
+		}); */
+
+    	
+    	
+ 	        submitHandler : function(form) {
+		        $(form).ajaxSubmit({
 		        	success: function(data){  
 		        		if(data.success) {
 					        alert("留言提交成功");
@@ -39,9 +54,7 @@ $(function() {
 					        	alert("留言提交失败");
 					        }
 			        	}
-                    } 
-		        	
-		        	);
+                    });
 	        }
         });
 });
@@ -125,7 +138,7 @@ $(function() {
            <li><img src="../../${res}/images/vip08.jpg" id="8" /></li>
         </ul>
      </div>
-     <form id="guestbookForm" action="${base}/guestbook.jspx" method="post">
+     <form id="guestbookForm" name="guestbookForm" action="${base}/guestbook.jspx" method="post">
      <input  type="hidden" id="ctgId" name="ctgId" value="0"/>
     
      <p>标题：<input name="title" type="text" size="40" class="required" size="12" title="标题不能为空" maxlength="255"/></p>
@@ -140,7 +153,7 @@ $(function() {
   <br/>
    
        <label>
-       <input type="submit" name="sc" id="sc" value="提交" />
+       <input type="button" onclick="" name="sc" id="sc" value="提交" />
        </label>
      </form>
      </div>
