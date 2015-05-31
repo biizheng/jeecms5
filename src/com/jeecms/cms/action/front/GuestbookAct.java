@@ -115,25 +115,24 @@ public class GuestbookAct {
 		try {
 			if (!imageCaptchaService.validateResponseForID(session
 					.getSessionId(request, response), captcha)) {
-				json.put("success", false);
-				json.put("status", 1);
-				ResponseUtils.renderJson(response, json.toString());
+				msg.setTitle("验证码错误");
+				JSONObject jsonObject = JSONObject.fromObject(msg);
+				ResponseUtils.renderJson(response, jsonObject.toString());
 				return;
 			}
 		} catch (CaptchaServiceException e) {
-			json.put("success", false);
-			json.put("status", 1);
-			ResponseUtils.renderJson(response, json.toString());
-			log.warn("", e);
+			msg.setTitle("验证码错误");
+			JSONObject jsonObject = JSONObject.fromObject(msg);
+			ResponseUtils.renderJson(response, jsonObject.toString());
 			return;
 		}
 		String ip = RequestUtils.getIpAddr(request);
 		cmsGuestbookMng.save(member, siteId, ctgId, ip, title, content, email,
 				phone, qq);
-		json.put("success", true);
-		json.put("status", 0);
+
 		msg.setSuccess(true);
 		msg.setStatus("0");
+		msg.setTitle("咨询添加成功");
 		JSONObject jsonObject = JSONObject.fromObject(msg);
 		ResponseUtils.renderJson(response, jsonObject.toString());
 	}

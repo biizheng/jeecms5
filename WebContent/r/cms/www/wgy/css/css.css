@@ -267,7 +267,7 @@ a img{ border:none;}
 .fy ul li a{ color:#333; text-decoration:none;}
 
 
-#dl_bj{ width:900px; margin:0 auto;}
+.tab_dl{ width:900px; margin:0 auto;}
 .dl_tab{ float:left;}
 .dl_bj{ width:898px; border:#666 1px solid; clear:both; text-align:center; margin-bottom:35px; padding-bottom:15px;}
 .bj_bj{ width:860px; margin:0 auto; background:url(../img/bjbj.jpg) repeat-y scroll; height:250px; overflow-y:scroll; padding-top:5px; }

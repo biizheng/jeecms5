@@ -83,13 +83,17 @@ public class MemberAct {
 	 * @return
 	 */
 	@RequestMapping(value = "/member/center.jspx", method = RequestMethod.GET)
-	public String indexByUserType(HttpServletRequest request,Integer typeId, Integer pageNo,
+	public String indexByUserType(HttpServletRequest request,Integer typeId, Integer tabId, Integer pageNo,
 			HttpServletResponse response, ModelMap model) {
 		CmsSite site = CmsUtils.getSite(request);
 		CmsUser user = CmsUtils.getUser(request);
 		FrontUtils.frontData(request, model, site);
 		MemberConfig mcfg = site.getConfig().getMemberConfig();
 		String gotoPage = this.MEMBER_CENTER_VIP;
+		if(tabId==null){
+			tabId =1;
+		}
+		
 		// 没有开启会员功能
 		if (!mcfg.isMemberOn()) {
 			return FrontUtils.showMessage(request, model, "member.memberClose");
@@ -100,15 +104,21 @@ public class MemberAct {
 			Pagination contentPage = contentMng.getPageForMember(null, null, site.getId(), user.getId(), cpn(pageNo), 20);
 			model.addAttribute("contentPage", contentPage);
 			
+
 			Pagination bookPage = null ;
 			if(user.getGroup().getId().equals(1)){
 				bookPage = cmsGuestbookMng.getPage(site.getId(), null,user.getId(), null,
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
+				
+				
 			}else if(user.getGroup().getId().equals(2)){
 				gotoPage = this.MEMBER_CENTER_XS;
 				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
+				
+				
 			}
+			model.addAttribute("tabId", tabId);
 			model.addAttribute("pagination", bookPage);
 			model.addAttribute("pageNo", bookPage.getPageNo());
 		}
