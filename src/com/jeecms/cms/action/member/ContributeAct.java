@@ -26,6 +26,7 @@ import com.jeecms.cms.entity.main.ContentTxt;
 import com.jeecms.cms.entity.main.ContentType;
 import com.jeecms.cms.entity.main.MemberConfig;
 import com.jeecms.cms.manager.main.ChannelMng;
+import com.jeecms.cms.manager.main.CmsModelMng;
 import com.jeecms.cms.manager.main.ContentMng;
 import com.jeecms.cms.manager.main.ContentTypeMng;
 import com.jeecms.cms.web.CmsUtils;
@@ -210,6 +211,7 @@ public class ContributeAct {
 
 		Content c = new Content();
 		c.setSite(site);
+		c.setModel(cmsModelMng.getDefModel());
 		ContentExt ext = new ContentExt();
 		ext.setTitle(title);
 		ext.setAuthor(author);
@@ -492,4 +494,6 @@ public class ContributeAct {
 	private SessionProvider session;
 	@Autowired
 	private ImageCaptchaService imageCaptchaService;
+	@Autowired
+	private CmsModelMng cmsModelMng;
 }
