@@ -185,6 +185,48 @@ public class ContributeAct {
 		return FrontUtils.showSuccess(request, model, nextUrl);
 	}
 
+	
+	@RequestMapping(value = "/member/content_save.jspx")
+	public String save_content(String title, String author, String description,
+			String txt, String tagStr, Integer channelId, String captcha,
+			String nextUrl, HttpServletRequest request,
+			HttpServletResponse response, ModelMap model) {
+		CmsSite site = CmsUtils.getSite(request);
+		CmsUser user = CmsUtils.getUser(request);
+		FrontUtils.frontData(request, model, site);
+		MemberConfig mcfg = site.getConfig().getMemberConfig();
+		// 没有开启会员功能
+		if (!mcfg.isMemberOn()) {
+			return FrontUtils.showMessage(request, model, "member.memberClose");
+		}
+		if (user == null) {
+			return FrontUtils.showLogin(request, model, site);
+		}
+		WebErrors errors = validateSave(title, author, description, txt,
+				tagStr, channelId, site, user, captcha, request, response);
+		if (errors.hasErrors()) {
+			return FrontUtils.showError(request, response, model, errors);
+		}
+
+		Content c = new Content();
+		c.setSite(site);
+		ContentExt ext = new ContentExt();
+		ext.setTitle(title);
+		ext.setAuthor(author);
+		ext.setDescription(description);
+		ContentTxt t = new ContentTxt();
+		t.setTxt(txt);
+		ContentType type = contentTypeMng.getDef();
+		if (type == null) {
+			throw new RuntimeException("Default ContentType not found.");
+		}
+		Integer typeId = type.getId();
+		String[] tagArr = StrUtils.splitAndTrim(tagStr, ",", null);
+		c = contentMng.save(c, ext, t, null, null, null, tagArr, null, null,
+				null, null, null, channelId, typeId, null, user, true);
+		log.info("member contribute save Content success. id={}", c.getId());
+		return FrontUtils.showSuccess(request, model, nextUrl);
+	}
 	/**
 	 * 会员投稿修改
 	 * 
@@ -433,10 +475,10 @@ public class ContributeAct {
 			errors.notInSite(Channel.class, channelId);
 			return true;
 		}
-		if (!channel.getContriGroups().contains(user.getGroup())) {
+/*		if (!channel.getContriGroups().contains(user.getGroup())) {
 			errors.noPermission(Channel.class, channelId);
 			return true;
-		}
+		}*/
 		return false;
 	}
 
