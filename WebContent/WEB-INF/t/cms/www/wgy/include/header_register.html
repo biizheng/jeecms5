@@ -3,12 +3,13 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
   [#if user??]
-    <td width="7%">[#if user.userImg??]<img src="${user.userImg!}" />[/#if]</td>
-    <td width="7%">[#if user.group.id==1]<img src="../../${res}/img/VIP.jpg" />[/#if]</td>
-    <td width="14%">会员名： ${user.username}</td>
-    <td width="10%">地区：${user.area!}</td>
-    <td width="16%">QQ号：${user.qq!}</td>
-    <td width="8%">${user.userSignature!}</td>
+    <td width="7%">[#if user.userImg??]<img src="${base}/${user.userImg!}" />[/#if]</td>
+    <td width="7%">[#if user.group.id==1]<img src="../../${res}/img/VIP.jpg" />[/#if][#if user.group.id==2]<img src="../../${res}/img/xs.jpg" />[/#if]</td>
+    <td width="7%">会员名： ${user.username}</td>
+    <td width="7%">地区：${user.area!}</td>
+    <td width="7%">QQ号：${user.qq!}</td>
+    <td width="14%">${user.userSignature!}</td>
+   <td width="7%" align="right"> <a href="${base}/logout.jspx?returnUrl=/">退出登录</a></td>
     [#else]
     <td width="8%">请登录</td>
 [/#if]

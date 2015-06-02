@@ -4,7 +4,8 @@
 <title>注册新帐号 - ${site.name}</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
-<script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${resSys}/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.validate.js" type="text/javascript"></script>
 <script src="${resSys}/uploadPreview.js" charset="UTF-8" type="text/javascript"></script>
 <link href="${base}/thirdparty/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
 <script src="${base}/thirdparty/uploadify/jquery.uploadify.js" type="text/javascript"></script>
@@ -14,7 +15,7 @@
     
 	$(function(){
 		
-		// $("#jvForm").validate();
+		 $("#jvForm").validate();
 		
 		$("#picUploadify").uploadify({
             //指定swf文件
@@ -95,14 +96,20 @@
    </div>
   <div id="center">
     <div class="zc1">
-      <table cellspacing="0" cellpadding="0" align="center" border="0">
-        <tr>
-          <td width="130px" bgcolor="#FCD12C" style="padding:0px 25px;"><a href="#"><img src="../../${res}/img/zc_vip1.jpg" /></a></td>
-          <td width="130px" bgcolor="#F3E17F" style="padding:0px 25px;"><a href="#"><img src="../../${res}/img/zc_xs1.jpg" /></a></td>
-        </tr>
-        </table>
+
         
                    <form id="jvForm" action="${base}/register.jspx" method="post" style="padding-top: 20px">
+                  <table cellspacing="0" cellpadding="0" align="center" border="0">
+			        <tr>
+			          <td width="130px"  style="padding:0px 25px;">
+			          <input type="radio" name="groupId" id="groupId1" value="1"/> <label for="groupId1">VIP会员</label>
+			        </td>
+			          <td width="130px"  style="padding:0px 25px;">
+			          <input type="radio" name="groupId" id="groupId2" value="2"/><label for="groupId2">心师会员</label>
+			         </td>
+			        </tr>
+			        </table>
+                   
                    <input type="hidden" name="groupId" value="1" />
                     <table cellspacing="0" cellpadding="0" align="center" border="0">
                         <tbody>
@@ -150,7 +157,7 @@
 					       <tr>
 					         <td align="right">自我介绍：</td>
 					         <td >
-					         <textarea rows="2" cols="30" name="intro" maxlength="230"></textarea>
+					         <textarea rows="1" cols="30" name="intro" maxlength="230"></textarea>
 					         </td>
 					       </tr> 
       <tr>

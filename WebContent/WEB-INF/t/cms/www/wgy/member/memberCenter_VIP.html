@@ -84,21 +84,7 @@ function formSubmit(){
 
 <body>
 [#include "../include/top.html"/]
-<div id="xhywz">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
-    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
-    <td width="14%">会员名：中南世</td>
-    <td width="10%">地区：吉林</td>
-    <td width="16%">QQ号：10880555</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="22%">心情标签</td>
-  </tr>
-</table>
-</div>
+[#include "../include/header_register.html"/]
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
@@ -183,16 +169,14 @@ function formSubmit(){
     [#elseif tabId==2]
    
   <div class="tab_dl">
-  
      <div class="dl_tab">
-     
-   
        <h3><a href="./center.jspx?tabId=1"><img src="../../${res}/img/tabZX2.jpg" /></a></h3>
      </div>
      <div class="dl_tab"><a href=""><img src="../../${res}/img/tabKF1.jpg" /></a></div>
      <div class="dl_bj" style="float:left;">
 
-            <form id="jvForm" action="contribute_save.jspx" method="post">
+            <form id="jvForm" action="content_save.jspx" method="post">
+            <input type="hidden" name="channelId" value="105" />
              <table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#C8DCF0" style="margin:5px;">
                <tr>
                  <td width="86" height="25" align="right" bgcolor="#f6fbff">标题：</td>
@@ -201,17 +185,9 @@ function formSubmit(){
 
                <tr>
                  <td height="25" align="right" bgcolor="#f6fbff">作者：</td>
-                 <td bgcolor="#FFFFFF"><input type="text" name="author" maxlength="100"/></td>
+                 <td bgcolor="#FFFFFF"><input type="text" name="author" value="${user.username}" maxlength="100"/></td>
                </tr>
-               <tr>
-                 <td height="25" align="right" bgcolor="#f6fbff">栏目：</td>
-                 <td bgcolor="#FFFFFF">
-                 <select name="channelId">
-                    <option value="" class="sel-disabled">--请选择--</option>
-
-                </select>
-                 </td>
-               </tr>
+   
                <tr>
                  <td height="25" align="right" bgcolor="#f6fbff">摘要：</td>
                  <td bgcolor="#FFFFFF"><textarea name="description" rows="3" cols="70" maxlength="255"/></textarea></td>
@@ -248,7 +224,7 @@ function formSubmit(){
                </tr>
                <tr>
                  <td height="25" colspan="2" align="center" bgcolor="#FFFFFF">
-                 <input type="hidden" name="nextUrl" value="contribute_list.jspx"/>
+                 <input type="hidden" name="nextUrl" value="center.jspx?tabId=2"/>
                  <input type="submit" value="提交" class="member_button"/> <input type="reset" value="重置" class="member_button"/>
                  </td>
                  </tr>
@@ -309,8 +285,7 @@ function formSubmit(){
        <div class="fy">
 
             <input type="hidden" name="pageNo"/>
-            
-               
+
                 <input type="button" value="首 页" onclick="_gotoPage('1');"[#if contentPage.firstPage] disabled="disabled"[/#if]/>
                 <input type="button" value="上一页" onclick="_gotoPage('${contentPage.prePage}');"[#if contentPage.firstPage] disabled="disabled"[/#if]/>
                 <input type="button" value="下一页" onclick="_gotoPage('${contentPage.nextPage}');"[#if contentPage.lastPage] disabled="disabled"[/#if]/>
