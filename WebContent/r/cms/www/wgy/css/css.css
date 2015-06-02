@@ -267,7 +267,7 @@ a img{ border:none;}
 .fy ul li a{ color:#333; text-decoration:none;}
 
 
-#dl_bj{ width:900px; margin:0 auto;}
+.tab_dl{ width:900px; margin:0 auto;}
 .dl_tab{ float:left;}
 .dl_bj{ width:898px; border:#666 1px solid; clear:both; text-align:center; margin-bottom:35px; padding-bottom:15px;}
 .bj_bj{ width:860px; margin:0 auto; background:url(../img/bjbj.jpg) repeat-y scroll; height:250px; overflow-y:scroll; padding-top:5px; }
@@ -285,7 +285,7 @@ a img{ border:none;}
 #dl_xsbj ul li{ width:400px; float:left; height:50px; margin-top:5px;}
 #dl_xsbj img{ max-width:50px; max-height:50px;}
 /*注册*/
-.zc1{ width:520px; padding:20px; float:left; height:420px; background:#E6F6F5; border-bottom:5px #fff solid; border-right:#fff 5px solid; border-top:5px #fff solid;}
+.zc1{ width:520px; padding:20px; float:left; height:520px; background:#E6F6F5; border-bottom:5px #fff solid; border-right:#fff 5px solid; border-top:5px #fff solid;}
 .zc1 a img{ border:none;}
 .zc1 table,.zc2 table,.zc3 table{ margin:0 auto;}
 .zc1 table tr td{ padding:0px}
