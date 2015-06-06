@@ -137,6 +137,55 @@ public class GuestbookAct {
 		ResponseUtils.renderJson(response, jsonObject.toString());
 	}
 
+	/**
+	 * 提交留言。ajax提交。
+	 * 
+	 * @param contentId
+	 * @param pageNo
+	 * @param request
+	 * @param response
+	 * @param model
+	 * @throws JSONException
+	 */
+	@RequestMapping(value = "/replyGuestbook.jspx", method = RequestMethod.POST)
+	public void reply(Integer siteId, Integer ctgId, String title,
+			String content, String email, String phone, String qq,
+			String captcha, HttpServletRequest request,
+			HttpServletResponse response, ModelMap model) throws JSONException {
+		CmsSite site = CmsUtils.getSite(request);
+		CmsUser member = CmsUtils.getUser(request);
+		Msg msg = new Msg();
+		msg.setSuccess(false);
+		msg.setStatus("1");
+		if (siteId == null) {
+			siteId = site.getId();
+		}
+		JSONObject json = new JSONObject();
+		try {
+			if (!imageCaptchaService.validateResponseForID(session
+					.getSessionId(request, response), captcha)) {
+				msg.setTitle("验证码错误");
+				JSONObject jsonObject = JSONObject.fromObject(msg);
+				ResponseUtils.renderJson(response, jsonObject.toString());
+				return;
+			}
+		} catch (CaptchaServiceException e) {
+			msg.setTitle("验证码错误");
+			JSONObject jsonObject = JSONObject.fromObject(msg);
+			ResponseUtils.renderJson(response, jsonObject.toString());
+			return;
+		}
+		String ip = RequestUtils.getIpAddr(request);
+		cmsGuestbookMng.save(member, siteId, ctgId, ip, title, content, email,
+				phone, qq);
+
+		msg.setSuccess(true);
+		msg.setStatus("0");
+		msg.setTitle("咨询回复添加成功");
+		JSONObject jsonObject = JSONObject.fromObject(msg);
+		ResponseUtils.renderJson(response, jsonObject.toString());
+	}
+
 	@Autowired
 	private CmsGuestbookCtgMng cmsGuestbookCtgMng;
 	@Autowired

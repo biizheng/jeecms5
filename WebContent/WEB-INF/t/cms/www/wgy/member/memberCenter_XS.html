@@ -5,29 +5,77 @@
 <title>会员中心 - ${site.name} - Powered by JEECMS</title>
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
 <script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.validate.js" type="text/javascript"></script>
+<script src="${base}/thirdparty/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+	
+
+});
+
+function tipContent(v){
+	$(".c").hide();
+	$("#dv"+v).show();
+}
+
+function formSubmit(){
+	
+	var ctgId = $("#ctgId").val();
+	var title = $("#title").val();
+	var content = $("#content").val();
+	var captcha = $("#captcha").val();
+	
+	if(ctgId=="" || ctgId=="0"){
+		alert("请选择咨询分类");
+		return;
+	}else if(title==""){
+		alert("请输入标题");
+		return;
+	}else if(content ==""){
+		alert("请输入内容");
+		return;
+	}else if (captcha==""){
+		alert("请输入验证码");
+		return;
+	}
+	
+        $.ajax({
+            type: "post", //使用get方法访问后台
+            dataType: "json", //返回json格式的数据
+            url: "${base}/guestbook.jspx",
+            data: {
+              ctgId:ctgId,
+              title:title,
+              content:content,
+              captcha:captcha
+            },
+            complete : function(){}, //AJAX请求完成时隐藏loading提示
+            success: function(data){ //msg为返回的数据，在这里做数据绑定
+               if(data.success){
+            	   alert(data.title);
+                   location.reload();
+                   $("input[type=reset]").trigger("click");
+              } else if(data.status=="1"){
+            	  alert(data.title);
+              }else{
+            	  alert(data.title);
+              }
+            }
+          
+	  });
+
+}
+</script>
+	
+
 </head>
 
 <body>
 [#include "../include/top.html"/]
-<div id="top">
-   <div id="top_tp"><img src="../../${res}/img/top.jpg" alt="" name="logo" width="1000" height="100" id="logo" /></div>
-</div>
-<div id="xhywz">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
-    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
-    <td width="14%">会员名：中南世</td>
-    <td width="10%">地区：吉林</td>
-    <td width="16%">QQ号：10880555</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="22%">心情标签</td>
-  </tr>
-</table>
-</div>
+[#include "../include/header_register.html"/]
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
@@ -64,51 +112,125 @@
      </table>
    </div>
   <div id="center" style="margin-bottom:5px;">
-  <div id="dl_bj">
+  [#if tabId==1]
+  <div class="tab_dl">
+  
      <div class="dl_tab">
-       <h3><a href="#"><img src="../../${res}/img/tab10.jpg" /></a></h3>
+       <h3><a href=""><img src="../../${res}/img/tabZX1.jpg" /></a></h3>
      </div>
-     <div class="dl_tab"><a href="#"><img src="../../${res}/img/tab21.jpg" /></a></div>
-     <div class="dl_bj">
-     <div class="tp_list">
-        <ul>
-           <li style=" padding-left:30px;"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image44','','images/vip01.jpg',1)"><img src="images/vip11.jpg" id="Image44" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image45','','images/vip12.jpg',1)"><img src="images/vip02.jpg" id="Image45" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image46','','images/vip13.jpg',1)"><img src="images/vip03.jpg" id="Image46" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image47','','images/vip14.jpg',1)"><img src="images/vip04.jpg" id="Image47" /></a></li>
-        </ul>
-        <img src="images/vip09.jpg" />
-        <ul>
-           <li style=" padding-left:125px;"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image48','','images/vip15.jpg',1)"><img src="images/vip05.jpg" id="Image48" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image49','','images/vip16.jpg',1)"><img src="images/vip06.jpg" id="Image49" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image50','','images/vip17.jpg',1)"><img src="images/vip07.jpg" id="Image50" /></a></li>
-           <li><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image51','','images/vip18.jpg',1)"><img src="images/vip08.jpg" id="Image51" /></a></li>
-        </ul>
-     </div>
-     <div class="bj_bj">
-     <p>请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     <p>请在这里输入问题</p>
-     </div>
-     <form id="form1" name="form1" method="post" action="">
+     <div class="dl_tab"><a href="./center.jspx?tabId=2"><img src="../../${res}/img/tabXS2.jpg" /></a></div>
+     <div class="dl_bj" style="float:left;">
+  [#if unPagination.list?size gt 0]
+     <h2>云回复</h2>
+       
+       	[#list unPagination.list as c]
+      <div style="float: left;margin: 4px;"> ${c_index+1}<input type="radio" name="rdGuestBookId" id="rdGuestBookId${c.id}" onclick="tipContent(${c.id})" value="${c.id}" />  ${c.titleHtml!}[${c.ctg.name}] <div style="display: none;color: blue;" class="c" id="dv${c.id}" >内容：${c.contentHtml!}</div></div>
+		[/#list]
+       
+       <div class="fy">
+
+            <input type="hidden" name="pageNo"/>
+            
+                  
+                <input type="button" value="首 页" onclick="_gotoPage('1');"[#if unPagination.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="上一页" onclick="_gotoPage('${unPagination.prePage}');"[#if unPagination.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="下一页" onclick="_gotoPage('${unPagination.nextPage}');"[#if unPagination.lastPage] disabled="disabled"[/#if]/>
+                <input type="button" value="尾 页" onclick="_gotoPage('${unPagination.totalPage}');"[#if unPagination.lastPage] disabled="disabled"[/#if]/>&nbsp;
+                当前 ${unPagination.pageNo}/${unPagination.totalPage} 页
+       
+       [/#if]         
+
+       </div>
+     <form id="guestbookForm" name="guestbookForm" action="${base}/guestbook.jspx" method="post">
+     <input  type="hidden" id="ctgId" name="ctgId" value="0" />
+    <input type="reset" name="reset" style="display: none;" />
+     <p>标题：<input name="title" id="title" type="text" size="40" class="required" size="12" title="标题不能为空" maxlength="255"/></p>
+     <br/>
+     <p>内容：<textarea name="content" id="content" class="cinput" cols="55" rows="4" class="required"  title="内容不能为空"></textarea></p>
+            
+           
+            <p>
+           验证码： <input type="text" name="captcha" id="captcha" class="plcode" maxlength="20"/> 
+            <img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/>
+            </p>
+  <br/>
+   
        <label>
-       <input type="reset" name="bj" id="bj" value="编辑" />
-       </label>
-       <label>
-       <input type="submit" name="sc" id="sc" value="上传" />
+       <input type="button" onclick="formSubmit();" name="sc" id="sc" value="提交" />
        </label>
      </form>
      </div>
   </div>
+    [#elseif tabId==2]
+   
+  <div class="tab_dl">
+     <div class="dl_tab">
+       <h3><a href="./center.jspx?tabId=1"><img src="../../${res}/img/tabZX2.jpg" /></a></h3>
+     </div>
+     <div class="dl_tab"><a href=""><img src="../../${res}/img/tabXS1.jpg" /></a></div>
+     <div class="dl_bj" style="float:left;">
+
+            <form id="jvForm" action="content_save.jspx" method="post">
+            <input type="hidden" name="channelId" value="105" />
+            <input type="hidden" name="modelId" value="1" />
+             <table width="98%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#C8DCF0" style="margin:5px;">
+               <tr>
+                 <td width="86" height="25" align="right" bgcolor="#f6fbff">标题：</td>
+                 <td width="626" bgcolor="#FFFFFF"><input type="text" name="title" maxlength="150" class="required"/> <span class="STYLE1">*</span></td>
+               </tr>
+
+               <tr>
+                 <td height="25" align="right" bgcolor="#f6fbff">作者：</td>
+                 <td bgcolor="#FFFFFF"><input type="text" name="author" value="${user.username}" maxlength="100"/></td>
+               </tr>
+   
+               <tr>
+                 <td height="25" align="right" bgcolor="#f6fbff">摘要：</td>
+                 <td bgcolor="#FFFFFF"><textarea name="description" rows="3" cols="70" maxlength="255"/></textarea></td>
+               </tr> 
+               <tr>
+                 <td height="25" align="right" bgcolor="#f6fbff">内容：</td>
+                 <td bgcolor="#FFFFFF">
+                 <textarea id="txt" name="txt"></textarea> 
+                 <script type="text/javascript">
+						$(function() {
+						   	CKEDITOR.replace( 'txt' ,
+						   			{
+								   		filebrowserUploadUrl : '${base}/fck/upload.jspx',  
+								   		filebrowserImageUploadUrl : '${base}/fck/upload.jspx?Type=Image',  
+								   		filebrowserFlashUploadUrl : '${base}/fck/upload.jspx?Type=Flash',
+								   		filebrowserMediaUploadURL : '${base}/fck/upload.jspx?Type=Media'
+						   		     }
+						   	);  
+						 });
+				</script>
+                 </td>
+               </tr> 
+               <tr>
+                      <td width="13%" height="30" align="right" bgcolor="#fafafa">验证码：</td>
+                      <td bgcolor="#FFFFFF">
+                     <input type="text" name="captcha" maxlength="20" class="required"/> 
+                       </td>
+               </tr>
+               <tr>
+                      <td width="13%" align="right" bgcolor="#fafafa"></td>
+                      <td bgcolor="#FFFFFF">
+                     <img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/>
+                       </td>
+               </tr>
+               <tr>
+                 <td height="25" colspan="2" align="center" bgcolor="#FFFFFF">
+                 <input type="hidden" name="nextUrl" value="center.jspx?tabId=2"/>
+                 <input type="submit" value="提交" class="member_button"/> <input type="reset" value="重置" class="member_button"/>
+                 </td>
+                 </tr>
+             </table>
+             </form>
+
+     </div>
+  </div>
+    [/#if]
+    
     <div id="dy_ejy">
      <div id="dl_left">
      <div class="dl_top">
@@ -124,44 +246,55 @@
      </ul>
      </div>
      <div class="dl_list">
+     [#if tabId==1]
+     
+     [#if pagination.list?size gt 0]
      <h2>云回复</h2>
        <ol>
-         <li>CSS最常用和实用的技巧。 1.重置浏览器的字体大小 重置浏览器的默认值 ,然</li>
-         <li>CSS最常用和实用的技巧。 1.重置浏览器的字体大小 重置浏览器的默认值 ,然</li>
-
+       	[#list pagination.list as c]
+         <li>${c.titleHtml!}[${c.ctg.name}]</li>
+		[/#list]
        </ol>
        <div class="fy">
-          <ul>
-             <li><a href="#">首页</a></li>
-             <li><a href="#">上一页</a></li>
-             <li><a href="#">1</a></li>
-             <li><a href="#">2</a></li>
-             <li><a href="#">3</a></li>
-             <li><a href="#">下一页</a></li>
-             <li><a href="#">尾页</a></li>
-          </ul>
+
+            <input type="hidden" name="pageNo"/>
+            
+                  
+                <input type="button" value="首 页" onclick="_gotoPage('1');"[#if pagination.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="上一页" onclick="_gotoPage('${pagination.prePage}');"[#if pagination.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="下一页" onclick="_gotoPage('${pagination.nextPage}');"[#if pagination.lastPage] disabled="disabled"[/#if]/>
+                <input type="button" value="尾 页" onclick="_gotoPage('${pagination.totalPage}');"[#if pagination.lastPage] disabled="disabled"[/#if]/>&nbsp;
+                当前 ${pagination.pageNo}/${pagination.totalPage} 页
+                
+
        </div>
-       </div>
-       <div class="dl_list" style="background:url(../../${res}/img/xuxian.png) repeat-x top; padding-top:10px;">
+        [/#if]
+        
+        [#elseif tabId==2]
+     [#if pagination.list?size gt 0]
      <h2>我的成长</h2>
        <ol>
-         <li>CSS最常用和实用的技巧。 1.重置浏览器的字体大小 重置浏览器的默认值 ,然</li>
-         <li>CSS最常用和实用的技巧。 1.重置浏览器的字体大小 重置浏览器的默认值 ,然</li>
-
+       	[#list contentPage.list as c]
+         <li>${c.title?html}${c.releaseDate?string('yyyy-MM-dd')}</li>
+		[/#list]
        </ol>
        <div class="fy">
-          <ul>
-             <li><a href="#">首页</a></li>
-             <li><a href="#">上一页</a></li>
-             <li><a href="#">1</a></li>
-             <li><a href="#">2</a></li>
-             <li><a href="#">3</a></li>
-             <li><a href="#">下一页</a></li>
-             <li><a href="#">尾页</a></li>
-          </ul>
+
+            <input type="hidden" name="pageNo"/>
+
+                <input type="button" value="首 页" onclick="_gotoPage('1');"[#if contentPage.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="上一页" onclick="_gotoPage('${contentPage.prePage}');"[#if contentPage.firstPage] disabled="disabled"[/#if]/>
+                <input type="button" value="下一页" onclick="_gotoPage('${contentPage.nextPage}');"[#if contentPage.lastPage] disabled="disabled"[/#if]/>
+                <input type="button" value="尾 页" onclick="_gotoPage('${contentPage.totalPage}');"[#if contentPage.lastPage] disabled="disabled"[/#if]/>&nbsp;
+                当前 ${contentPage.pageNo}/${contentPage.totalPage} 页
+                
+
        </div>
+        [/#if]
+        [/#if]
        </div>
      </div>
+    
      <div id="dy_right">
      <div style="background:#D5EDF9;"></div>
      <div class="dy_bt">
