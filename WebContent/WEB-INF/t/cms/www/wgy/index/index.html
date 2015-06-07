@@ -11,14 +11,28 @@
 <script src="${resSys}/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
-<script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
-<SCRIPT type=text/javascript src="/${res}/js/slide.js"></SCRIPT>
-<SCRIPT src="/${res}/js/ScrollPic.js" type=text/javascript></SCRIPT>
-<script type="text/javascript" src="/${res}/js/pptBox.js"></script>
+<script src="${resSys}/jquery.1.8.2.js" type="text/javascript"></script>
+
 <script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="${resSys}/jcarousellite.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.cycle.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 $(function() {
 	Cms.siteFlow("${base}", location.href, document.referrer);
+	
+	$('#pics').cycle({ 
+		fx:'curtainX',
+		pager:'#btn2'
+	});
+	
+	$("#botton-scroll").jCarouselLite({
+		btnNext: ".next",  
+		btnPrev: ".prev",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
 });
 
 function loginSubmit(){
@@ -95,41 +109,22 @@ function loginSubmit(){
   <div id="zd_center">
    
    <!--  轮播  -->
-<DIV style="HEIGHT: 530px;" class="wrap picshow"><!--大图轮换区-->
-<DIV id=picarea>
-<DIV style="MARGIN: 0px auto; WIDTH: 1000px; HEIGHT: 450px; OVERFLOW: hidden">
-<DIV id=bigpicarea>
-  <DIV id=image_xixi-01 class=image><A href="#" target=_blank><img src="../../${res}/images/001.jpg"/></A> 
-<DIV class=word><H3>舞动青春</H3></DIV></DIV>
-<DIV id=image_xixi-02 class=image><A href="#" target=_blank><img src="../../${res}/images/002.jpg"/></A> 
-<DIV class=word><H3>台球厅的生活</H3></DIV></DIV>
-<DIV id=image_xixi-03 class=image><A href="#" target=_blank><img src="../../${res}/images/003.jpg" /></A> 
-<DIV class=word><H3>采访进行中</H3></DIV></DIV>
-<DIV id=image_xixi-04 class=image><A href="#" target=_blank><img src="../../${res}/images/004.jpg"/></A> 
-<DIV class=word><H3>美女代言人</H3></DIV></DIV>
-<DIV id=image_xixi-05 class=image><A href="#" target=_blank><img src="../../${res}/images/005.jpg" /></A> 
-<DIV class=word><H3>红色经典</H3></DIV></DIV>
-<DIV id=image_xixi-06 class=image><A href="#" target=_blank><img src="../../${res}/images/006.jpg"/></A> 
-<DIV class=word><H3>回眸</H3></DIV></DIV>
-<DIV id=image_xixi-07 class=image><A href="#" target=_blank><img src="../../${res}/images/007.jpg"/></A> 
-<DIV class=word><H3>眩光的诱惑</H3></DIV></DIV>
-</DIV>
-</DIV>
-<DIV id=smallpicarea>
-<DIV id=thumbs>
-<UL>
-  <LI class="first btnPrev" style="width:15px; padding-top:10px;"><img id=play_prev src="../../${res}/images/left.png"></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-01 href="#"><img src="../../${res}/images/001.jpg" width=90 height=60></A></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-02 href="#"><img src="../../${res}/images/002.jpg" width=90 height=60></A></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-03 href="#"><img src="../../${res}/images/003.jpg" width=90 height=60></A></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-04 href="#"><img src="../../${res}/images/004.jpg" width=90 height=60></A></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-05 href="#"><img src="../../${res}/images/005.jpg" width=90 height=60></A></LI>
-  <LI class=slideshowItem><A id=thumb_xixi-06 href="#"><img src="../../${res}/images/006.jpg" width=90 height=60></A></LI>
-  <LI class="last_img slideshowItem"><A id=thumb_xixi-07 href="#"><img src="../../${res}/images/007.jpg" width=90 height=60></A></LI>
-  <LI class="last btnNext" style="padding-top:10px;"><img id=play_next src="../../${res}/images/right.png"></LI>
-</UL>
-</DIV></DIV></DIV>
-<SCRIPT>var target = ["xixi-01","xixi-02","xixi-03","xixi-04","xixi-05","xixi-06","xixi-07"];</SCRIPT>
+   
+   
+   
+<DIV style="HEIGHT: 420px;" class="wrap picshow"><!--大图轮换区-->
+<div  id="pics" style="clear:both;">
+[@cms_content_list count='5'  siteId=site.id  typeId='3' orderBy='4'  titLen='18' channelOption="1"]
+ [#list tag_list as a]
+
+
+<a href="${a.url}" target="_blank"><img src="${a.typeImg!site.defImg}" alt="${a.title}" width="1002px" height="400px" border="0" /></a>  
+
+ [/#list]
+[/@cms_content_list]
+
+</div>
+<div id="btn2" style="left: 550px;"></div>
 </DIV>
    
    
@@ -207,7 +202,7 @@ function loginSubmit(){
 <div id="sy_qk">
    <ul>
       <li><a href="${base}/myself/index.htm"><img src="../../${res}/img/xl01.jpg" /></a></li>
-      <li><a href="#"><img src="../../${res}/img/xl02.jpg" /></a></li>
+      <li><a href="${base}/coffee/index.htm"><img src="../../${res}/img/xl02.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl03.jpg" /></a></li>
       <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl05.jpg" /></a></li>
@@ -261,62 +256,32 @@ function loginSubmit(){
 <DIV class=rollphotos>
 <DIV class=blk_29>
 <DIV class=LeftBotton id=LeftArr></DIV>
-<DIV class=Cont id=ISL_Cont_1><!-- 图片列表 begin -->
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi02.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi02.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi02.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV>
-<DIV class=box><A class=imgBorder href="#" target=_blank><img height=150 alt="" src="../../${res}/img/jiaoshi02.jpg" width=110 border=0></A> 
-<P><A href="#" 
-target=_blank>开幕式火炬<br />
-二级心理咨询师</A></P></DIV><!-- 图片列表 end --></DIV>
-
-<DIV class=RightBotton id=RightArr></DIV></DIV>
+ <div id="featureContainer">
+	<div id="feature">
+		<div id="block">
+			<div id="botton-scroll">
+				<ul class="featureUL">
+[@cms_content_list count='8'   orderBy='24'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImgSmall!}" border="0" width="140" height="140">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
 
 
-<SCRIPT language=javascript type=text/javascript>
-		<!--//--><![CDATA[//><!--
-		var scrollPic_02 = new ScrollPic();
-		scrollPic_02.scrollContId   = "ISL_Cont_1"; //内容容器ID
-		scrollPic_02.arrLeftId      = "LeftArr";//左箭头ID
-		scrollPic_02.arrRightId     = "RightArr"; //右箭头ID
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+	</div>
+	<!-- /feature --></div>
 
-		scrollPic_02.frameWidth     = 908;//显示框宽度
-		scrollPic_02.pageWidth      = 152; //翻页宽度
+<a class="next" ><img src="../../${res}/images/ca_hz_002.gif" border="0" /></a>
+</DIV>
 
-		scrollPic_02.speed          = 10; //移动速度(单位毫秒，越小越快)
-		scrollPic_02.space          = 10; //每次移动像素(单位px，越大越快)
-		scrollPic_02.autoPlay       = false; //自动播放
-		scrollPic_02.autoPlayTime   = 3; //自动播放间隔时间(秒)
-
-		scrollPic_02.initialize(); //初始化
-							
-		//--><!]]>
-</SCRIPT>
 </DIV>
 </div>
 <div id="sy_zxtb">
@@ -370,18 +335,7 @@ target=_blank>开幕式火炬<br />
 </div>
 <div class="sy_gg"><img src="../../${res}/img/GG.jpg" /></div>
 <div id="sy_zx">
-  <div class="sy_zx1">
-       <script>
-     var box =new PPTBox();
-     box.width = 300; //宽度
-     box.height = 300;//高度
-     box.autoplayer = 3;//自动播放间隔时间
-
-     //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
-     box.add({"url":"../../${res}/images/tu1.jpg","href":"#"})
-     box.add({"url":"../../${res}/images/tu2.jpg","href":"#"})
-     box.show();
-    </script>
+ <div class="sy_zx1">
   </div>
   <div class="sy_zx2">
   <h2>亲子关系</h2>
@@ -418,18 +372,6 @@ target=_blank>开幕式火炬<br />
   </div>
   </div>
   <div class="sy_zx1">
-     <script>
-     var box =new PPTBox();
-     box.width = 300; //宽度
-     box.height = 300;//高度
-     box.autoplayer = 3;//自动播放间隔时间
-
-     //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
-     box.add({"url":"../../${res}/images/tu2.jpg","href":"#"})
-	 box.add({"url":"../../${res}/images/tu1.jpg","href":"#"})
-     box.show();
-    </script>
-  
   
   </div>
   <div class="sy_zx2">
