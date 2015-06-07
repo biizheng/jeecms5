@@ -2,7 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>${channel.title!channel.name} - ${site.name}</title>
+<title> - ${site.name}</title>
 <head>
 <!--[if lt IE 9]>
 <script src="${resSys}/html5.js" type="text/javascript"></script>
@@ -22,11 +22,6 @@
 $(function() {
 	Cms.siteFlow("${base}", location.href, document.referrer);
 	
-	[#if channel.id==104]
-		$("#img4").attr("src","../../${res}/img/444.jpg");
-	[#elseif channel.id==105]
-		$("#img1").attr("src","../../${res}/img/111.jpg");
-	[/#if]
 });
 </script>
 </head>
@@ -71,11 +66,11 @@ $(function() {
    </div>
   <div id="center">
   <div id="ejy_kfw_top">
-  <h2><img src="${channel.titleImg}" /></h2>
+  <h2><img src="../../${res}/img/yhf2.jpg" /></h2>
   <div class="sh_kf">
   <div class="sxy_pf" style="padding:178px 0px 0px 238px;"><a href="${base}/coffee/index.htm"  ><img src="../../${res}/img/11.jpg" width="85" height="85" id="img1" /></a></div>
   <div class="sxy_pf" style="padding:78px 0px 0px 30px;"><a href="zxsym.html" ><img src="../../${res}/img/22.jpg" width="85" height="84" id="img2" /></a></div>
-  <div class="sxy_pf" style="padding:78px 0px 0px 120px;"><a href="${base}/guestbook.jspx" ><img src="../../${res}/img/33.jpg" width="84" height="84" id="img3" /></a></div>
+  <div class="sxy_pf" style="padding:78px 0px 0px 120px;"><a href="${base}/guestbook.jspx" ><img src="../../${res}/img/333.jpg" width="84" height="84" id="img3" /></a></div>
   <div class="sxy_pf" style="padding:178px 0px 0px 28px;"><a href="${base}/heartRecord/index.htm" ><img src="../../${res}/img/44.jpg" width="85" height="85" id="img4" /></a></div>
   </div>
   </div>
@@ -88,42 +83,44 @@ $(function() {
   </ul>
   </div>
   <div class="kfw500">
-        [@cms_content_list count='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
-         [#list tag_list as a]
-         
+    [@cms_guestbook_list count='2' recommend='1']
+   [#list tag_list as m]
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="15%"><img src="../../${res}/img/kafeiwu.png" /></td>
-        <td width="85%"><p><a href="${a.url}">[@text_cut s=a.title len=22 /]</a></p>
-          </td>
+        <td width="15%"><img src="${base}/${m.userImg!}" /></td>
+        <td width="85%"><p><span></span>${m.titleHtml!}【${m.ctg.name!}】</p>
+          <p>${m.contentHtml!}</p></td>
       </tr>
       <tr>
         <td colspan="2">
         <div class="p">
-        [@text_cut s=a.description len=200 /]
+        ${m.reply!}
         </div></td>
         </tr>
     </table>
-		
-		
-        [/#list]
-    [/@cms_content_list]
+ [/#list]    
+   [/@cms_guestbook_list] 
+   
   </div>
   <div class="kfw_list">
-[@cms_content_page count='20' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+  [@cms_guestbook_page siteId=site.id count='10' checked='0']
     <ul>
-[#list tag_pagination.list as a]
-       <li><img src="${base}/${a.user.userImg!}" />
-       <p><a href="${a.url}">[@text_cut s=a.title len=22 /]</a></p>
-       <p><a href="${a.url}">[@text_cut s=a.description len=50 /]</a><span></span></p>
+                [#list tag_pagination.list as m]
+       <li><img src="${base}/${m.member.userImg!}" />
+       <p><a href="#">${m.titleHtml!}</a></p>
+       <p><a href="kfw_sjy.html">[@text_cut s=m.contentHtml len=60/]</a><span><a href="#">【${m.ctg.name!}】</a></span></p>
        </li>
         [/#list]
 
+
+
+      
     </ul>
     <div id="fy_xin">
  <div class="page">[@cms_pagination sysPage='1'/]</div>
    </div>
-   	[/@cms_content_page]
+                [/@cms_guestbook_page]
+   	
   </div>
   <div class="kfw_sl">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

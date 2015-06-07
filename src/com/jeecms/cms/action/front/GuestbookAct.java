@@ -37,9 +37,9 @@ public class GuestbookAct {
 	private static final Logger log = LoggerFactory
 			.getLogger(GuestbookAct.class);
 
-	public static final String GUESTBOOK_INDEX = "tpl.guestbookIndex";
-	public static final String GUESTBOOK_CTG = "tpl.guestbookCtg";
-	public static final String GUESTBOOK_DETAIL = "tpl.guestbookDetail";
+	public static final String GUESTBOOK_INDEX = "guestbookIndex";
+	public static final String GUESTBOOK_CTG = "guestbookCtg";
+	public static final String GUESTBOOK_DETAIL = "guestbookDetail";
 
 	/**
 	 * 留言板首页或类别页
