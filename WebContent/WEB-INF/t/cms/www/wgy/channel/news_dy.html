@@ -19,21 +19,7 @@ $(function() {
 </head>
 <body>
 [#include "../include/top.html"/]
-<div id="xhywz">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
-    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
-    <td width="14%">会员名：中南世</td>
-    <td width="10%">地区：吉林</td>
-    <td width="16%">QQ号：10880555</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="22%">心情标签</td>
-  </tr>
-</table>
-</div>
+[#include "../include/header_register.html"/]
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
@@ -63,52 +49,53 @@ $(function() {
   </div>
   <div id="dy_ejy">
      <div id="dy_left">
-     <div class="js_top">
-      <ul>
-        [@cms_content_list count='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
+       <div class="left_top">
+        <ul>
+        [@cms_content_list count='3' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
-         [#if a_index==0]
-        <li>
-         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
-            <img src="${a.titleImg!site.typeImg}" border="0" style=" width:330px;height: 200px;"/>
+         
+           <li [#if a_index==1] style="padding:0px 15px;" [/#if]>
+              <a href="${a.url}" target="_blank"  border="0">
+            <img src="${a.titleImg!site.typeImg}" border="0" />
             </a>
-        </li>
-        <li><p>[@text_cut s=a.description len=200 /]</p></li>
-		[/#if]
-         [#if a_index==1]
-        <li><p>[@text_cut s=a.description len=200 /]</p></li>
-        <li>
-         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
-            <img src="${a.titleImg!site.typeImg}" border="0" style=" width:330px;height: 200px;"/>
-            </a>
-        </li>
-		[/#if]
-		
+              <h4><a href="${a.url}">[@text_cut s=a.title len=22 /]</a><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></h4>
+              <p>[@text_cut s=a.description len=100 /]</p>
+           </li>
         [/#list]
     [/@cms_content_list]
-      </ul>
-     </div>
-	[@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
-     <div class="js_list">
-       <ul>
-       [#list tag_pagination.list as a]
-         <li><a href="${a.url}" title="${a.title}" target="_blank">
-            [@text_cut s=a.title len=22 /]
-            </a></li>
-         [/#list]
-       </ul>
-       
+        </ul>
        </div>
-     <div id="fy_xin">
-     <div class="page">[@cms_pagination sysPage='1'/]</div>
+       [@cms_content_page count='10' orderBy='4' Recommend='1' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+       <div class="left_list">
+          <ul>
+          
+          [#list tag_pagination.list as a]
+             <li>
+                 <a href="${a.url}" target="_blank"  border="0">
+            <img src="${a.titleImg!site.typeImg}" border="0" />
+            </a>
+                <div style=" width:540px; float:left;">
+                <h4><a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=22 /]
+            </a></h4>
+                <div class="xingxing"><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></div>
+                <p>[@text_cut s=a.description len=200 /]</p>
+                </div>
+             </li>
+		[/#list]
+
+          </ul>
+       </div>
+        <div id="fy_xin">
+<div class="page">[@cms_pagination sysPage='1'/]</div>
+    
+      [/@cms_content_page]
    </div>
-	[/@cms_content_page]
-       
+     
        
      </div>
 [#include "../include/right.html"/]
-
-  </div>    
+  </div>
       
   </div>
   </div>
