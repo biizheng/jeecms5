@@ -297,40 +297,20 @@ function loginSubmit(){
 </div>
 <div class="sy_bt">
    <div class="sy_bt_left">成长咖啡屋</div>
-   <div class="sy_bt_right"><a href="#">更多>></a></div>
+   <div class="sy_bt_right"><a href="${base}/coffee/index.htm">更多>></a></div>
 </div>
 <div class="sy_yhf">
    <ul>
+        [@cms_content_list count='6' channelId=105 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
+         <img src="${base}/${a.user.userImg!}" />
+         <p><a href="${a.url}">[@text_cut s=a.title len=22 /]</a></p>
+       
       </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
+        [/#list]
+    [/@cms_content_list]
+
    </ul>
 </div>
 <div class="sy_gg"><img src="../../${res}/img/GG.jpg" /></div>
