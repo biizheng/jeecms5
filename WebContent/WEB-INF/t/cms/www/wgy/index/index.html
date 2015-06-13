@@ -339,36 +339,32 @@ function loginSubmit(){
   </div>
   <div class="sy_zx2">
   <h2>亲子关系</h2>
-  <div class="qzgx">1.母亲角色：仆人；<br />
-强调职业生涯规划就是通过客观、科学的...</div>
-<div class="qzgx">2.母亲角色：仆人；<br />
-强调职业生涯规划就是通过客观、科学的...</div>
-<div class="qzgx">3.母亲角色：仆人；<br />
-强调职业生涯规划就是通过客观、科学的...</div>
-<div class="qzgx">4.母亲角色：仆人；<br />
-强调职业生涯规划就是通过客观、科学的...</div>
-<div class="qzgx">5.母亲角色：仆人；<br />
-强调职业生涯规划就是通过客观、科学的...</div>
-<p style=" width:680px; margin-top:10px;" align="right"><a href="#" style="color:#900;">更多>></a></p>
+      [@cms_content_list count='5' channelId=110 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  <div class="qzgx"><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a><br />
+[@text_cut s=a.description len=20 /]...</div>
+        [/#list]
+    [/@cms_content_list]
+<p style=" width:680px; margin-top:10px;" align="right"><a href="${base}/qinzi/index.htm" style="color:#900;">更多>></a></p>
   </div>
   <div class="sy_zx2">
   <h2>学生减压</h2>
   <div class="xsjy1"><img src="../../${res}/img/xuesheng.jpg" />
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
+        [@cms_content_list count='10' channelId=111 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
   </ul>
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
   </ul>
- <p align="right" style="padding-top:0px;"><a href="#" style="color:#900;">更多>></a></p>
+ <p align="right" style="padding-top:0px;"><a href="${base}/xsjy/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
   <div class="sy_zx1">
@@ -378,20 +374,20 @@ function loginSubmit(){
   <h2>婚恋情感</h2>
   <div class="xsjy1"><img src="../../${res}/img/hunlian.jpg" />
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
+        [@cms_content_list count='10' channelId=112 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
   </ul>
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
   </ul>
-  <p align="right" style="padding-top:0px;"><a href="#" style="color:#900;">更多>></a></p>
+  <p align="right" style="padding-top:0px;"><a href="${base}/hlqg/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
   <div class="sy_zx2">
@@ -414,13 +410,14 @@ function loginSubmit(){
   <h2>职场EAP</h2>
   <div class="xsjy"><img src="../../${res}/img/zhichang.jpg" />
   <ul>
-     <li><a href="#">1、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">2、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">3、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">4、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">5、学生凭借智能去生存和发展高</a></li>
+          [@cms_content_list count='10' channelId=114 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+
+             [/#list]
+    [/@cms_content_list]
   </ul>
-  <p align="right" style="padding-top:0px;"><a href="#" style="color:#900;">更多>></a></p>
+  <p align="right" style="padding-top:0px;"><a href="${base}/eap/index.htm" style="color:#900;">更多>></a></p>
   </div>
   
   
@@ -429,40 +426,42 @@ function loginSubmit(){
   <h2>生涯规划</h2>
   <div class="xsjy">
   <ul style="width:290px; float:left; padding-left:20px;">
-     <li><a href="#">1、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">2、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">3、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">4、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">5、学生凭借智能去生存和发展高</a></li>
+        [@cms_content_list count='10' channelId=115 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
   </ul>
   <ul style="width:290px; float:left;">
-     <li><a href="#">1、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">2、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">3、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">4、学生凭借智能去生存和发展高</a></li>
-     <li><a href="#">5、学生凭借智能去生存和发展高</a></li>
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
   </ul>
-  <p align="right" style="padding-top:0px;"><a href="#" style="color:#900;">更多>></a></p>
+  <p align="right" style="padding-top:0px;"><a href="${base}/carcer/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
   <div class="sy_zx2">
   <h2>危机干预</h2>
   <div class="xsjy1"><img src="../../${res}/img/weiji.jpg"/>
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
+  
+          [@cms_content_list count='10' channelId=116 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=14 /]</a></li>
+	[#if a_index==4]
+	
   </ul>
   <ul style="width:200px; float:left;">
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
-     <li><a href="#">学生凭借智能去生存借智...</a></li>
-     <li><a href="#">学生凭借智能去生存</a></li>
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
+
   </ul>
-  <p align="right" style="padding-top:0px;"><a href="#" style="color:#900;">更多>></a></p>
+  <p align="right" style="padding-top:0px;"><a href="${base}/wjgy/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
   <div ><img src="../../${res}/img/du.jpg" style="margin-left:3px;" /></div>
