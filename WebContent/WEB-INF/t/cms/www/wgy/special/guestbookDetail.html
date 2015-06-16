@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>留言板 - ${site.name}</title>
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.1.8.2.js" type="text/javascript"></script>
+
+<script src="${resSys}/front.js" type="text/javascript"></script>
+</head>
+
+<body>
+[#include "../include/top.html"/]
+[#include "../include/header_register.html"/]
+
+<div id="com">
+<div style="width:1360px; margin:0 auto;">
+   <div id="left">
+     <table width="70%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
+         <td><a href="#">微信</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
+  <div id="center">
+  <div class="sjy_bt"> <img src="../../${res}/img/yhf2.jpg"/></div>
+    <div id="dy_ejy">
+     <div class="yhf_left">
+       <div class="yhf_top"> [#if guestbook.member.userImg??] <img src="${base}/${guestbook.member.userImg!}" /> [/#if]
+        <p>成长老师 [#if guestbook.member.comefrom??]（${guestbook.member.comefrom!}）[/#if]</p>
+        <p>解答了问题：${guestbook.titleHtml!} ${guestbook.ctg.name!?html}</p>
+       </div>
+       <h3>问题分类<a href="#">【${guestbook.ctg.name!?html}】</a></h3>
+       <div class="yhf_hdk">
+ 		${guestbook.contentHtml!}       
+ 		</div>
+       <h3>咨询师回复</h3>
+       <div class="yhf_hdk" style="margin-bottom:30px;">
+       
+${guestbook.ReplyHtml!} 
+
+         </div>
+     </div>
+     <div id="dy_right">
+     <div class="dy_bt">
+   <div class="dy_bt_left"><img src="../../${res}/img/kfw2.jpg"/></div>
+   <div class="dy_bt_right"><a href="kfw_ejy.html">更多>></a></div>
+</div>
+<div class="dy_yhf">
+<ul>
+     <li>
+         <img src="../../${res}/img/kafeiwu.png"/>
+         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
+         <p><a href="kfw_sjy.html">解决了问题：害怕一个人</a></p>
+      </li>
+      <li>
+         <img src="../../${res}/img/kafeiwu.png"/>
+         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
+         <p><a href="#">解决了问题：害怕一个人</a></p>
+      </li>
+      <li style="background:none;">
+         <img src="../../${res}/img/kafeiwu.png"/>
+         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
+         <p><a href="#">解决了问题：害怕一个人</a></p>
+      </li>
+</ul>
+</div>
+     <div class="dy_bt">
+   <div class="dy_bt_left"><img src="../../${res}/img/zxs.jpg" /></div>
+   <div class="dy_bt_right"><a href="zxsym.html">更多>></a></div>
+</div>
+<div class="dy_zxs">
+<ul>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+<p><a href="#">心理学主题网站</a></br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p>
+  </li>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+   <p><a href="#">心理学主题网站</a><br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p></li>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+ <p><a href="#">心理学主题网站</a><br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p>
+  </li>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+  <p><a href="#">心理学主题网站</a><br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p>
+  </li>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+  <p><a href="#">心理学主题网站</a><br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p>
+  </li>
+  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
+  <p><a href="#">心理学主题网站</a><br />
+<a href="#">国内最值得信</a><br />
+<a href="#">赖的心理学平</a></p>
+  </li>
+</ul>
+</div>
+     </div>
+     <div class="kfw_sl">
+       <table width="100%" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td><a href="zzj_ejy.html"><img src="../../${res}/img/kfw01.jpg" /></a></td>
+           <td><a href="dy_ejy.html"><img src="../../${res}/img/kfw02.jpg" /></a></td>
+           <td><a href="js_ejy.html"><img src="../../${res}/img/kfw03.jpg" /></a></td>
+           <td style="border-right:none;"><a href="sc_ejy.html"><img src="../../${res}/img/kfw04.jpg" /></a></td>
+         </tr>
+       </table>
+       <ul>
+         <li><a href="http://shop121096782.taobao.com/category-1081954771.htm?spm=a1z10.1-c.w4010-10852543345.17.lJwrIw&amp;search=y&amp;catName=%B5%E7%D7%D3%CA%E9#bd"><img src="../../${res}/img/sld01.jpg" /></a></li>
+         <li><a href="http://shop121096782.taobao.com/category-1073532014.htm?spm=a1z10.5-c.w4010-10852543364.10.5aNGJv&amp;search=y&amp;parentCatId=1073532011&amp;parentCatName=%D7%C9%D1%AF%CA%A6&amp;catName=%D7%C9%D1%AF%CA%A6#bd"><img src="../../${res}/img/sld02.jpg" /></a></li>
+         <li><a href="http://shop121096782.taobao.com/category-1073533420.htm?spm=a1z10.5-c.w4010-10852543364.13.pwUsE4&amp;search=y&amp;parentCatId=1073532015&amp;parentCatName=%B8%F6%C8%CB%B3%C9%B3%A4&amp;catName=%B8%F6%C8%CB%B3%C9%B3%A4%B0%E0#bd"><img src="../../${res}/img/sld03.jpg" /></a></li>
+         <li><a href="http://item.taobao.com/item.htm?spm=686.1000925.0.0.fuoIAO&amp;id=45453422747"><img src="../../${res}/img/sld04.jpg" /></a></li>
+         <li><a href="http://shop121096782.taobao.com/category-1073533419.htm?spm=a1z10.5-c.w4010-10852543364.12.WXlvZ6&amp;search=y&amp;parentCatId=1073532015&amp;parentCatName=%B8%F6%C8%CB%B3%C9%B3%A4&amp;catName=%D7%A8%CF%EE%BF%CE%B3%CC#bd"><img src="../../${res}/img/sld05.jpg" /></a></li>
+         <li><a href="http://item.taobao.com/item.htm?spm=686.1000925.0.0.h1dS2f&amp;id=45450979474"><img src="../../${res}/img/sld06.jpg" /></a></li>
+         <li><a href="http://item.taobao.com/item.htm?spm=686.1000925.0.0.h1dS2f&amp;id=45451391254"><img src="../../${res}/img/sld07.jpg" /></a></li>
+       </ul>
+     </div>
+    </div>    
+  </div>
+   </div>
+   
+</div>
+
+[#include "../include/foot.html"/]
+</body>
+</html>

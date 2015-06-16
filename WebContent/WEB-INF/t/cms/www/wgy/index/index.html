@@ -205,47 +205,26 @@ function loginSubmit(){
       <li><a href="${base}/coffee/index.htm"><img src="../../${res}/img/xl02.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl03.jpg" /></a></li>
       <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
-      <li><a href="#"><img src="../../${res}/img/xl05.jpg" /></a></li>
+      <li><a href="${base}/movies/index.htm"><img src="../../${res}/img/xl05.jpg" /></a></li>
       <li class="ts_li"><a href="#"><img src="../../${res}/img/xl06.jpg" /></a></li>
       <li><a href="#"><img src="../../${res}/img/xl07.jpg" /></a></li>
    </ul>
 </div>
 <div class="sy_bt">
    <div class="sy_bt_left">咨询云回复</div>
-   <div class="sy_bt_right"><a href="#">更多>></a></div>
+   <div class="sy_bt_right"><a href="${base}/guestbook.jspx">更多>></a></div>
 </div>
 <div id="sy_yhf">
    <ul>
+   [@cms_guestbook_list count='6']
+   [#list tag_list as m]
      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
+        [#if m.member.userImg??] <img src="${base}/${m.member.userImg!}" /> [/#if]
+         <p><a href="#">成长老师[#if m.member.comefrom??]（${m.member.comefrom!}）[/#if]</a></p>
+         <p><a href="${base}/guestbook/${m.id}.jspx"><span>[${m.ctg.name!}]</span>：${m.titleHtml!}</a></p>
       </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
+ [/#list]    
+   [/@cms_guestbook_list] 
    </ul>
 </div>
 <div class="sy_bt">
@@ -297,40 +276,20 @@ function loginSubmit(){
 </div>
 <div class="sy_bt">
    <div class="sy_bt_left">成长咖啡屋</div>
-   <div class="sy_bt_right"><a href="#">更多>></a></div>
+   <div class="sy_bt_right"><a href="${base}/coffee/index.htm">更多>></a></div>
 </div>
 <div class="sy_yhf">
    <ul>
+   [@cms_content_list count='6' channelId=105 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
+         [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
+         
       </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
+           [/#list]
+    [/@cms_content_list]
+
    </ul>
 </div>
 <div class="sy_gg"><img src="../../${res}/img/GG.jpg" /></div>
