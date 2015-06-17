@@ -13,6 +13,7 @@ import com.jeecms.cms.entity.main.CmsSite;
 import com.jeecms.cms.entity.main.ContentTag;
 import com.jeecms.cms.manager.main.ChannelMng;
 import com.jeecms.cms.manager.main.CmsSiteMng;
+import com.jeecms.cms.manager.main.CmsUserMng;
 import com.jeecms.cms.manager.main.ContentMng;
 import com.jeecms.cms.manager.main.ContentTagMng;
 import com.jeecms.cms.web.FrontUtils;
@@ -410,4 +411,7 @@ public abstract class AbstractContentDirective implements
 
 	@Autowired
 	protected ContentMng contentMng;
+	
+	@Autowired
+	protected CmsUserMng cmsUserMng;
 }

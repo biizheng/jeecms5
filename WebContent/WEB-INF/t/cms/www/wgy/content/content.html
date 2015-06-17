@@ -24,21 +24,7 @@ Cms.siteFlow("${base}", location.href, document.referrer);
 </script>
 <body>
 [#include "../include/top.html"/]
-<div id="xhywz">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
-    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
-    <td width="14%">会员名：中南世</td>
-    <td width="10%">地区：吉林</td>
-    <td width="16%">QQ号：10880555</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="22%">心情标签</td>
-  </tr>
-</table>
-</div>
+[#include "../include/header_register.html"/]
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
@@ -71,7 +57,7 @@ Cms.siteFlow("${base}", location.href, document.referrer);
      <div class="zzj_sjy">
      <h2>${content.title}</h2>
      <br/>
-     <img src="${content.titleImg!site.typeImg}" />
+    
 	${txt!}
      </div>
             <ul>

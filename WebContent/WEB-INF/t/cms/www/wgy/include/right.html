@@ -62,25 +62,19 @@
 </div>
 <div class="dy_bt">
    <div class="dy_bt_left"><img src="../../${res}/img/kfw2.jpg" /></div>
-   <div class="dy_bt_right"><a href="#">更多>></a></div>
+   <div class="dy_bt_right"><a href="${base}/coffee/index.htm">更多>></a></div>
 </div>
 <div class="dy_yhf">
 <ul>
+        [@cms_content_list count='3' channelId=105 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
+       [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         <p><a href="#">成长老师（${a.user.comefrom}）</a></p>
+         <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
       </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
+        [/#list]
+    [/@cms_content_list]
 </ul>
 </div>
 
