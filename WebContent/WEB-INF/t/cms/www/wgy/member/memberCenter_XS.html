@@ -2,32 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>会员中心 - ${site.name} - Powered by JEECMS</title>
+<title>会员中心 - ${site.name}</title>
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
 <script src="${resSys}/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.validate.js" type="text/javascript"></script>
+<script src="${base}/thirdparty/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="${resSys}/front.js" type="text/javascript"></script>
 </head>
 
 <body>
 [#include "../include/top.html"/]
-<div id="top">
-   <div id="top_tp"><img src="../../${res}/img/top.jpg" alt="" name="logo" width="1000" height="100" id="logo" /></div>
-</div>
-<div id="xhywz">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="7%"><img src="../../${res}/img/kafeiwu.png" /></td>
-    <td width="7%"><img src="../../${res}/img/VIP.jpg" /></td>
-    <td width="14%">会员名：中南世</td>
-    <td width="10%">地区：吉林</td>
-    <td width="16%">QQ号：10880555</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="8%">心情标签</td>
-    <td width="22%">心情标签</td>
-  </tr>
-</table>
-</div>
+[#include "../include/header_register.html"/]
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
@@ -162,57 +147,9 @@
        </div>
        </div>
      </div>
-     <div id="dy_right">
-     <div style="background:#D5EDF9;"></div>
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/yhf2.jpg" /></div>
-   <div class="dy_bt_right"><a href="#">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style=" background:none;">
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-</ul>
-</div>
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/kfw2.jpg" /></div>
-   <div class="dy_bt_right"><a href="#">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个</a></p>
-      </li>
-</ul>
-</div>
 
+	[#include "../include/right2.html"/]
 
-     </div>
   </div>    
       
   </div>
