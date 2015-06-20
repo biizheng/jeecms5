@@ -104,30 +104,27 @@ public class MemberAct {
 			Pagination contentPage = contentMng.getPageForMember(null, null, site.getId(), user.getId(), cpn(pageNo), 20);
 			model.addAttribute("contentPage", contentPage);
 			
-			//我的留言或是我的回复留言
-			Pagination myBookPage = null ;
-			//未回复的留言
-			Pagination bookPage = null;
+
+			Pagination bookPage = null ;
+			//未回复的
+			Pagination unReplyBookPage = null ;
 			if(user.getGroup().getId().equals(1)){
-				myBookPage = cmsGuestbookMng.getPage(site.getId(), null,user.getId(), null,
+				bookPage = cmsGuestbookMng.getPage(site.getId(), null,user.getId(), null,
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
 				
 				
 			}else if(user.getGroup().getId().equals(2)){
 				gotoPage = this.MEMBER_CENTER_XS;
-				myBookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
+				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
-				
-				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, null,
+				unReplyBookPage = cmsGuestbookMng.getPage(site.getId(), null,null, 0,
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
-				
 				
 			}
 			model.addAttribute("tabId", tabId);
-			model.addAttribute("pagination", myBookPage);
-			model.addAttribute("unPagination", bookPage);
-			
-			model.addAttribute("pageNo", myBookPage.getPageNo());
+			model.addAttribute("unReplyBookPage", unReplyBookPage);
+			model.addAttribute("pagination", bookPage);
+			model.addAttribute("pageNo", bookPage.getPageNo());
 		}
 		
 		

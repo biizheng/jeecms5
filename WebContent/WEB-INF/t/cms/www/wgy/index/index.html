@@ -1,0 +1,430 @@
+
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页 - ${site.name}</title>
+<meta http-equiv="keywords" content="JEECMS演示站"/>
+<meta http-equiv="description" content="JEECMS演示站"/>
+<head>
+<!--[if lt IE 9]>
+<script src="${resSys}/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.1.8.2.js" type="text/javascript"></script>
+
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="${resSys}/jcarousellite.js" type="text/javascript"></script>
+<script src="${resSys}/jquery.cycle.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer);
+	
+	$('#pics').cycle({ 
+		fx:'curtainX',
+		pager:'#btn2'
+	});
+	
+	$("#botton-scroll").jCarouselLite({
+		btnNext: ".next",  
+		btnPrev: ".prev",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
+});
+
+function loginSubmit(){
+	
+	var captcha = $('#captcha').val();  
+	var userName = $('#username').val();
+	var passWord = $('#password').val();
+
+	
+	
+//	$('#btnOK').attr('disabled',"true");
+	
+	$.ajax({
+	            type: "post",//使用get方法访问后台
+	            dataType: "json",//返回json格式的数据
+	            url: "${base}/loginByAjax.jspx",
+	            data: {
+	            	captcha:captcha,
+	            	username:userName,
+	            	password:passWord
+	            },
+	            complete : function(){}, //AJAX请求完成时隐藏loading提示
+                success: function(data){ //msg为返回的数据，在这里做数据绑定
+               // 	$('#btnOK').removeAttr("disabled"); 
+                    if(data.success){
+                         window.location.href='${base}/member/index.jspx';
+                   } else{
+                        alert(data.title);
+                   }
+                 }
+
+       });
+	
+}
+</script>
+
+</head>
+<body>
+[#include "../include/top.html"/]
+<div id="zd_lb">
+<div style="width:1300px; margin:0 auto;">
+   <div id="zd_left">
+     <table width="80%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="40" height="40" /></a></td>
+         <td><a href="#">微信11</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="40" height="40" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="40" height="40" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/qq.png" width="40" height="40" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="40" height="40" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="40" height="40" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="40" height="40" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
+  <div id="zd_center">
+   
+   <!--  轮播  -->
+   
+   
+   
+<DIV style="HEIGHT: 420px;" class="wrap picshow"><!--大图轮换区-->
+<div  id="pics" style="clear:both;">
+[@cms_content_list count='5'  siteId=site.id  typeId='3' orderBy='4'  titLen='18' channelOption="1"]
+ [#list tag_list as a]
+
+
+<a href="${a.url}" target="_blank"><img src="${a.typeImg!site.defImg}" alt="${a.title}" width="1002px" height="400px" border="0" /></a>  
+
+ [/#list]
+[/@cms_content_list]
+
+</div>
+<div id="btn2" style="left: 550px;"></div>
+</DIV>
+   
+   
+   <!--  fudonghuiyuan  -->
+      <div id="zd_center_float">
+      [#if user??]
+<div>欢迎您: ${user.username} &nbsp; ${user.group.name} &nbsp; <a href="logout.jspx?returnUrl=/">退出登录</a></div>
+[#else]
+ <form id="jvForm" method="post">
+     <table border="0" cellspacing="0" cellpadding="0">
+    
+        <tr>
+          <td width="74">          </td>
+          <td colspan="2" class="float_hs" style="border-bottom:none;"><a href="./register.jspx">会员注册</a></td>
+          </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2" class="float_hs"><a href="./login.jspx">会员登录</a></td>
+          </tr>
+        <tr>
+          <td>用户名</td>
+          <td colspan="2"><label>
+            <input type="text" id="username" name="username" class="required" size="12" title="用户名不能为空"/>
+          </label></td>
+          </tr>
+        <tr>
+          <td>密码</td>
+          <td colspan="2"><label>
+            <input type="password" id="password" name="password" class="required" size="12" title="密码不能为空"/>
+          </label></td>
+          </tr>
+        <tr>
+          <td>验证码</td>
+          <td width="94" ><label>
+          <input class="input required" maxlength="5" name="captcha" size="12" type="text" />
+          </label></td>
+          <td width="56"><img id="guestbookCaptcha" height="25px;" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl" /></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center"><label>
+            <input type="button" name="sy_dl" id="sy_dl" onclick="loginSubmit();return false;" value="登录" />
+          </label>          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <table style="margin:10px 20px 0px 20px; width:180px;">
+               <tr class="float_dl_fs">
+                 <td> <img src="../../${res}/img/qq.png" /></td>
+                 <td><a href="#">QQ账号登录</a></td>
+               </tr>
+               <tr class="float_dl_fs">
+               <td> <img src="../../${res}/img/shouji.png" /></td>
+               <td><a href="#">手机号登录</a></td> 
+               </tr>
+            </table>
+          
+          </td>
+          </tr>
+      </table>
+      </form>
+      [/#if]
+      </div>
+      
+  </div>
+   <div id="zd_right">
+
+      <div>
+        
+        <p></p>
+        
+      </div>
+   </div>
+   </div>
+</div>
+<div id="sy_qk">
+   <ul>
+      <li><a href="${base}/myself/index.htm"><img src="../../${res}/img/xl01.jpg" /></a></li>
+      <li><a href="${base}/coffee/index.htm"><img src="../../${res}/img/xl02.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/xl03.jpg" /></a></li>
+      <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
+      <li><a href="${base}/movies/index.htm"><img src="../../${res}/img/xl05.jpg" /></a></li>
+      <li class="ts_li"><a href="#"><img src="../../${res}/img/xl06.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/xl07.jpg" /></a></li>
+   </ul>
+</div>
+<div class="sy_bt">
+   <div class="sy_bt_left">咨询云回复</div>
+   <div class="sy_bt_right"><a href="${base}/guestbook.jspx">更多>></a></div>
+</div>
+<div id="sy_yhf">
+   <ul>
+   [@cms_guestbook_list count='6']
+   [#list tag_list as m]
+     <li>
+        [#if m.member.userImg??] <img src="${base}/${m.member.userImg!}" /> [/#if]
+         <p><a href="#">成长老师[#if m.member.comefrom??]（${m.member.comefrom!}）[/#if]</a></p>
+         <p><a href="${base}/guestbook/${m.id}.jspx"><span>[${m.ctg.name!}]</span>：${m.titleHtml!}</a></p>
+      </li>
+ [/#list]    
+   [/@cms_guestbook_list] 
+   </ul>
+</div>
+<div class="sy_bt">
+   <div class="sy_bt_left">咨询师</div>
+   <div class="sy_bt_right"><a href="#">更多>></a></div>
+</div>
+<div id="sy_zxs">
+<DIV class=rollphotos>
+<DIV class=blk_29>
+<DIV class=LeftBotton id=LeftArr></DIV>
+ <div id="featureContainer">
+	<div id="feature">
+		<div id="block">
+			<div id="botton-scroll">
+				<ul class="featureUL">
+[@cms_content_list count='8'   orderBy='24'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImgSmall!}" border="0" width="140" height="140">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+	</div>
+	<!-- /feature --></div>
+
+<a class="next" ><img src="../../${res}/images/ca_hz_002.gif" border="0" /></a>
+</DIV>
+
+</DIV>
+</div>
+<div id="sy_zxtb">
+   <ul>
+      <li><a href="#"><img src="../../${res}/img/sld01.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld02.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld03.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld04.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld05.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld06.jpg" /></a></li>
+      <li><a href="#"><img src="../../${res}/img/sld07.jpg" /></a></li>
+   </ul>
+</div>
+<div class="sy_bt">
+   <div class="sy_bt_left">成长咖啡屋</div>
+   <div class="sy_bt_right"><a href="${base}/coffee/index.htm">更多>></a></div>
+</div>
+<div class="sy_yhf">
+   <ul>
+   [@cms_content_list count='6' channelId=105 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+     <li>
+         [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
+         
+      </li>
+           [/#list]
+    [/@cms_content_list]
+
+   </ul>
+</div>
+<div class="sy_gg"><img src="../../${res}/img/GG.jpg" /></div>
+<div id="sy_zx">
+ <div class="sy_zx1">
+  </div>
+  <div class="sy_zx2">
+  <h2>亲子关系</h2>
+      [@cms_content_list count='5' channelId=110 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  <div class="qzgx"><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a><br />
+[@text_cut s=a.description len=20 /]...</div>
+        [/#list]
+    [/@cms_content_list]
+<p style=" width:680px; margin-top:10px;" align="right"><a href="${base}/qinzi/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  <div class="sy_zx2">
+  <h2>学生减压</h2>
+  <div class="xsjy1"><img src="../../${res}/img/xuesheng.jpg" />
+  <ul style="width:200px; float:left;">
+        [@cms_content_list count='10' channelId=111 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
+  </ul>
+  <ul style="width:200px; float:left;">
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
+  </ul>
+ <p align="right" style="padding-top:0px;"><a href="${base}/xsjy/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  </div>
+  <div class="sy_zx1">
+  
+  </div>
+  <div class="sy_zx2">
+  <h2>婚恋情感</h2>
+  <div class="xsjy1"><img src="../../${res}/img/hunlian.jpg" />
+  <ul style="width:200px; float:left;">
+        [@cms_content_list count='10' channelId=112 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
+  </ul>
+  <ul style="width:200px; float:left;">
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
+  </ul>
+  <p align="right" style="padding-top:0px;"><a href="${base}/hlqg/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  </div>
+  <div class="sy_zx2">
+  <h2>机体健康</h2>
+  <div class="jtjk">
+  <p><a href="#">1、抑郁/失眠/恐惧/强迫/焦虑</a></p>
+  <a href="#"><img src="../../${res}/img/qingxu.jpg" /></a>
+  </div>
+  <div class="jtjk">
+  <p><a href="#">2、情绪躯体化</a></p>
+  <a href="#"><img src="../../${res}/img/qutihua.jpg" /></a>
+  </div>
+  <div class="jtjk" style="margin-right:20px;">
+  <p><a href="#">3、养生</a></p>
+  <a href="#"><img src="../../${res}/img/yangsheng.jpg" /></a>
+  </div>
+  <p style=" width:680px;" align="right"><a href="#" style="color:#900;">更多>></a></p>
+  </div>
+  <div class="sy_zx2">
+  <h2>职场EAP</h2>
+  <div class="xsjy"><img src="../../${res}/img/zhichang.jpg" />
+  <ul>
+          [@cms_content_list count='10' channelId=114 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+
+             [/#list]
+    [/@cms_content_list]
+  </ul>
+  <p align="right" style="padding-top:0px;"><a href="${base}/eap/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  
+  
+  </div>
+  <div class="sy_zx2">
+  <h2>生涯规划</h2>
+  <div class="xsjy">
+  <ul style="width:290px; float:left; padding-left:20px;">
+        [@cms_content_list count='10' channelId=115 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+	[#if a_index==4]
+	
+  </ul>
+  <ul style="width:290px; float:left;">
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
+  </ul>
+  <p align="right" style="padding-top:0px;"><a href="${base}/carcer/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  </div>
+  <div class="sy_zx2">
+  <h2>危机干预</h2>
+  <div class="xsjy1"><img src="../../${res}/img/weiji.jpg"/>
+  <ul style="width:200px; float:left;">
+  
+          [@cms_content_list count='10' channelId=116 titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+  
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=14 /]</a></li>
+	[#if a_index==4]
+	
+  </ul>
+  <ul style="width:200px; float:left;">
+  [/#if]
+     
+        [/#list]
+    [/@cms_content_list]
+
+  </ul>
+  <p align="right" style="padding-top:0px;"><a href="${base}/wjgy/index.htm" style="color:#900;">更多>></a></p>
+  </div>
+  </div>
+  <div ><img src="../../${res}/img/du.jpg" style="margin-left:3px;" /></div>
+</div>
+[#include "../include/foot.html"/]
+</body>
+</html>

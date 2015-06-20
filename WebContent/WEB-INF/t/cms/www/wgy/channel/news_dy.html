@@ -23,14 +23,45 @@ $(function() {
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
-[#include "../include/left.html"/]
+   <div id="left">
+     <table width="70%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
+         <td><a href="#">微信</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
   <div id="center">
   <div id="nav">
      <ul>
-        <li><a href="#">亲子关系</a></li>
+        <li><a href="ly_ejy.html">亲子关系</a></li>
         <li><a href="#">学生减压</a></li>
         <li><a href="#">婚恋情感</a></li>
-        <li><a href="#">机体健康</a></li>
+        <li><a href="ly_ejy_02.html">机体健康</a></li>
         <li class="li"><a href="#">职场EAP</a></li>
         <li class="li"><a href="#">生涯规划</a></li>
         <li class="li"><a href="#">危机干预</a></li>
@@ -38,68 +69,69 @@ $(function() {
   </div>
   <div id="nav1">
      <ul>
-        <li><a href="#"><img src="../../${res}/img/011.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/020.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/030.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/040.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/050.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/060.jpg" /></a></li>
-        <li><a href="#"><img src="../../${res}/img/070.jpg" /></a></li>
+        <li><a href="zzj_ejy.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image91','','../../${res}/img/011.jpg',1)"><img src="../../${res}/img/010.jpg" width="140" height="270" id="Image91" /></a></li>
+        <li><a href="kfw_ejy.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image90','','../../${res}/img/021.jpg',1)"><img src="../../${res}/img/020.jpg" width="140" height="270" id="Image90" /></a></li>
+        <li><a href="zxsym.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image89','','../../${res}/img/031.jpg',1)"><img src="../../${res}/img/030.jpg" width="140" height="270" id="Image89" /></a></li>
+        <li><a href="xsbl_ejy.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image88','','../../${res}/img/041.jpg',1)"><img src="../../${res}/img/040.jpg" width="140" height="270" id="Image88" /></a></li>
+        <li><a href="#"><img src="../../${res}/img/051.jpg" /></a></li>
+        <li><a href="js_ejy.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image87','','../../${res}/img/061.jpg',1)"><img src="../../${res}/img/060.jpg" width="140" height="270" id="Image87" /></a></li>
+        <li><a href="sc_ejy.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image86','','../../${res}/img/071.jpg',1)"><img src="../../${res}/img/070.jpg" width="140" height="270" id="Image86" /></a></li>
      </ul>
   </div>
   <div id="dy_ejy">
      <div id="dy_left">
        <div class="left_top">
         <ul>
-        [@cms_content_list count='3' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
+        [@cms_content_list count='3' channelId=channel.id   titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
          
-           <li [#if a_index==1] style="padding:0px 15px;" [/#if]>
-              <a href="${a.url}" target="_blank"  border="0">
-            <img src="${a.titleImg!site.typeImg}" border="0" />
-            </a>
-              <h4><a href="${a.url}">[@text_cut s=a.title len=22 /]</a><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></h4>
-              <p>[@text_cut s=a.description len=100 /]</p>
+           <li [#if a_index==1] style="padding:0px 25px;"  [/#if] >  
+              <a href="${a.url}" title="${a.title}" target="_blank">
+              <img src="${base}/${a.titleImg}" /></a>
+              <h4><a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=7 /]
+            </a><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></h4>
+              <p>[@text_cut s=a.description len=40 /]...</p>
            </li>
+		
+		
         [/#list]
     [/@cms_content_list]
         </ul>
        </div>
-       [@cms_content_page count='10' orderBy='4' Recommend='1' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+       [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
        <div class="left_list">
           <ul>
           
           [#list tag_pagination.list as a]
              <li>
-                 <a href="${a.url}" target="_blank"  border="0">
-            <img src="${a.titleImg!site.typeImg}" border="0" />
-            </a>
+             [#if a.titleImg!=""]   <img src="${base}/${a.titleImg}" />  [/#if]
                 <div style=" width:540px; float:left;">
                 <h4><a href="${a.url}" title="${a.title}" target="_blank">
             [@text_cut s=a.title len=22 /]
             </a></h4>
                 <div class="xingxing"><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></div>
-                <p>[@text_cut s=a.description len=200 /]</p>
+                <p>[@text_cut s=a.description len=200 /]...</p>
                 </div>
              </li>
-		[/#list]
-
+			[/#list]
           </ul>
        </div>
         <div id="fy_xin">
-<div class="page">[@cms_pagination sysPage='1'/]</div>
-    
-      [/@cms_content_page]
+   <div class="page">[@cms_pagination sysPage='1'/]</div>
    </div>
-     
+        [/@cms_content_page]
        
      </div>
-[#include "../include/right.html"/]
-  </div>
+    
+     
+   [#include "../include/right.html"/]
+  </div>    
       
   </div>
   </div>
 </div>
+
 <div id="sjxtk">
           <div id="sjxtk_left">
             升级你的内在系统
