@@ -106,6 +106,8 @@ public class MemberAct {
 			
 
 			Pagination bookPage = null ;
+			//未回复的
+			Pagination unReplyBookPage = null ;
 			if(user.getGroup().getId().equals(1)){
 				bookPage = cmsGuestbookMng.getPage(site.getId(), null,user.getId(), null,
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
@@ -115,10 +117,12 @@ public class MemberAct {
 				gotoPage = this.MEMBER_CENTER_XS;
 				bookPage = cmsGuestbookMng.getPage(site.getId(), null,null, user.getId(),
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
-				
+				unReplyBookPage = cmsGuestbookMng.getPage(site.getId(), null,null, 0,
+						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
 				
 			}
 			model.addAttribute("tabId", tabId);
+			model.addAttribute("unReplyBookPage", unReplyBookPage);
 			model.addAttribute("pagination", bookPage);
 			model.addAttribute("pageNo", bookPage.getPageNo());
 		}

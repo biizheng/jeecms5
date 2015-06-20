@@ -49,8 +49,13 @@ public class CmsGuestbookDaoImpl extends
 		}
 		//回复人
 		if (adminId != null) {
-			f.append(" and bean.admin.id=:adminId");
-			f.setParam("adminId", adminId);
+			if(adminId ==0){
+				f.append(" and bean.admin.id is null");
+			}else{
+				f.append(" and bean.admin.id=:adminId");
+				f.setParam("adminId", adminId);
+			}
+
 		}
 		if (recommend != null) {
 			f.append(" and bean.recommend=:recommend");
@@ -60,6 +65,7 @@ public class CmsGuestbookDaoImpl extends
 			f.append(" and bean.checked=:checked");
 			f.setParam("checked", checked);
 		}
+		
 		if (desc) {
 			f.append(" order by bean.id desc");
 		} else {
