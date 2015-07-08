@@ -55,6 +55,22 @@
                 $('#' + file.id).find('.data').html('上传完毕');
             }
         });
+		
+		  $("input[name='groupId']").bind("click",function(){ 
+		         
+		        //测试操作代码 
+		      //  alert($(this).val()); 
+		        var $selectedvalue = $(this).val(); 
+		        if ($selectedvalue == 1) {  
+		            $("#trLevel").hide();
+		        }
+		        else if ($selectedvalue == 2) { 
+		        	$("#trLevel").show();
+		        } 
+ 
+		    });
+
+		
 	});
 </script>
 </head>
@@ -102,7 +118,7 @@
                   <table cellspacing="0" cellpadding="0" align="center" border="0">
 			        <tr>
 			          <td width="130px"  style="padding:0px 25px;">
-			          <input type="radio" name="groupId" id="groupId1" value="1"/> <label for="groupId1">VIP会员</label>
+			          <input type="radio" name="groupId" id="groupId1" checked="checked" value="1"/> <label for="groupId1">VIP会员</label>
 			        </td>
 			          <td width="130px"  style="padding:0px 25px;">
 			          <input type="radio" name="groupId" id="groupId2" value="2"/><label for="groupId2">心师会员</label>
@@ -110,7 +126,7 @@
 			        </tr>
 			        </table>
                    
-                   <input type="hidden" name="groupId" value="1" />
+       
                     <table cellspacing="0" cellpadding="0" align="center" border="0">
                         <tbody>
 
@@ -138,15 +154,14 @@
                                 </td>
                             </tr>
                      
-                           <tr>
+                           <tr style="display: none;" id="trLevel">
                                 <td align="right"  height="30">级别：</td>
                                 <td>
                                 <select name="comefrom">
                                 	<option value="心理咨询师三级">心理咨询师三级</option>
                                 	<option value="心理咨询师二级" selected="selected">心理咨询师二级</option>
-                                	<option value="心理咨询师一级">心理咨询师一级</option>
                                 </select>
-                                <input class="input2" id="comefrom" maxlength="30"  name="comefrom" type="text" /></td>
+                                </td>
                             </tr>
                             <tr>
                                 <td align="right"  height="30">QQ：</td>
@@ -170,11 +185,12 @@
 					         <textarea rows="1" cols="30" name="intro" maxlength="230"></textarea>
 					         </td>
 					       </tr> 
-      <tr>
-         <td align="right">头像：</td>
-        <td ><input type="file" name="picUploadify" id="picUploadify" /><input type="hidden" name="userImg" id="userImg"/> 
-   			<img src="" id="userPic" alt="" width="50px" height="50px"/></td>
-      </tr>
+					       
+					      <tr>
+					         <td align="right">头像：</td>
+					        <td ><input type="file" name="picUploadify" id="picUploadify" /><input type="hidden" name="userImg" id="userImg"/> 
+					   			<img src="" id="userPic" alt="" width="50px" height="50px"/></td>
+					      </tr>
 
                             <tr>
                                 <td align="right"   height="30">验证码：</td>

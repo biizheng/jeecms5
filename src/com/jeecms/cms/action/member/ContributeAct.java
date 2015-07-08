@@ -21,6 +21,7 @@ import com.jeecms.cms.entity.main.Channel;
 import com.jeecms.cms.entity.main.CmsSite;
 import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.cms.entity.main.Content;
+import com.jeecms.cms.entity.main.ContentCheck;
 import com.jeecms.cms.entity.main.ContentExt;
 import com.jeecms.cms.entity.main.ContentTxt;
 import com.jeecms.cms.entity.main.ContentType;
@@ -224,6 +225,8 @@ public class ContributeAct {
 		}
 		Integer typeId = type.getId();
 		String[] tagArr = StrUtils.splitAndTrim(tagStr, ",", null);
+		//直接设置通过
+		c.setStatus(ContentCheck.CHECKED);
 		c = contentMng.save(c, ext, t, null, null, null, tagArr, null, null,
 				null, null, null, channelId, typeId, null, user, true);
 		log.info("member contribute save Content success. id={}", c.getId());

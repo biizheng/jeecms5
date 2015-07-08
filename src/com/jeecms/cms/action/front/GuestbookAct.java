@@ -138,7 +138,7 @@ public class GuestbookAct {
 	}
 
 	/**
-	 * 提交留言。ajax提交。
+	 * 回复咨询问题。
 	 * 
 	 * @param contentId
 	 * @param pageNo

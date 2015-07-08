@@ -120,10 +120,12 @@ public class MemberAct {
 				unReplyBookPage = cmsGuestbookMng.getPage(site.getId(), null,null, 0,
 						null, null, true, true, cpn(pageNo),CookieUtils.getPageSize(request));
 				
+						
 			}
 			model.addAttribute("tabId", tabId);
 			model.addAttribute("unReplyBookPage", unReplyBookPage);
 			model.addAttribute("pagination", bookPage);
+			model.addAttribute("contentPage", contentPage);
 			model.addAttribute("pageNo", bookPage.getPageNo());
 		}
 		
