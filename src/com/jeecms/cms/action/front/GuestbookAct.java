@@ -2,6 +2,8 @@ package com.jeecms.cms.action.front;
 
 import static com.jeecms.cms.Constants.TPLDIR_SPECIAL;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jeecms.cms.entity.assist.CmsGuestbook;
 import com.jeecms.cms.entity.assist.CmsGuestbookCtg;
+import com.jeecms.cms.entity.assist.CmsGuestbookExt;
 import com.jeecms.cms.entity.main.CmsSite;
 import com.jeecms.cms.entity.main.CmsUser;
 import com.jeecms.cms.manager.assist.CmsGuestbookCtgMng;
@@ -148,20 +151,20 @@ public class GuestbookAct {
 	 * @throws JSONException
 	 */
 	@RequestMapping(value = "/replyGuestbook.jspx", method = RequestMethod.POST)
-	public void reply(Integer siteId, Integer ctgId, String title,
-			String content, String email, String phone, String qq,
-			String captcha, HttpServletRequest request,
+	public void reply( Integer gBookId,
+			String reply,	String captcha, HttpServletRequest request,
 			HttpServletResponse response, ModelMap model) throws JSONException {
 		CmsSite site = CmsUtils.getSite(request);
 		CmsUser member = CmsUtils.getUser(request);
 		Msg msg = new Msg();
 		msg.setSuccess(false);
 		msg.setStatus("1");
-		if (siteId == null) {
-			siteId = site.getId();
-		}
+		CmsGuestbook book = null;
+		CmsGuestbookExt ext = null;
 		JSONObject json = new JSONObject();
 		try {
+
+			
 			if (!imageCaptchaService.validateResponseForID(session
 					.getSessionId(request, response), captcha)) {
 				msg.setTitle("验证码错误");
@@ -169,6 +172,17 @@ public class GuestbookAct {
 				ResponseUtils.renderJson(response, jsonObject.toString());
 				return;
 			}
+			
+			if(gBookId !=null && gBookId>0){
+				book = cmsGuestbookMng.findById(gBookId);
+				book.setAdmin(member);
+				book.setReplayTime(new Date());
+				book.setChecked(true);
+				ext = book.getExt();
+				ext.setReply(reply);
+			}
+			
+			
 		} catch (CaptchaServiceException e) {
 			msg.setTitle("验证码错误");
 			JSONObject jsonObject = JSONObject.fromObject(msg);
@@ -176,8 +190,7 @@ public class GuestbookAct {
 			return;
 		}
 		String ip = RequestUtils.getIpAddr(request);
-		cmsGuestbookMng.save(member, siteId, ctgId, ip, title, content, email,
-				phone, qq);
+		cmsGuestbookMng.save(book, ext, book.getCtg().getId(), ip);
 
 		msg.setSuccess(true);
 		msg.setStatus("0");

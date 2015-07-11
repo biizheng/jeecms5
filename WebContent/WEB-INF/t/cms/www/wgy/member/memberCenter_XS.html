@@ -18,22 +18,19 @@ $(function() {
 function tipContent(v){
 	$(".c").hide();
 	$("#dv"+v).show();
+	$("#hdGBId").val(v);
 }
 
 function formSubmit(){
 	
-	var ctgId = $("#ctgId").val();
-	var title = $("#title").val();
-	var content = $("#content").val();
+	var gBookId = $("#hdGBId").val();
+	var reply = $("#reply").val();
 	var captcha = $("#captcha").val();
 	
-	if(ctgId=="" || ctgId=="0"){
-		alert("请选择咨询分类");
+	if(gBookId=="" || gBookId=="0"){
+		alert("请选择一个咨询");
 		return;
-	}else if(title==""){
-		alert("请输入标题");
-		return;
-	}else if(content ==""){
+	}else if(reply ==""){
 		alert("请输入内容");
 		return;
 	}else if (captcha==""){
@@ -46,9 +43,8 @@ function formSubmit(){
             dataType: "json", //返回json格式的数据
             url: "${base}/replyGuestbook.jspx",
             data: {
-              ctgId:ctgId,
-              title:title,
-              content:content,
+              gBookId:gBookId,
+              reply:reply,
               captcha:captcha
             },
             complete : function(){}, //AJAX请求完成时隐藏loading提示
@@ -128,24 +124,22 @@ function formSubmit(){
        <div class="fy">
 
             <input type="hidden" name="pageNo"/>
-            
-                  
                 <input type="button" value="首 页" onclick="_gotoPage('1');"[#if unReplyBookPage.firstPage] disabled="disabled"[/#if]/>
                 <input type="button" value="上一页" onclick="_gotoPage('${unReplyBookPage.prePage}');"[#if unReplyBookPage.firstPage] disabled="disabled"[/#if]/>
                 <input type="button" value="下一页" onclick="_gotoPage('${unReplyBookPage.nextPage}');"[#if unReplyBookPage.lastPage] disabled="disabled"[/#if]/>
                 <input type="button" value="尾 页" onclick="_gotoPage('${unReplyBookPage.totalPage}');"[#if unReplyBookPage.lastPage] disabled="disabled"[/#if]/>&nbsp;
                 当前 ${unReplyBookPage.pageNo}/${unReplyBookPage.totalPage} 页
        
-       [/#if]         
-
+       [/#if]         /
+ 
        </div>
        <br/>
-     <form id="guestbookForm" name="guestbookForm" action="${base}/guestbook.jspx" method="post">
-     <input  type="hidden" id="ctgId" name="ctgId" value="0" />
+    
+    
     <input type="reset" name="reset" style="display: none;" />
-     <p>标题：<input name="title" id="title" type="text" size="40" class="required" size="12" title="标题不能为空" maxlength="255"/></p>
+    <input type="hidden"  name="hdGBId"  id="hdGBId"/>
      <br/>
-     <p>内容：<textarea name="content" id="content" class="cinput" cols="55" rows="4" class="required"  title="内容不能为空"></textarea></p>
+     <p>内容：<textarea name="reply" id="reply" class="cinput" cols="55" rows="4" class="required"  title="回复内容不能为空"></textarea></p>
             
            
             <p>
@@ -153,12 +147,12 @@ function formSubmit(){
             <img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/>
             </p>
   <br/>
-     <form id="form1" name="form1" method="post" action="">
+   
        <label>
        <input type="button" onclick="formSubmit();" name="sc" id="sc" value="提交" />
        </label>
 
-     </form>
+    
      </div>
   </div>
   [#elseif tabId==2]
@@ -253,7 +247,7 @@ function formSubmit(){
      <h2>云回复</h2>
        <ol>
        	[#list pagination.list as c]
-         <li>${c.titleHtml!}[${c.ctg.name}]</li>
+         <li><a href="${base}/guestbook/${c.id}.jspx" target="_blank"> ${c.titleHtml!}[${c.ctg.name}]</a></li>
 		[/#list]
        </ol>
        <div class="fy">
@@ -278,7 +272,7 @@ function formSubmit(){
      <h2>我的笔记</h2>
        <ol>
        	[#list contentPage.list as c]
-         <li>${c.title}【${c.releaseDate?string('yyyy-MM-dd')}】</li>
+         <li><a href="${c.url}" target="_blank">${c.title}【${c.releaseDate?string('yyyy-MM-dd')}】</a></li>
 		[/#list]
 
        </ol>

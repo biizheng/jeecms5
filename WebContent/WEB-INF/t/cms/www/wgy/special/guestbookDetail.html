@@ -51,8 +51,8 @@
   <div class="sjy_bt"> <img src="../../${res}/img/yhf2.jpg"/></div>
     <div id="dy_ejy">
      <div class="yhf_left">
-       <div class="yhf_top"> [#if guestbook.member.userImg??] <img src="${base}/${guestbook.member.userImg!}" /> [/#if]
-        <p>成长老师 [#if guestbook.member.comefrom??]（${guestbook.member.comefrom!}）[/#if]</p>
+       <div class="yhf_top"> [#if guestbook.admin.userImg??] <img src="${base}/${guestbook.admin.userImg!}" /> [/#if]
+        <p>成长老师 [#if guestbook.admin.comefrom??]（${guestbook.admin.comefrom!}）[/#if]</p>
         <p>解答了问题：${guestbook.titleHtml!} ${guestbook.ctg.name!?html}</p>
        </div>
        <h3>问题分类<a href="#">【${guestbook.ctg.name!?html}】</a></h3>
@@ -60,74 +60,16 @@
  		${guestbook.contentHtml!}       
  		</div>
        <h3>咨询师回复</h3>
+       
        <div class="yhf_hdk" style="margin-bottom:30px;">
        
-${guestbook.ReplyHtml!} 
+		${guestbook.replyHtml!} 
 
          </div>
      </div>
-     <div id="dy_right">
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/kfw2.jpg"/></div>
-   <div class="dy_bt_right"><a href="kfw_ejy.html">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="kfw_sjy.html">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-</ul>
-</div>
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/zxs.jpg" /></div>
-   <div class="dy_bt_right"><a href="zxsym.html">更多>></a></div>
-</div>
-<div class="dy_zxs">
-<ul>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-<p><a href="#">心理学主题网站</a></br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-   <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p></li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
- <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-</ul>
-</div>
-     </div>
+
+[#include "../include/right_kf.html"/]
+
      <div class="kfw_sl">
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
          <tr>

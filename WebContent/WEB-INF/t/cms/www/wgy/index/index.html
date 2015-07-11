@@ -216,11 +216,11 @@ function loginSubmit(){
 </div>
 <div id="sy_yhf">
    <ul>
-   [@cms_guestbook_list count='6']
+   [@cms_guestbook_list count='6' checked='1']
    [#list tag_list as m]
      <li>
-        [#if m.member.userImg??] <img src="${base}/${m.member.userImg!}" /> [/#if]
-         <p><a href="#">成长老师[#if m.member.comefrom??]（${m.member.comefrom!}）[/#if]</a></p>
+        [#if m.admin??] <img src="${base}/${m.admin.userImg!}" /> [/#if]
+         <p><a href="#">成长老师[#if m.admin.comefrom??]（${m.admin.comefrom!}）[/#if]</a></p>
          <p><a href="${base}/guestbook/${m.id}.jspx"><span>[${m.ctg.name!}]</span>：${m.titleHtml!}</a></p>
       </li>
  [/#list]    
