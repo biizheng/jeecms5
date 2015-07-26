@@ -204,11 +204,11 @@ function loginSubmit(){
    <ul>
       <li><a href="${base}/myself/index.htm"><img src="../../${res}/img/xl01.jpg" /></a></li>
       <li><a href="${base}/coffee/index.htm"><img src="../../${res}/img/xl02.jpg" /></a></li>
-      <li><a href="#"><img src="../../${res}/img/xl03.jpg" /></a></li>
+      <li><a href="${base}/teacher/index.htm"><img src="../../${res}/img/xl03.jpg" /></a></li>
       <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
       <li><a href="${base}/movies/index.htm"><img src="../../${res}/img/xl05.jpg" /></a></li>
       <li class="ts_li" ><a href="${base}/nlp/index.htm"><img src="../../${res}/img/xl06.jpg" /></a></li>
-      <li><a href="#"><img src="../../${res}/img/xl07.jpg" /></a></li>
+      <li><a href="${base}/market/index.htm"><img src="../../${res}/img/xl07.jpg" /></a></li>
    </ul>
 </div>
 <div class="sy_bt">
@@ -230,23 +230,26 @@ function loginSubmit(){
 </div>
 <div class="sy_bt">
    <div class="sy_bt_left">咨询师</div>
-   <div class="sy_bt_right"><a href="#">更多>></a></div>
+   <div class="sy_bt_right"><a href="${base}/teacher/index.htm">更多>></a></div>
 </div>
 <div id="sy_zxs">
 <DIV class=rollphotos>
 <DIV class=blk_29>
-<DIV class=LeftBotton id=LeftArr></DIV>
+
+   <div class="main_c21"><a class="prev" ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
  <div id="featureContainer">
 	<div id="feature">
+		
 		<div id="block">
 			<div id="botton-scroll">
 				<ul class="featureUL">
-[@cms_content_list count='8'   orderBy='24'   titLen='18' channelOption="1" ]
+[@cms_content_list count='100' channelPath='teacher'   orderBy='24'   titLen='18' channelOption="1" ]
  [#list tag_list as a]
 					<li class="featureBox">
 					<div class="box">
 						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
-						<img alt="${a.title}" src="${a.titleImgSmall!}" border="0" width="140" height="140">
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
 						</a></div>
 					</li>
  [/#list]
@@ -256,10 +259,12 @@ function loginSubmit(){
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>
+			
 	</div>
 	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next" ><img src="../../${res}/img/right.jpg" border="0" /></a></div>
 
-<a class="next" ><img src="../../${res}/images/ca_hz_002.gif" border="0" /></a>
 </DIV>
 
 </DIV>
