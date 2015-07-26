@@ -11,12 +11,12 @@ body,div,ul,li,h1,h2,h3,h4,p{ margin:0px; padding:0px; font-weight:100;}
 #zd_left a{ color:#333; text-decoration:none;}
 #zd_left a img{ border:none;}
 
-#zd_lb #zd_center{ width:1000px; float:left; height:530px;}
+#zd_lb #zd_center{ width:1000px; float:left; height:450px;z-index: -1;}
 a img{ border:none;}
 /*jiaodiantu*/
 #zd_center div{ overflow:hidden;}
 #zd_center img{ border:none; vertical-align:top;}
-#zd_center .picshow { margin:0 auto; width:1000px; height:450px;}
+#zd_center .picshow { margin:0 auto; width:1000px; height:450px;z-index: -1;position:inherit;}
 #zd_center #picarea { margin:0 auto; width:1000px; height:530px;}
 #zd_center #bigpicarea { position:relative; width:1000px; height:450px; overflow:hidden;}
 #zd_center .image { text-align:center;}
@@ -37,7 +37,7 @@ a img{ border:none;}
 #zd_center #big_play_next {	BACKGROUND-IMAGE: url(../images/rightbig.png); WIDTH: 35px; DISPLAY: block; HEIGHT: 51px; _background: none; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=crop,src='../images/rightbig.png')}
 #zd_center #smallpicarea {	MARGIN: 0px auto; WIDTH: 1000px;}
 /*huiyuanpiaofu*/
-#zd_lb #zd_center_float{ z-index:999px; position:relative; top:-500px; right:20px; width:210px; height:300px; background:url(../IMG/piaobj.png); float:right; padding:30px 40px 20px 20px;}
+#zd_lb #zd_center_float{ z-index:9999px; position:relative; top:-500px; right:20px; width:210px; height:300px; background:url(../IMG/piaobj.png); float:right; padding:30px 40px 20px 20px;}
 #zd_center_float table{ width:210px; font-size:16px;}
 #zd_center_float a{ color:#333; text-decoration:none;}
 #yhm,#mm{ width:150px; height:30px; background:none; border-color:#fff; border-style:solid; border-width:0px 2px 2px 2px; }
