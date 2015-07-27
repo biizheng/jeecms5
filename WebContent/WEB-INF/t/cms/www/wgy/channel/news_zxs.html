@@ -58,24 +58,29 @@ $(function() {
   <div id="center">
   <h2><img src="../../${res}/img/zxs.jpg" /></h2>
   
+  [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
+ 
+  [#list tag_pagination.list as a]
   
   <div class="zxs_bj">
-     <div class="zxs_left"><img src="../../${res}/img/jiaoshi.jpg" /><br />
-     <p>安妮老师<br />
-     国家二级心理咨询师</p>
+     <div class="zxs_left"><a href="${a.url}" target="_blank" title="${a.title}"><img src="${a.titleImg!}" border="0" /></a><br />
+     <p><a href="${a.url}" target="_blank"  title="${a.title}">${a.title}</a><br />
+   ${a.stitle}</p>
      </div>
      <div class="zxs_right">
      <h3>咨询师简介</h3>
-     <p>层层纱帐掀开，从云纸窗里透出来的光，照着床里起身的那个倩影。乌月髻，新柳眉，杏仁眼，粉莲唇。面若桃花，肤如玉蚌。皓腕轻抬，妙目一转。真真是明月佳人来，艳丽非凡。</p>
+     <p>[#if a.description??] [@text_cut s=a.description len='80' append='...'/][/#if]</p>
      <h3>擅长咨询</h3>
-     <p>层层纱帐掀开，从云纸窗里透出来的光，照着床里起身的那个倩影。乌月髻，新柳眉，杏仁眼，粉莲唇。面若桃花，肤如玉蚌。皓腕轻抬，妙目一转。真真是明月佳人来，艳丽非凡。</p>
+     <p>[#if a.txt??]  [@text_cut s=a.txt len='100' append='...'/][/#if]</p>
      </div>
   </div>
+[/#list]
 
+ <div class="page">[@cms_pagination sysPage='1'/]</div>
+ 
 
-
-  
-  
+ 
+   <div style="clear: both;"> [/@cms_content_page] </div>
   
 <div style="clear:both" class=" zxs_lb">
 <div id="scrollbox_8" class="scrollbox">
