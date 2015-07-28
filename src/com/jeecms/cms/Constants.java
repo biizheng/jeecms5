@@ -9,10 +9,12 @@ public class Constants {
 	 * 首页模板
 	 */
 	public static final String TPLDIR_INDEX = "index";
+	
 	/**
 	 * 栏目页模板
 	 */
 	public static final String TPLDIR_CHANNEL = "channel";
+	
 	/**
 	 * 内容页模板
 	 */

@@ -1,0 +1,70 @@
+  <div id="nav">
+     <ul>
+        <li><a href="${base}/qinzi/index.htm">亲子关系</a></li>
+        <li><a href="${base}/xsjy/index.htm">学生减压</a></li>
+        <li><a href="${base}/hlqg/index.htm">婚恋情感</a></li>
+        <li><a href="${base}/jtjk/index.htm">机体健康</a></li>
+        <li class="li"><a href="${base}/eap/index.htm">职场EAP</a></li>
+        <li class="li"><a href="${base}/carceer/index.htm">生涯规划</a></li>
+        <li class="li"><a href="${base}/wjgy/index.htm">危机干预</a></li>
+     </ul>
+  </div>
+  <div id="nav1">
+     <ul>
+     [#if channel??]
+     	
+        <li><a href="${base}/myself/index.htm">
+        [#if channel.path='myself']
+        <img src="../../${res}/img/011.jpg" />
+        
+        [#else]
+         <img src="../../${res}/img/010.jpg" />
+        [/#if]
+        </a>
+        </li>
+        
+        <li><a href="${base}/coffee/index.htm">
+         [#if channel.path='coffee']
+        <img src="../../${res}/img/021.jpg" />
+        [#else]
+         <img src="../../${res}/img/020.jpg" />
+        [/#if]
+        </a></li>
+        <li><a href="${base}/teacher/index.htm">
+        [#if channel.path='teacher']
+        <img src="../../${res}/img/031.jpg" />
+        [#else]
+         <img src="../../${res}/img/030.jpg" />
+        [/#if]
+        </a></li>
+        <li><a href="${base}/heartRecord/index.htm">
+        [#if channel.path='heartRecord']
+        <img src="../../${res}/img/041.jpg" />
+        [#else]
+        <img src="../../${res}/img/040.jpg" />
+        [/#if]
+        </a></li>
+        <li><a href="${base}/movies/index.htm">
+        [#if channel.path='movies']
+        <img src="../../${res}/img/051.jpg" />
+        [#else]
+        <img src="../../${res}/img/050.jpg" />
+        [/#if]
+        </a></li>
+        <li><a href="${base}/nlp/index.htm">
+        [#if channel.path='nlp']
+        <img src="../../${res}/img/061.jpg" />
+        [#else]
+        <img src="../../${res}/img/060.jpg" />
+        [/#if]
+        </a></li>
+        <li><a href="${base}/market/index.htm">
+        [#if channel.path='market']
+        <img src="../../${res}/img/071.jpg" />
+        [#else]
+        <img src="../../${res}/img/070.jpg" />
+        [/#if]
+        </a></li>
+        [/#if]
+     </ul>
+  </div>
