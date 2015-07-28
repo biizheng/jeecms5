@@ -1,0 +1,326 @@
+<!DOCTYPE HTML><!-- 成长商城 -->
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${channel.title!channel.name} - ${site.name}</title>
+<head>
+<!--[if lt IE 9]>
+<script src="${resSys}/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
+<link href="/${resSys}/front.css" rel="stylesheet" type="text/css"/>
+<script src="${resSys}/jquery.1.8.2.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="/${res}/js/common.js" type="text/javascript"></script>
+<script src="${resSys}/jcarousellite.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+
+	$("#botton-scroll").jCarouselLite({
+		btnNext: ".next",  
+		btnPrev: ".prev",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
+
+	$("#botton-scroll2").jCarouselLite({
+		btnNext: ".next2",  
+		btnPrev: ".prev2",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
+	
+	$("#botton-scroll3").jCarouselLite({
+		btnNext: ".next3",  
+		btnPrev: ".prev3",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
+	$("#botton-scroll4").jCarouselLite({
+		btnNext: ".next4",  
+		btnPrev: ".prev4",
+	    auto: 5000,
+	    speed: 1000,
+	    visible: 4
+	});
+	
+	$("#botton-scroll5").jCarouselLite({
+		btnNext: ".next5",  
+		btnPrev: ".prev5",
+	    auto: 2000,
+	    speed: 1000,
+	    visible: 4
+	});
+});
+</script>
+</head>
+<body>
+[#include "../include/top.html"/]
+[#include "../include/header_register.html"/]
+
+<div id="com">
+<div style="width:1360px; margin:0 auto;">
+   <div id="left">
+     <table width="70%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
+         <td><a href="#">微信</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
+         <td><a href="#">微博</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
+         <td><a href="#">博客</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ客服</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
+         <td><a href="#">QQ群</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
+         <td><a href="#">腾讯课堂</a></td>
+        </tr>
+       <tr>
+         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
+         <td><a href="#">电话</a></td>
+        </tr>
+     </table>
+   </div>
+  <div id="center">
+  <div id="nav">
+     <ul>
+        <li><a href="ly_ejy.html">亲子关系</a></li>
+        <li><a href="#">学生减压</a></li>
+        <li><a href="#">婚恋情感</a></li>
+        <li><a href="ly_ejy_02.html">机体健康</a></li>
+        <li class="li"><a href="#">职场EAP</a></li>
+        <li class="li"><a href="#">生涯规划</a></li>
+        <li class="li"><a href="#">危机干预</a></li>
+     </ul>
+  </div>
+  <div id="nav1">
+     <ul>
+        <li><a href="zzj_ejy.html" ><img src="../../${res}/img/010.jpg" width="140" height="270" id="Image91" /></a></li>
+        <li><a href="kfw_ejy.html" ><img src="../../${res}/img/020.jpg" width="140" height="270" id="Image90" /></a></li>
+        <li><a href="zxsym.html" ><img src="../../${res}/img/030.jpg" width="140" height="270" id="Image89" /></a></li>
+        <li><a href="xsbl_ejy.html" ><img src="../../${res}/img/040.jpg" width="140" height="270" id="Image88" /></a></li>
+        <li><a href="xsbl_ejy.html"><img src="../../${res}/img/050.jpg" /></a></li>
+        <li><a href="js_ejy.html" ><img src="../../${res}/img/060.jpg" width="140" height="270" id="Image87" /></a></li>
+        <li><a href="#" ><img src="../../${res}/img/071.jpg" width="140" height="270" id="Image86" /></a></li>
+     </ul>
+  </div>
+  
+  <div id="dy_ejy">
+     <div id="dy_left">
+
+<div class="sc_lb" >
+<h2><img src="../../${res}/img/sc001.jpg" /></h2>
+<div id="scrollbox_1" class="scrollbox">
+
+   <div class="main_c21"><a class="prev" ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
+ <div id="featureContainer" style="width:600px;">
+	<div id="feature">
+		
+		<div id="block">
+			<div id="botton-scroll">
+				<ul class="featureUL">
+[@cms_content_list count='100' channelPath='eBook'   orderBy='24'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+			
+	</div>
+	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next" ><img src="../../${res}/img/right.jpg" border="0" /></a></div>
+
+	
+</div>
+
+</div>
+<div class="sc_lb">
+<h2><img src="../../${res}/img/sc002.jpg" /></h2>
+<div id="scrollbox_2" class="scrollbox">
+
+
+   <div class="main_c21"><a class="prev2"  ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
+ <div id="featureContainer" style="width:600px;">
+	<div id="feature">
+		
+		<div id="block">
+			<div id="botton-scroll2">
+				<ul class="featureUL">
+[@cms_content_list count='100' channelPath='record'   orderBy='24'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+			
+	</div>
+	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next2"><img src="../../${res}/img/right.jpg" border="0" /></a></div>
+
+</div>
+</div>
+<div class="sc_lb">
+<h2><img src="../../${res}/img/sc003.jpg" /></h2>
+<div id="scrollbox_3" class="scrollbox">
+   <div class="main_c21"><a class="prev3" ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
+ <div id="featureContainer" style="width:600px;">
+	<div id="feature">
+		
+		<div id="block">
+			<div id="botton-scroll3">
+				<ul class="featureUL">
+[@cms_content_list count='100' channelPath='viper'   orderBy='4'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+			
+	</div>
+	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next3" ><img src="../../${res}/img/right.jpg" border="0" /></a></div>
+</div>
+</div>
+<div class="sc_lb">
+<h2><img src="../../${res}/img/sc004.jpg" /></h2>
+<div id="scrollbox_4" class="scrollbox">
+   <div class="main_c21"><a class="prev4" ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
+ <div id="featureContainer" style="width:600px;">
+	<div id="feature">
+		
+		<div id="block">
+			<div id="botton-scroll4">
+				<ul class="featureUL">
+[@cms_content_list count='100' channelPath='course'   orderBy='4'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+			
+	</div>
+	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next4" ><img src="../../${res}/img/right.jpg" border="0" /></a></div>
+</div>
+
+</div>     
+<div class="sc_lb">
+<h2><img src="../../${res}/img/sc005.jpg" /></h2>
+<div id="scrollbox_5" class="scrollbox5">
+   <div class="main_c21"><a class="prev5" ><img src="../../${res}/img/left.jpg" border="0" /></a></div>
+   
+ <div id="featureContainer" style="width:600px;">
+	<div id="feature">
+		
+		<div id="block">
+			<div id="botton-scroll5">
+				<ul class="featureUL">
+[@cms_content_list count='100' channelPath='teacher'   orderBy='24'   titLen='18' channelOption="1" ]
+ [#list tag_list as a]
+					<li class="featureBox">
+					<div class="box">
+						<a href="${a.urlWhole}" target="_blank" title="${a.title}"> 
+						<img alt="${a.title}" src="${a.titleImg!}" border="0" width="110" height="150">
+						</a></div>
+					</li>
+ [/#list]
+[/@cms_content_list]
+
+
+				</ul>
+			</div>
+			<!-- /botton-scroll --></div>
+			
+	</div>
+	<!-- /feature --></div>
+	
+	 <div class="main_c21"><a class="next5" ><img src="../../${res}/img/right.jpg" border="0" /></a></div>
+</div>
+
+</div>  
+  
+     </div>
+ [#include "../include/right.html"/]
+  </div>
+    
+      
+  </div>
+  </div>
+</div>
+
+<div id="sjxtk">
+          <div id="sjxtk_left">
+            升级你的内在系统
+          </div>
+          <div id="sjxtk_right">
+            <ul>
+               <li><a href="#"><img src="../../${res}/img/ld01.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld02.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld03.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld04.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld05.jpg" /></a></li>
+               <li><a href="#"><img src="../../${res}/img/ld06.jpg" /></a></li>
+            </ul>
+            </div>
+       </div>
+[#include "../include/foot.html"/]
+</body>
+</html>
