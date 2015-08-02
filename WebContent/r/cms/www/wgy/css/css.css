@@ -11,16 +11,16 @@ body,div,ul,li,h1,h2,h3,h4,p{ margin:0px; padding:0px; font-weight:100;}
 #zd_left a{ color:#333; text-decoration:none;}
 #zd_left a img{ border:none;}
 
-#zd_lb #zd_center{ width:1000px; float:left; height:450px;z-index: -1;}
+#zd_lb #zd_center{ width:700px; float:left; height:450px;z-index: -1;}
 a img{ border:none;}
 /*jiaodiantu*/
 #zd_center div{ overflow:hidden;}
 #zd_center img{ border:none; vertical-align:top;}
-#zd_center .picshow { margin:0 auto; width:1000px; height:450px;z-index: -1;position:inherit;}
+#zd_center .picshow { margin:0 auto; width:700px; height:450px;z-index: -1;position:inherit;}
 #zd_center #picarea { margin:0 auto; width:1000px; height:530px;}
-#zd_center #bigpicarea { position:relative; width:1000px; height:450px; overflow:hidden;}
+#zd_center #bigpicarea { position:relative; width:700px; height:350px; overflow:hidden;}
 #zd_center .image { text-align:center;}
-#zd_center .image IMG { width:1000px; height:450px;}
+#zd_center .image IMG { width:700px; height:350px;}
 #zd_center #bigpicarea .word { text-align:center; height:50px; color:#333;}
 #zd_center #bigpicarea .word H3 { text-align:center; line-height:40px; height:40px; color:#333; }
 #zd_center #bigpicarea .ui-els-hide { display:none;}
@@ -37,7 +37,7 @@ a img{ border:none;}
 #zd_center #big_play_next {	BACKGROUND-IMAGE: url(../images/rightbig.png); WIDTH: 35px; DISPLAY: block; HEIGHT: 51px; _background: none; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=crop,src='../images/rightbig.png')}
 #zd_center #smallpicarea {	MARGIN: 0px auto; WIDTH: 1000px;}
 /*huiyuanpiaofu*/
-#zd_lb #zd_center_float{ z-index:9999px; position:relative; top:-500px; right:20px; width:210px; height:300px; background:url(../IMG/piaobj.png); float:right; padding:30px 40px 20px 20px;}
+#zd_lb #zd_center_float{ z-index:9999px;  top:-500px; right:20px; width:210px; height:300px; background:url(../IMG/piaobj.png); float:left; padding:30px 40px 20px 20px;}
 #zd_center_float table{ width:210px; font-size:16px;}
 #zd_center_float a{ color:#333; text-decoration:none;}
 #yhm,#mm{ width:150px; height:30px; background:none; border-color:#fff; border-style:solid; border-width:0px 2px 2px 2px; }
@@ -47,7 +47,7 @@ a img{ border:none;}
 .float_dl_fs{ height:40px;}
 .float_dl_fs img{ height:30px;}
 
-#zd_lb #zd_right{ width:130px; float:left; padding:20px 0px 0px 20px;}
+#zd_lb #zd_right{ width:300px; float:left; padding:20px 0px 0px 20px;}
 #zd_right h3{ line-height:50px; text-align:center; font-size:16px;}
 #zd_right p{ line-height:30px;}
 #zd_right table tr td{ padding:5px 0px;}
@@ -477,7 +477,7 @@ a img{ border:none;}
 	{
 		color:#36f;
 		font:700 11px "Arial";
-		background:url(images/slide_trigger.gif) no-repeat;
+		background:url(../images/slide_trigger.gif) no-repeat;
 		float:left;
 		width:18px;
 		height:18px;
@@ -489,12 +489,12 @@ a img{ border:none;}
 	#btn2 a.activeSlide
 	{	
 		color:#fff;
-		background:url(images/slide_trigger_c.gif) no-repeat;
+		background:url(../images/slide_trigger_c.gif) no-repeat;
 	}
 	#btn2 a:hover
 	{	
 		color:#fff;
-		background:url(images/slide_trigger_c.gif) no-repeat;
+		background:url(../images/slide_trigger_c.gif) no-repeat;
 	}
 
 

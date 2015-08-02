@@ -110,25 +110,21 @@ function loginSubmit(){
   <div id="zd_center">
    
    <!--  轮播  -->
-   
-   
-   
-<DIV style="HEIGHT: 420px;" class="wrap picshow"><!--大图轮换区-->
+<DIV style="HEIGHT:360px;" class="wrap picshow"><!--大图轮换区-->
 <div  id="pics" style="clear:both;">
 [@cms_content_list count='5'  siteId=site.id  typeId='3' orderBy='4'  titLen='18' channelOption="1"]
  [#list tag_list as a]
-
-
-<a href="${a.url}" target="_blank"><img src="${a.typeImg!site.defImg}" alt="${a.title}" width="1002px" height="400px" border="0" /></a>  
-
+<a href="${a.url}" target="_blank"><img src="${a.typeImg!site.defImg}" alt="${a.title}" width="750px" height="350px" border="0" /></a>  
  [/#list]
 [/@cms_content_list]
-
 </div>
-<div id="btn2" style="left: 550px;"></div>
+<div id="btn2" style="left:550px;"></div>
 </DIV>
    
-   
+  </div>
+   <div id="zd_right">
+
+      <div>
    <!--  fudonghuiyuan  -->
       <div id="zd_center_float">
       [#if user??]
@@ -169,32 +165,11 @@ function loginSubmit(){
             <input type="button" name="sy_dl" id="sy_dl" onclick="loginSubmit();return false;" value="登录" />
           </label>          </td>
         </tr>
-        <tr>
-          <td colspan="3">
-            <table style="margin:10px 20px 0px 20px; width:180px;">
-               <tr class="float_dl_fs">
-                 <td> <img src="../../${res}/img/qq.png" /></td>
-                 <td><a href="#">QQ账号登录</a></td>
-               </tr>
-               <tr class="float_dl_fs">
-               <td> <img src="../../${res}/img/shouji.png" /></td>
-               <td><a href="#">手机号登录</a></td> 
-               </tr>
-            </table>
-          
-          </td>
-          </tr>
+
       </table>
       </form>
       [/#if]
       </div>
-      
-  </div>
-   <div id="zd_right">
-
-      <div>
-        
-        <p></p>
         
       </div>
    </div>
