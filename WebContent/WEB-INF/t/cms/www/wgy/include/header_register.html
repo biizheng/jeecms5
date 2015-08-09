@@ -2,8 +2,9 @@
  <div id="xhywz">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
+  <td width="5%"><a href="${base}">首页</a></td>
   [#if user??]
-    <td width="7%">[#if user.userImg??]<img src="${base}/${user.userImg!}" />[/#if]</td>
+    <td width="7%">[#if user.userImg??]<img src="${base}${user.userImg!}" />[/#if]</td>
     <td width="7%">[#if user.group.id==1]<img src="../../${res}/img/VIP.jpg" />[/#if][#if user.group.id==2]<img src="../../${res}/img/xs.jpg" />[/#if]</td>
     <td width="7%">会员名： ${user.username}</td>
     <td width="10%">地区：${user.area!}</td>

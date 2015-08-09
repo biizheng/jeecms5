@@ -196,7 +196,7 @@ function loginSubmit(){
    [#list tag_list as m]
      <li>
         [#if m.admin??] <img src="${base}/${m.admin.userImg!}" /> [/#if]
-         <p><a href="#">成长老师[#if m.admin.comefrom??]（${m.admin.comefrom!}）[/#if]</a></p>
+         <p><a href="${base}/guestbook/${m.id}.jspx"">成长老师[#if m.admin.comefrom??]（${m.admin.comefrom!}）[/#if]</a></p>
          <p><a href="${base}/guestbook/${m.id}.jspx"><span>[${m.ctg.name!}]</span>：${m.titleHtml!}</a></p>
       </li>
  [/#list]    
@@ -275,7 +275,12 @@ function loginSubmit(){
 
    </ul>
 </div>
-<div class="sy_gg"><img src="../../${res}/img/GG.jpg" /></div>
+<div class="sy_gg">
+   [@cms_advertising id='8']
+    <a href="${tag_bean.attr.image_link!}" target="_blank"> <img src="${(tag_bean.attr.image_url)!?html}"   width="1000" height="200"  border="0" /></a> 
+   
+   [/@cms_advertising]
+</div>
 <div id="sy_zx">
  <div class="sy_zx1">
   </div>
@@ -381,7 +386,7 @@ function loginSubmit(){
         [/#list]
     [/@cms_content_list]
   </ul>
-  <p align="right" style="padding-top:0px;"><a href="${base}/carcer/index.htm" style="color:#900;">更多>></a></p>
+  <p align="right" style="padding-top:0px;"><a href="${base}/career/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
   <div class="sy_zx2">

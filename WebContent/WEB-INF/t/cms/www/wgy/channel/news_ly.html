@@ -55,34 +55,19 @@ $(function() {
         </tr>
      </table>
    </div>
-  <div id="center"><div class="ly_top">
-       <ul>
-          <li><a href="zzj_ejy.html"><img src="../../${res}/img/xl01.jpg" /></a></li>
-          <li><a href="kfw_ejy.html"><img src="../../${res}/img/xl02.jpg" /></a></li>
-          <li><a href="zxsym.html"><img src="../../${res}/img/xl03.jpg" /></a></li>
-          <li style="border-right:none;"><a href="xsbl_ejy.html"><img src="../../${res}/img/xl04.jpg" /></a></li>
-          <li><a href="dy_ejy.html"><img src="../../${res}/img/xl05.jpg" /></a></li>
-          <li><a href="js_ejy.html"><img src="../../${res}/img/xl06.jpg" /></a></li>
-          <li style="border-right:none;"><a href="sc_ejy.html"><img src="../../${res}/img/xl07.jpg" /></a></li>
-       </ul>
+  <div id="center">
+  <div class="ly_top">
+   <ul>
+      <li><a href="${base}/myself/index.htm"><img src="../../${res}/img/xl01.jpg" /></a></li>
+      <li><a href="${base}/coffee/index.htm"><img src="../../${res}/img/xl02.jpg" /></a></li>
+      <li><a href="${base}/teacher/index.htm"><img src="../../${res}/img/xl03.jpg" /></a></li>
+      <li><a href="${base}/heartRecord/index.htm"><img src="../../${res}/img/xl04.jpg" /></a></li>
+      <li><a href="${base}/movies/index.htm"><img src="../../${res}/img/xl05.jpg" /></a></li>
+      <li class="ts_li" ><a href="${base}/nlp/index.htm"><img src="../../${res}/img/xl06.jpg" /></a></li>
+      <li><a href="${base}/market/index.htm"><img src="../../${res}/img/xl07.jpg" /></a></li>
+   </ul>
     </div>
-    <div class="ly_lb">
-    <div id="xxx"  >
-     <script>
-     var box =new PPTBox();
-     box.width = 1000; //宽度
-     box.height = 350;//高度
-     box.autoplayer = 3;//自动播放间隔时间
 
-     //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
-     box.add({"url":"images/001.jpg","href":"#"})
-     box.add({"url":"images/002.jpg","href":"#"})
-     box.add({"url":"images/003.jpg","href":"#"})
-     box.add({"url":"images/004.jpg","href":"#"})
-     box.show();
-    </script>
-</div>
-    </div>
     <div class="jsby">
       <ul>
          <li><a href="#"><img src="../../${res}/img/yl02.jpg" /></a>
@@ -107,77 +92,70 @@ $(function() {
      <div id="dy_left">
         <div class="ly_left"><img src="../../${res}/img/yl_left.jpg" width="230" height="229" />
            <ul>
-              <li style="border-top:none; background:#FCD12C;"><a href="#">亲子关系</a></li>
-              <li><a href="#">学生减压</a></li>
-              <li><a href="#">婚恋情感</a></li>
-              <li><a href="ly_ejy_02.html">肌体健康</a></li>
-              <li><a href="#">职场EAP</a></li>
-              <li><a href="#">生涯规划</a></li>
-              <li><a href="#">危机干预</a></li>
+           
+           [@cms_channel_list parentId=channel.topChannel.id]
+           
+                        
+              [#list tag_list as c]
+                 <li [#if c.id==channel.id] style="border-top:none; background:#FCD12C;" [/#if]><a href="${c.url}">${c.name}</a></li>
+	         [/#list]
+			[/@cms_channel_list] 
+			
            </ul>
         </div>
         <div class="ly_right">
           <div class="ly_right_top">
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
-  <tr>
-    <td width="72%"><h3><a href="ly_sjy.html"><img src="../../${res}/img/huahua.jpg" /></a></h3></td>
-    <td width="28%"><p><a href="ly_sjy.html">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</a></p>
+          
+        [@cms_content_list count='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+         [#if a_index==0]
+         
+           <tr>
+    <td width="72%"><h3> <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+            <img src="${a.titleImg!}" border="0" style=" width:330px;height: 200px;"/>
+            </a></h3></td>
+    <td width="28%"><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=200 /]</a></p>
          </p></td>
   </tr>
-  <tr>
-    <td height="206"><a href="#"><img src="../../${res}/img/huahua.jpg" /></a></td>
-    <td><p><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</a></p>
-         <p><a href="#">比白.</a></p></td>
+         
+		[/#if]
+         [#if a_index==1]
+           <tr>
+    <td height="206">         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+            <img src="${a.titleImg!}" border="0" style=" width:330px;height: 200px;"/>
+            </a></td>
+    <td><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=200 /]</a></p>
+        </td>
   </tr>
+         
+         
+        <li><p>[@text_cut s=a.description len=200 /]</p></li>
+        <li>
+
+        </li>
+		[/#if]
+		
+        [/#list]
+    [/@cms_content_list]
 </table>
 </div>
+[@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
 <div class="ly_right_list">
    <ul>
-      <li><a href="ly_sjy.html">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
-      <li><a href="#">不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></li>
+   
+       [#list tag_pagination.list as a]
+         <li><a href="${a.url}" title="${a.title}" target="_blank">
+            [@text_cut s=a.title len=22 /]
+            </a></li>
+         [/#list]
    </ul>
    <div id="fy_xin">
-    <ul>
-       <li><a href="#">上一页</a></li>
-       <li><a href="#">1</a></li>
-       <li><a href="#">2</a></li>
-       <li><a href="#">3</a></li>
-       <li><a href="#">下一页</a></li>
-       <li><form action="" method="get">
-       <a href="#">跳转到
-       <label for="fy_tzk"></label>
-       <input type="text" name="fy_tzk" id="fy_tzk" />
-       </a>页
-       <input type="submit" name="fy_an" id="fy_an" value="确定" />
-       </form></li>
-    </ul>
+<div class="page">[@cms_pagination sysPage='1'/]</div>
    </div>
+   [/@cms_content_page]
 </div>
+
         </div>
      
      
@@ -185,115 +163,7 @@ $(function() {
        
        
      </div>
-     <div id="dy_right">
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/yhf2.jpg" /></div>
-   <div class="dy_bt_right"><a href="yhf_ejy.html">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理...</a></p>
-         <p><a href="yhf_sjy.html">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style=" background:none;">
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-</ul>
-</div>
-     <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/zxs.jpg" /></div>
-   <div class="dy_bt_right"><a href="zxsym.html">更多>></a></div>
-</div>
-<div class="dy_zxs">
-<ul>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-<p><a href="#">心理学主题网站</a></br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-   <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p></li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
- <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-  <li><a href="#"><img src="../../${res}/img/dy_tpli.png" /></a>
-  <p><a href="#">心理学主题网站</a><br />
-<a href="#">国内最值得信</a><br />
-<a href="#">赖的心理学平</a></p>
-  </li>
-</ul>
-</div>
-<div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/kfw2.jpg" /></div>
-   <div class="dy_bt_right"><a href="kfw_ejy.html">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="kfw_sjy.html">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style="background:none;">
-         <img src="../../${res}/img/kafeiwu.png"/>
-         <p><a href="#">成长老师（国家二级心理咨询师）</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-</ul>
-</div>
-  <div class="dy_bt">
-   <div class="dy_bt_left"><img src="../../${res}/img/xsbl2.jpg" /></div>
-   <div class="dy_bt_right"><a href="xsbl_ejy.html">更多>></a></div>
-</div>
-<div class="dy_yhf">
-<ul>
-     <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理...</a></p>
-         <p><a href="xsbl_sjy.html">解决了问题：害怕一个人</a></p>
-      </li>
-      <li>
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级心理咨...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-      <li style=" background:none;">
-         <img src="../../${res}/img/right01.jpg" />
-         <p><a href="#">成长老师（国家二级...</a></p>
-         <p><a href="#">解决了问题：害怕一个人</a></p>
-      </li>
-</ul>
-</div>
-
-     </div>
+[#include "../include/right.html"/]
   </div>    
       
   </div>
