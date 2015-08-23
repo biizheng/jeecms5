@@ -590,3 +590,7 @@ BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999
 .hydl .dl_box table{ margin-bottom:20px;}
 #hydl01,#hydl02,#hydl03,#hydl04,#hydl05,#hydl06,#hydl07,#hydl08,#hydl09{ width:288px; height:30px; background:none; border-width:1px; border-color:#ddd; border-style:solid; margin:0px; padding:0px;}
 #hydl_an{ background:#FCD12C; border:none; line-height:30px; font-size:16px; width:90px; margin-top:5px;}
+
+.xbox{ width:50px; height:50px;}
+.big_xbox{ position: absolute; display: none;z-index: 9999;}
+.wx_ewm{ text-align: center; padding: 10px;}
