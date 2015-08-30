@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商城模板</title>
+</head>
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/nav.js"></script>
+<script>
+$(function(){
+	$(".gr_d").hover(function(){
+			x=$(".gr_d").index(this)
+			$(".gr_d").eq(x).animate({left:-10},500);
+		},function(){
+			$(".gr_d").eq(x).animate({left:0},500);
+			});
+})
+$(function(){
+	$(".grid_2").hover(function(){
+			x=$(".grid_2").index(this)
+			$(".grid_2").eq(x).animate({left:-8},500);
+		},function(){
+			$(".grid_2").eq(x).animate({left:0},500);
+			});
+})
+
+
+</script>
+<style>
+/*--天天特价--*/
+.bargain{width:1210px; margin:0 auto;}
+.ba_title{ overflow:hidden; font-size:20px; font-family:"Microsoft Yahei"; color:#5a5959; line-height:32px; margin:5px 0;}
+.ba_title img{float:left; margin-right:13px;}
+
+.ba_details{ overflow:hidden; border:1px solid #d5d5d5;}
+.ba_ad_1{float:left; border-right:1px solid #dddddd;}
+.ba_ad_1 img{ width:137px; height:330px; display:block;}
+.ba_ad_1 img:hover{ filter:alpha(opacity=70); opacity:0.7;}
+.ba_c{float:left; width:203px; height:330px; border-right:1px solid #dddddd;}
+.ad_1{ text-align:center; padding:20px 0;}
+.ad_1 img{ width:170px; height:170px;}
+.ad_1 img:hover{filter:alpha(opacity=70); opacity:0.7;}
+.ad_2{ font-size:14px; padding:0 10px; font-family:"Microsoft Yahei"; margin-top:10px;}
+.ad_2 a{color:#666666;}
+.ad_2 a:hover{color:#c10000; text-decoration:underline;}
+.ad_3{ font-size:14px; font-family:"Microsoft Yahei"; color:#e00006; font-weight:bold; padding-left:12px; margin-top:6px;}
+.ad_4{ padding-top:15px;}
+.ad_4 a{ padding:5px 0; width:150px; display:block; margin:0 auto; text-align:center; font-size:14px; color:#fff; background-color:#c10000;}
+.ba_ad_2{float:right;}
+.ba_ad_2 img{ width:254px; height:330px; display:block;}
+.ba_ad_2 img:hover{filter:alpha(opacity=70); opacity:0.7;}
+/*--楼层信息--*/
+.storey_box{width:1210px; margin:0 auto;}
+.st_title{ font-family:"Microsoft Yahei"; font-size:22px; color:#555454; font-weight:normal; margin-top:15px; padding-bottom:5px; border-bottom:3px solid #9c9b9b;}
+.st_title span{ margin-right:10px; color:#c30000;}
+
+.storey{ height:445px; overflow:hidden; border-left:1px solid #d5d5d5;  border-right:1px solid #d5d5d5;  border-bottom:1px solid #d5d5d5;}
+/*左*/
+.st_1{float:left; width:219px;}
+.st_1 ul{ height:272px;}
+.st_1 ul li{ overflow:hidden; padding:0 15px; line-height:28px;}
+.st_1 ul li a{float:left; width:94px; font-size:14px; color:#444444; font-family:"Microsoft Yahei";}
+.st_1 ul li a:hover{color:#0079e1; text-decoration:underline;}
+.st_1 img{ width:219px; height:173px;}
+.st_1 img:hover{ filter:alpha(opacity=70); opacity:0.7;}
+/*中*/
+.st_2{float:left; width:642px; overflow:hidden;}
+.grid_1{ float:left; width:214px; height:445px; overflow:hidden;}
+.gr_d{ width:214px; height:271px; position:relative; padding-right:10px;}
+.gr_d img{ width:214px; height:216px; display:block;}
+.gr_d div{ background-image:url(images/gr_01.png); height:50px; width:214px; padding-top:5px; padding-right:10px; font-size:19px; color:#fff; font-family:"Microsoft Yahei"; text-align:center;}
+.gr_d div p{ font-size:14px;}
+.b{ background-color:#abd8ff;}
+.c{ background-color:#c2ffff;}
+.w{ background-color:#feffeb;}
+
+.gr_j{ width:213px; border-left:1px solid #d5d5d5; height:174px;}
+.j_1{ text-align:center; padding-top:12px;}
+.j_1 img{ width:80px; height:80px;}
+.j_2 a{ font-size:14px; color:#666666; font-family:"Microsoft Yahei";}
+.j_2 a:hover{color:#0079e1; text-decoration:underline;}
+.j_3{ font-size:14px; color:#e00006; font-weight:bold; font-family:"Microsoft Yahei";}
+.j_2,.j_3{ padding:0 25px; margin-top:10px;}
+/*右*/
+.st_3{float:left; width:223px; border-left:1px solid #d5d5d5; border-right:1px solid #d5d5d5; overflow:hidden;}
+.grid_2{ height:135px; border-bottom:1px solid #d5d5d5; overflow:hidden; position:relative;}
+.grid_2 img{float:right; width:80px; height:120px;}
+.grid_2 span{float:left; width:133px; padding-top:32px; padding-left:10px; font-family:"Microsoft Yahei";}
+.grid_2 h4{ font-size:16px; color:#2d2d2d;}
+.grid_2 p{ font-size:12px; color:#3e3e3e; line-height:22px;}
+.grid_2 a{color:#008fea;}
+.grid_2 a:hover{ text-decoration:underline; color:#c10000;}
+.grid_3{ height:173px;}
+/*右边*/
+.roll_box{float:right; width:122px;}
+.ro_btn_1{ background-image:url(images/dian_01.png); width:122px; height:26px; cursor:pointer;}
+.ro_btn_2{ background-image:url(images/dian_02.png); width:122px; height:26px; cursor:pointer;}
+.roll{ width:122px; height:393px; overflow:hidden;}
+.roll_d{  position:relative;}
+.roll_d img{ width:122px; height:39px; display:block;}
+.roll_d img:hover{ filter:alpha(opacity=60); opacity:0.6;}
+</style>
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+
+
+<body>
+<!--顶部-->
+<div class="head_box">
+	<div class="head">
+        <span>您好, 欢迎来到五星享购！</span>
+        <a href="#">[登录]</a>
+        <a href="#">[免费注册]</a>|
+        <a href="#">我的订单</a>|
+        <a class="collect" href="#">收藏我们</a>|
+        <span>客服电话 8888-8888888</span>
+	</div>
+</div>
+<!--搜索-->
+<div class="search_box">
+	<div class="logo"><a href="#"><img src="images/logo.png"></a></div>
+    <dl class="se_1">
+    	<dt><input placeholder="请输入关键词"> <button>搜索</button></dt>
+        <dd>热门搜索: <a href="#">小米</a> <a href="#">大金</a> <a href="#">apple</a></dd>
+    </dl>
+    <div class="se_ad"><a href="#"><img src="images/me_01.jpg"></a></div>
+</div>
+
+<!--导航-->
+<div class="nav_box">
+	<div class="nav_in">
+    	<div class="all_t"><a class="all" href="#">全部商品分类</a></div>
+        <a class="nav" href="#">首页</a>
+        <a class="nav" href="#">网页导航</a>
+        <a class="nav" href="#">网页导航</a>
+        <a class="nav" href="#">网页导航</a>
+        <a class="nav" href="#">网页导航</a>
+        <div class="cart"><img src="images/gw_03.png"> <span>购物车有<b>0</b>件商品</span> <a href="#">去结算</a>
+        	<div class="ca_two">
+            	<table class="list">
+                    <tr>
+                        <td class="li_01">名称</td>
+                        <td class="li_01">套餐</td>
+                        <td class="li_01">数量</td>
+                    </tr>
+                    <tr>
+                        <td class="li_02">魅族Mx8</td>
+                        <td class="li_02">套餐一</td>
+                        <td class="li_02">88888</td>
+                    </tr>
+                    <tr>
+                        <td class="li_02">魅族Mx8</td>
+                        <td class="li_02">套餐一</td>
+                        <td class="li_02">88888</td>
+                    </tr>
+                    <tr>
+                        <td class="li_02">魅族Mx8</td>
+                        <td class="li_02">套餐一</td>
+                        <td class="li_02">88888</td>
+                    </tr>
+            	</table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--通栏-->
+<div class="banner_box">
+	<!--左导航-->
+    <div class="left_nav">
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">111手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">222手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">333手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">444手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">555手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">666手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">777手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">888手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">999手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">10手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">11手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">12手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">13手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    	<div class="nav_y"><a href="#" class="n"><img class="i_1" src="images/z_01.png"> <img class="i_2" src="images/z_01_01.png"> 手机/手机配件</a>
+        	<!--二级导航-->
+            <ul class="second">
+                <li class="ea_title"><a href="#">14手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_title"><a href="#">手机通讯</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+                <li class="ea_cp"><a href="#">联通手机</a> <a href="#">联通手机</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--中区-->
+    <div class="middle_box">
+    	<!--轮播-->
+        <div class="banner">
+            <a href="#"><img src="images/1.jpg"></a>
+            <a href="#"><img src="images/2.jpg"></a>
+            <a href="#"><img src="images/3.jpg"></a>
+            <ul class="ba_1">
+                <li class="ba_2"></li><li class="ba_2"></li><li class="ba_2"></li>
+            </ul>
+        </div>
+        <ul class="mi_1">
+        	<li> <span><h4>爆米花手机</h4> <p>买就送专用充电宝</p> <a href="#">立即查看 >> </a></span> <img src="images/mi_01.png"></li>
+        	<li class="part"> <span><h4>爆米花手机</h4> <p>买就送专用充电宝</p> <a href="#">立即查看 >> </a></span> <img src="images/mi_01.png"></li>
+        	<li> <span><h4>爆米花手机</h4> <p>买就送专用充电宝</p> <a href="#">立即查看 >> </a></span> <img src="images/mi_01.png"></li>
+        </ul>
+    </div>
+    <!--右区-->
+    <div class="right_box">
+    	<div class="ri_img"><a href="#"><img title="图片广告" src="images/right.jpg"></a></div>
+    	<div class="ri_img"><a href="#"><img title="图片广告" src="images/right.jpg"></a></div>
+        <div class="notice"><a class="no sx">网站公告</a> <a class="no">网站公告</a></div>
+        <dl class="n_each">
+        	<dd><a href="#">11如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+        	<dd><a href="#">如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+        	<dd><a href="#">如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+            <dt><a href="#">更多 >> </a></dt>
+        </dl>
+        <dl class="n_each">
+        	<dd><a href="#">22如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+        	<dd><a href="#">如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+        	<dd><a href="#">如何用烤箱烤面包</a> <a href="#">如何用烤箱烤面包</a></dd>
+            <dt><a href="#">更多 >> </a></dt>
+        </dl>
+    </div>
+</div>
+
+<!--天天特价-->
+<div class="bargain">
+	<div class="ba_title"><img src="images/bargain_01.png">天天特价</div>
+    <div class="ba_details">
+    	<div class="ba_ad_1"><a href="#"><img title="图片广告" src="images/ad_01.png"></a></div>
+        <ul class="ba_c">
+        	<li class="ad_1"><a href="#"><img src="images/ba_c.jpg"></a></li>
+            <li class="ad_2"><a href="#">爆米花 MX6</a></li>
+            <li class="ad_3">￥99.00</li>
+            <li class="ad_4"><a href="#">立即购买</a></li>
+        </ul>
+        <ul class="ba_c">
+        	<li class="ad_1"><a href="#"><img src="images/ba_c.jpg"></a></li>
+            <li class="ad_2"><a href="#">爆米花 MX6</a></li>
+            <li class="ad_3">￥99.00</li>
+            <li class="ad_4"><a href="#">立即购买</a></li>
+        </ul>
+        <ul class="ba_c">
+        	<li class="ad_1"><a href="#"><img src="images/ba_c.jpg"></a></li>
+            <li class="ad_2"><a href="#">爆米花 MX6</a></li>
+            <li class="ad_3">￥99.00</li>
+            <li class="ad_4"><a href="#">立即购买</a></li>
+        </ul>
+        <ul class="ba_c">
+        	<li class="ad_1"><a href="#"><img src="images/ba_c.jpg"></a></li>
+            <li class="ad_2"><a href="#">爆米花 MX6</a></li>
+            <li class="ad_3">￥99.00</li>
+            <li class="ad_4"><a href="#">立即购买</a></li>
+        </ul>
+        <div class="ba_ad_2"><a href="#"><img title="图片广告" src="images/ad_02.png"></a></div>
+    </div>
+</div>
+<!--楼层信息-->
+<div class="storey_box">
+	<div class="st_title"><span>1F</span>手机/手机配件</div>
+    <div class="storey">
+    	<!--左-->
+        <div class="st_1">
+        	<ul>
+            	<li><a href="#">华为手机</a> <a href="#">小米手机</a> </li>
+            	<li><a href="#">华为手机</a> <a href="#">小米手机</a> </li>
+            	<li><a href="#">华为手机</a> <a href="#">小米手机</a> </li>
+            	<li><a href="#">华为手机</a> <a href="#">小米手机</a> </li>
+            	<li><a href="#">华为手机</a> <a href="#">小米手机</a> </li>
+            	<li><a href="#">华为手机</a> </li>
+            </ul>
+            <a href="#"><img title="图片广告" src="images/st_03.png"></a>
+        </div>
+        <!--中-->
+        <div class="st_2">
+        	<div class="grid_1">
+            	<div class="gr_d b">
+                	<a href="#"><img src="images/st_01.png"></a>
+                    <div>爆米花 MX6 <p>1888宫格超级锁屏系统</p></div>
+                </div>
+
+            </div>
+            
+        	<div class="grid_1">
+            	<div class="gr_d c">
+                	<a href="#"><img src="images/st_01.png"></a>
+                    <div>爆米花 MX6 <p>1888宫格超级锁屏系统</p></div>
+                </div>
+    
+            </div>
+            
+        	<div class="grid_1">
+            	<div class="gr_d w">
+                	<a href="#"><img src="images/st_01.png"></a>
+                    <div>爆米花 MX6 <p>1888宫格超级锁屏系统</p></div>
+                </div>
+
+            </div>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+
+<!--底部-->
+<div class="stern_box">
+	<div class="stern_in">
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+    	<ul class="each">
+        	<li class="ea_1"><img src="images/b_03.png">购物指南</li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+            <li class="ea_2"><a href="#">支付常见问题</a></li>
+            <li class="ea_2"><a href="#">常见问题</a></li>
+            <li class="ea_2"><a href="#">支付限额说明</a></li>
+            <li class="ea_2"><a href="#">联系发卡行</a></li>
+            <li class="ea_2"><a href="#">购物流程</a></li>
+        </ul>
+        <dl class="relevancy">
+        	<dt><img src="images/2_03.png"> <h4>官方微信</h4> <p>扫描二维码，随时随地了解最新活动</p></dt>
+            <dd><a href="#"><img src="images/b_02.png">查看微博</a> <a href="#"><img src="images/b_02.png">查看微博</a></dd>
+        </dl>
+    </div>
+  	<ul class="di_bat">
+    	<li><a href="#"><img src="images/b_1.png"> <h4>满99元全</h4> <p>国免邮</p></a></li>
+    	<li><a href="#"><img src="images/b_2.png"> <h4>满99元全</h4> <p>国免邮</p></a></li>
+   		<li><a href="#"><img src="images/b_3.png"> <h4>满99元全</h4> <p>国免邮</p></a></li>
+   		<li><a href="#"><img src="images/b_4.png"> <h4>满99元全</h4> <p>国免邮</p></a></li>
+    </ul>
+</div>
+<div class="co_box"><p>Copyright © 2006-2013 电器有限公司版权所有 京ICP备8888888号</p> <img src="images/co_01.png"></div>
+
+</body>
+</html>
