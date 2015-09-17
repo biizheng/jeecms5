@@ -127,8 +127,8 @@ function loginSubmit(){
          <td><a href="http://wgy.ke.qq.com/" target="_blank">腾讯课堂</a></td>
         </tr>
        <tr>
-         <td><a href="#" title="18043018002"><img src="../../${res}/img/dianhua.png" width="40" height="40" /></a></td>
-         <td><a href="#" title="18043018002">电话</a></td>
+         <td><a href="#" title="联系电话：18043018002"><img src="../../${res}/img/dianhua.png" width="40" height="40" /></a></td>
+         <td><a href="#" title="联系电话：18043018002">电话</a></td>
         </tr>
      </table>
    </div>
@@ -303,14 +303,18 @@ function loginSubmit(){
 <div class="sy_gg">
    [@cms_advertising id='8']
     <a href="${tag_bean.attr.image_link!}" target="_blank"> <img src="${(tag_bean.attr.image_url)!?html}"   width="1000" height="200"  border="0" /></a> 
-   
+ 
    [/@cms_advertising]
 </div>
 <div id="sy_zx">
  <div class="sy_zx1">
   </div>
   <div class="sy_zx2">
-  <h2>亲子关系</h2>
+  <h2>
+  [@cms_channel path='qinzi']
+	<a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a>
+  [/@cms_channel]
+  </h2>
       [@cms_content_list count='5' channelId=110 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
   <div class="qzgx"><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a><br />
@@ -320,8 +324,15 @@ function loginSubmit(){
 <p style=" width:680px; margin-top:10px;" align="right"><a href="${base}/qinzi/index.htm" style="color:#900;">更多>></a></p>
   </div>
   <div class="sy_zx2">
-  <h2>学生减压</h2>
-  <div class="xsjy1"><img src="../../${res}/img/xuesheng.jpg" />
+   [@cms_channel path='xsjy']
+  <h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  <div class="xsjy1">
+
+ [#if tag_bean.titleImg??]
+<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.titleImg!site.defImg!}" /> </a>
+ [/#if]
+  [/@cms_channel]
+  
   <ul style="width:200px; float:left;">
         [@cms_content_list count='10' channelId=111 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
@@ -343,8 +354,15 @@ function loginSubmit(){
   
   </div>
   <div class="sy_zx2">
-  <h2>婚恋情感</h2>
-  <div class="xsjy1"><img src="../../${res}/img/hunlian.jpg" />
+   [@cms_channel path='hlqg']
+  <h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  <div class="xsjy1">  
+ 
+
+[#if tag_bean.titleImg??]
+  <a href="${tag_bean.url}" target="_blank"><img src="${tag_bean.titleImg!site.defImg!}" /></a>
+ [/#if]
+  [/@cms_channel]
   <ul style="width:200px; float:left;">
         [@cms_content_list count='10' channelId=112 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
@@ -363,24 +381,33 @@ function loginSubmit(){
   </div>
   </div>
   <div class="sy_zx2">
-  <h2>机体健康</h2>
+    [@cms_channel path='jtjk']
+	<h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  [/@cms_channel]
   <div class="jtjk">
-  <p><a href="#">1、抑郁/失眠/恐惧/强迫/焦虑</a></p>
-  <a href="#"><img src="../../${res}/img/qingxu.jpg" /></a>
+     [@cms_channel path='jtjk']
+ 
+[#if tag_bean.titleImg??]
+  <a href="${tag_bean.url}" target="_blank"><img src="${tag_bean.titleImg!site.defImg!}" /></a>
+ [/#if]
+  [/@cms_channel]
   </div>
-  <div class="jtjk">
-  <p><a href="#">2、情绪躯体化</a></p>
-  <a href="#"><img src="../../${res}/img/qutihua.jpg" /></a>
-  </div>
-  <div class="jtjk" style="margin-right:20px;">
-  <p><a href="#">3、养生</a></p>
-  <a href="#"><img src="../../${res}/img/yangsheng.jpg" /></a>
-  </div>
-  <p style=" width:680px;" align="right"><a href="#" style="color:#900;">更多>></a></p>
+
+
+  <p style=" width:680px;" align="right"><a href="${base}/jtjk/index.htm" style="color:#900;">更多>></a></p>
   </div>
   <div class="sy_zx2">
-  <h2>职场EAP</h2>
-  <div class="xsjy"><img src="../../${res}/img/zhichang.jpg" />
+    [@cms_channel path='eap']
+	<h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  [/@cms_channel]
+  <div class="xsjy">
+  
+  [@cms_channel path='eap']
+ 
+	[#if tag_bean.titleImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.titleImg!site.defImg!}" /> </a>
+	 [/#if]
+	  [/@cms_channel]
   <ul>
           [@cms_content_list count='10' channelId=114 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
@@ -395,7 +422,9 @@ function loginSubmit(){
   
   </div>
   <div class="sy_zx2">
-  <h2>生涯规划</h2>
+    [@cms_channel path='career']
+	<h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  [/@cms_channel]
   <div class="xsjy">
   <ul style="width:290px; float:left; padding-left:20px;">
         [@cms_content_list count='10' channelId=115 titLen='200' orderBy='4' channelOption='1']
@@ -415,8 +444,17 @@ function loginSubmit(){
   </div>
   </div>
   <div class="sy_zx2">
-  <h2>危机干预</h2>
-  <div class="xsjy1"><img src="../../${res}/img/weiji.jpg"/>
+    [@cms_channel path='wjgy']
+	<h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
+  [/@cms_channel]
+  <div class="xsjy1">
+  
+    [@cms_channel path='wjgy']
+ 
+	[#if tag_bean.titleImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.titleImg!site.defImg!}" /> </a>
+	 [/#if]
+	  [/@cms_channel]
   <ul style="width:200px; float:left;">
   
           [@cms_content_list count='10' channelId=116 titLen='200' orderBy='4' channelOption='1']

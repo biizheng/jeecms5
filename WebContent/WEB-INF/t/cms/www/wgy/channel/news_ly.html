@@ -23,38 +23,7 @@ $(function() {
 
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
-   <div id="left">
-     <table width="70%" border="0" cellspacing="0" cellpadding="0">
-       <tr>
-         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
-         <td><a href="#">微信</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
-         <td><a href="#">微博</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
-         <td><a href="#">博客</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
-         <td><a href="#">QQ客服</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
-         <td><a href="#">QQ群</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
-         <td><a href="#">腾讯课堂</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
-         <td><a href="#">电话</a></td>
-        </tr>
-     </table>
-   </div>
+[#include "../include/left.html"/]
   <div id="center">
   <div class="ly_top">
    <ul>
@@ -70,22 +39,15 @@ $(function() {
 
     <div class="jsby">
       <ul>
-         <li><a href="#"><img src="../../${res}/img/yl02.jpg" /></a>
-         <p><a href="#">另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</a></p>
-         <p><a href="#">比白瓷还细腻的腕上，一只手镯子都不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</a></p>
+      [@cms_content_list count='5' typeId='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
+       [#list tag_list as a]
+         <li><a href="${a.url}" target="_blank"  border="0" class="z_case_p"><img src="${a.typeImg!}" border="0" /></a>
+         <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.title len=22 /]</a></p>
+         <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p"> [@text_cut s=a.description len=100 /]</a></p>
          </li> 
-         <li><img src="../../${res}/img/yl03.jpg" />
-         <p>另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</p>
-         <p>比白瓷还细腻的腕上，一只手镯子都不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</p></li>
-         <li><img src="../../${res}/img/yl04.jpg" />
-         <p>另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</p>
-         <p>比白瓷还细腻的腕上，一只手镯子都不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</p></li>
-         <li><img src="../../${res}/img/yl05.jpg" />
-         <p>另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</p>
-         <p>比白瓷还细腻的腕上，一只手镯子都不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</p></li>
-         <li style="border-right:none; width:200px;"><img src="../../${res}/img/yl06.jpg" />
-         <p>另一青葱手，稳稳端着桃木托碟，上有青烟底白瓷茶壶茶杯。</p>
-         <p>比白瓷还细腻的腕上，一只手镯子都不戴。窄袖云色春榴裙，杨柳绿叶陈色比甲，腰间一条新...</p></li>
+        
+                 [/#list]
+    [/@cms_content_list]
       </ul>
     </div>
   <div id="dy_ejy">
@@ -112,11 +74,15 @@ $(function() {
          [#if a_index==0]
          
            <tr>
-    <td width="72%"><h3> <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+    <td width="72%"> <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
             <img src="${a.titleImg!}" border="0" style=" width:330px;height: 200px;"/>
-            </a></h3></td>
-    <td width="28%"><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=200 /]</a></p>
-         </p></td>
+            </a>
+            </td>
+    <td width="28%">
+    <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">
+    [@text_cut s=a.description len=100 /]</a></p>
+         </p>
+         </td>
   </tr>
          
 		[/#if]
@@ -125,15 +91,11 @@ $(function() {
     <td height="206">         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
             <img src="${a.titleImg!}" border="0" style=" width:330px;height: 200px;"/>
             </a></td>
-    <td><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=200 /]</a></p>
+    <td><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=100 /]</a></p>
         </td>
   </tr>
-         
-         
-        <li><p>[@text_cut s=a.description len=200 /]</p></li>
-        <li>
 
-        </li>
+
 		[/#if]
 		
         [/#list]
