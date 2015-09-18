@@ -32,7 +32,6 @@ $(function() {
         <ul>
         [@cms_content_list count='3' channelId=channel.id   titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
-         
            <li [#if a_index==1] style="padding:0px 25px;"  [/#if] >  
               <a href="${a.url}" title="${a.title}" target="_blank">
               <img src="${a.titleImg}" border="0" width="210px" height="280px" /></a>
@@ -41,8 +40,6 @@ $(function() {
             </a><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /><img src="../../${res}/img/xing.png" /></h4>
               <p>[@text_cut s=a.description len=40 /]...</p>
            </li>
-		
-		
         [/#list]
     [/@cms_content_list]
         </ul>
@@ -50,7 +47,6 @@ $(function() {
        [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
        <div class="left_list">
           <ul>
-          
           [#list tag_pagination.list as a]
              <li>
              [#if a.titleImg!=""]   <img src="${a.titleImg}" />  [/#if]
@@ -69,10 +65,8 @@ $(function() {
    <div class="page">[@cms_pagination sysPage='1'/]</div>
    </div>
         [/@cms_content_page]
-       
      </div>
-    
-     
+
    [#include "../include/right.html"/]
   </div>    
       

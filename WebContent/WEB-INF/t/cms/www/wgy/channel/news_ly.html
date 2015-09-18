@@ -42,11 +42,10 @@ $(function() {
       [@cms_content_list count='5' typeId='2' channelId=channel.id titLen='200' orderBy='4' channelOption='1']
        [#list tag_list as a]
          <li><a href="${a.url}" target="_blank"  border="0" class="z_case_p"><img src="${a.typeImg!}" border="0" /></a>
-         <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.title len=22 /]</a></p>
          <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p"> [@text_cut s=a.description len=100 /]</a></p>
          </li> 
         
-                 [/#list]
+        [/#list]
     [/@cms_content_list]
       </ul>
     </div>
@@ -80,7 +79,7 @@ $(function() {
             </td>
     <td width="28%">
     <p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">
-    [@text_cut s=a.description len=100 /]</a></p>
+    [@text_cut s=a.description len=50 /]</a></p>
          </p>
          </td>
   </tr>
@@ -91,10 +90,9 @@ $(function() {
     <td height="206">         <a href="${a.url}" target="_blank"  border="0" class="z_case_p">
             <img src="${a.titleImg!}" border="0" style=" width:330px;height: 200px;"/>
             </a></td>
-    <td><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=100 /]</a></p>
+    <td><p><a href="${a.url}" target="_blank"  border="0" class="z_case_p">[@text_cut s=a.description len=50 /]</a></p>
         </td>
   </tr>
-
 
 		[/#if]
 		
