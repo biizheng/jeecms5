@@ -35,7 +35,7 @@ $(function() {
 		btnPrev: ".prev",
 	    auto: 5000,
 	    speed: 1000,
-	    visible: 4
+	    visible: 6
 	});
 	
 	
@@ -220,7 +220,7 @@ function loginSubmit(){
    [@cms_guestbook_list count='6' checked='1']
    [#list tag_list as m]
      <li>
-        [#if m.admin??] <img src="${base}/${m.admin.userImg!}" /> [/#if]
+        [#if m.admin??] <img src="${m.admin.userImg!}" /> [/#if]
          <p><a href="${base}/guestbook/${m.id}.jspx"">成长老师[#if m.admin.comefrom??]（${m.admin.comefrom!}）[/#if]</a></p>
          <p><a href="${base}/guestbook/${m.id}.jspx"><span>[${m.ctg.name!}]</span>：${m.titleHtml!}</a></p>
       </li>
