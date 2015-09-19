@@ -63,9 +63,14 @@
 		        var $selectedvalue = $(this).val(); 
 		        if ($selectedvalue == 1) {  
 		            $("#trLevel").hide();
+		            $("#tab1").show();
+		            $("#tab2").hide();
 		        }
 		        else if ($selectedvalue == 2) { 
 		        	$("#trLevel").show();
+		        	$("#tab1").hide();
+		            $("#tab2").show();
+		            
 		        } 
  
 		    });
@@ -78,43 +83,10 @@
 [#include "../include/top.html"/]
 <div id="com">
 <div style="width:1360px; margin:0 auto;">
-   <div id="left">
-     <table width="70%" border="0" cellspacing="0" cellpadding="0">
-       <tr>
-         <td width="21%"><a href="#"><img src="../../${res}/img/weixin.png" width="36" height="36" /></a></td>
-         <td><a href="#">微信</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/weibo.png" width="36" height="36" /></a></td>
-         <td><a href="#">微博</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/boke.png" width="36" height="36" /></a></td>
-         <td><a href="#">博客</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/QQ.png" width="36" height="36" /></a></td>
-         <td><a href="#">QQ客服</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/Qqun.png" width="36" height="36" /></a></td>
-         <td><a href="#">QQ群</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/ketang.png" width="37" height="37" /></a></td>
-         <td><a href="#">腾讯课堂</a></td>
-        </tr>
-       <tr>
-         <td><a href="#"><img src="../../${res}/img/dianhua.png" width="37" height="37" /></a></td>
-         <td><a href="#">电话</a></td>
-        </tr>
-     </table>
-   </div>
+[#include "../include/left.html"/]
   <div id="center">
     <div class="zc1">
-
-        
-                   <form id="jvForm" action="${base}/register.jspx" method="post" style="padding-top: 20px">
+                 <form id="jvForm" action="${base}/register.jspx" method="post" style="padding-top: 20px">
                   <table cellspacing="0" cellpadding="0" align="center" border="0">
 			        <tr>
 			          <td width="130px"  style="padding:0px 25px;">
@@ -125,8 +97,6 @@
 			         </td>
 			        </tr>
 			        </table>
-                   
-       
                     <table cellspacing="0" cellpadding="0" align="center" border="0">
                         <tbody>
 
@@ -205,7 +175,7 @@
       
     </div>
     <div class="zc2">
-        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <table width="90%" id="tab1"  border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="46%" scope="col" align="right"><img src="../../${res}/img/ql_vip.jpg" /></th>
           <th width="54%" scope="col" align="left">会员&nbsp;服务条款</th>
@@ -219,6 +189,22 @@
             <p>不尚贤，使民不争；不贵难得之货，使民不為盗；不见可欲，使民心不乱。是以圣人之治，虚其心，实其腹，弱其志，强其骨。常使民无知无欲。使夫智者不敢為也。為无為，则无不治。 </p></td>
           </tr>
       </table>
+      
+        <table width="90%" id="tab2" style="display: none;" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="46%" scope="col" align="right"><img src="img/xs.jpg"/></th>
+          <th width="54%" scope="col" align="left">会员&nbsp;服务条款</th>
+        </tr>
+        <tr>
+          <td colspan="2"><p>个人成长平台</p>
+            <p>春季班&nbsp;&nbsp;第一季度：3-5月&nbsp;&nbsp;￥150元</p>
+            <p>夏季班&nbsp;&nbsp;第一季度：6-8月&nbsp;&nbsp;￥150元</p>
+            <p>秋季班&nbsp;&nbsp;第一季度：9-11月&nbsp;&nbsp;￥150元</p>
+            <p>冬季班&nbsp;&nbsp;第一季度：12-2月&nbsp;&nbsp;￥150元</p>
+            <p>不尚贤，使民不争；不贵难得之货，使民不為盗；不见可欲，使民心不乱。是以圣人之治，虚其心，实其腹，弱其志，强其骨。常使民无知无欲。使夫智者不敢為也。為无為，则无不治。 </p></td>
+          </tr>
+      </table>
+      
     </div> 
     <div class="zc3">
       <table width="90%" border="0" cellspacing="0" cellpadding="0">

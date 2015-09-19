@@ -293,7 +293,6 @@ function loginSubmit(){
      <li>
          [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
          <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
-         
       </li>
            [/#list]
     [/@cms_content_list]
@@ -409,9 +408,9 @@ function loginSubmit(){
 	 [/#if]
 	  [/@cms_channel]
   <ul>
-          [@cms_content_list count='10' channelId=114 titLen='200' orderBy='4' channelOption='1']
+          [@cms_content_list count='5' channelId=114 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
-     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=16 /]</a></li>
+     <li><a href="${a.url}" target="_blank">${a_index+1}.[@text_cut s=a.title len=10 /]</a></li>
 
              [/#list]
     [/@cms_content_list]

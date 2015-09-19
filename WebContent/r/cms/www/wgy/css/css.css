@@ -563,7 +563,7 @@ BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999
 	Z-INDEX: 0;  MARGIN: 0px auto; WIDTH: 640px; FLOAT: left; HEIGHT: 200px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
 }
 #block {
-	float: left; Z-INDEX: 0;  POSITION: relative;  PADDING-BOTTOM: 20px; MARGIN: 0px auto; PADDING-LEFT: 0px; WIDTH: 600px; PADDING-RIGHT: 0px; HEIGHT: 155px; FONT-SIZE: 70%; OVERFLOW: hidden; PADDING-TOP: 0px
+	float: left; Z-INDEX: 0;  POSITION: relative;  PADDING-BOTTOM: 20px; MARGIN: 0px auto; PADDING-LEFT: 0px; WIDTH: 900px; PADDING-RIGHT: 0px; HEIGHT: 155px; FONT-SIZE: 70%; OVERFLOW: hidden; PADDING-TOP: 0px
 }
 #block.box {
 	BORDER-BOTTOM: #d8d8d8 0px solid; BORDER-LEFT: #d8d8d8 0px solid; PADDING-BOTTOM: 2px; MARGIN: 0px 2px; PADDING-LEFT: 2px; WIDTH: 248px; PADDING-RIGHT: 6px; FLOAT: left; HEIGHT: 140px; BORDER-TOP: #d8d8d8 0px solid; BORDER-RIGHT: #d8d8d8 0px solid; PADDING-TOP: 2px
