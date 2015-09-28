@@ -24,8 +24,8 @@
 <ul>
         [@cms_content_list count='6' channelPath='teacher' titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
-  <li><a href="#"><img src="${a.titleImg!}" width="100px" height="100px" /></a>
-   <p><a href="#">[@text_cut s=a.title len=10 /]</a><br />
+  <li><a href="${a.url}"><img src="${a.titleImg!}" width="100px" height="100px" /></a>
+   <p><a href="${a.url}">[@text_cut s=a.title len=10 /]</a><br />
 
         [/#list]
     [/@cms_content_list]

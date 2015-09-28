@@ -30,11 +30,10 @@ $(function() {
   [@cms_content_page count='10' orderBy='4' channelId=channel.id channelOption='1' dateFormat='yyyy-MM-dd']
  
   [#list tag_pagination.list as a]
-  
-  <div class="zxs_bj">
-     <div class="zxs_left"><a href="${a.url}" target="_blank" title="${a.title}"><img src="${a.titleImg!}" border="0" /></a><br />
+    <div class="zxs_bj">
+     <div class="zxs_left"><a href="${a.url}" target="_blank"  title="${a.title}"><img src="${a.titleImg!}" border="0" style="width: 110px;height: 150px" /></a><br />
      <p><a href="${a.url}" target="_blank"  title="${a.title}">${a.title}</a><br />
-   ${a.stitle}</p>
+     ${a.stitle}</p>
      </div>
      <div class="zxs_right">
      <h3>咨询师简介</h3>
@@ -43,6 +42,7 @@ $(function() {
      <p>[#if a.txt??]  [@text_cut s=a.txt len='100' append='...'/][/#if]</p>
      </div>
   </div>
+
 [/#list]
 
  <div class="page">[@cms_pagination sysPage='1'/]</div>
@@ -51,19 +51,14 @@ $(function() {
  
    <div style="clear: both;"> [/@cms_content_page] </div>
   
-<div style="clear:both" class=" zxs_lb">
 
-
-
-
-</div>
 <div class="kfw_sl">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td><a href="zzj_ejy.html"><img src="../../${res}/img/kfw01.jpg" /></a></td>
-        <td><a href="dy_ejy.html"><img src="../../${res}/img/kfw02.jpg" /></a></td>
-        <td><a href="js_ejy.html"><img src="../../${res}/img/kfw03.jpg" /></a></td>
-        <td style="border-right:none;"><a href="sc_ejy.html"><img src="../../${res}/img/kfw04.jpg" /></a></td>
+        <td><a href="${base}/myself/index.htm""><img src="../../${res}/img/kfw01.jpg" /></a></td>
+        <td><a href="${base}/movies/index.htm"><img src="../../${res}/img/kfw02.jpg" /></a></td>
+        <td><a href="${base}/nlp/index.htm"><img src="../../${res}/img/kfw03.jpg" /></a></td>
+        <td style="border-right:none;"><a href="${base}/market/index.htm"><img src="../../${res}/img/kfw04.jpg" /></a></td>
       </tr>
     </table>
   <ul>

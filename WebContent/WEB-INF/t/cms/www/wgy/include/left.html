@@ -32,3 +32,30 @@
         </tr>
      </table>
    </div>
+   
+   <script type="text/javascript">
+   $(function() {
+	   
+	   
+		var x=5;
+		var y=5;
+	   
+	$(".wxewm").mouseover(function(e){
+
+		var wx_content="<div class='big_xbox'>"+"<div class='wx_ewm'>"+"<img src='../../${res}/images/gzh.jpg' width='200' height='200'>"+"</div>"+"</div>";
+
+		$(".xbox").append(wx_content);
+
+		$(".big_xbox").css({left:(e.pageX+x)+'px',top:(e.pageY+y)+'px'}).show("fast");
+
+	}).mouseout(function(){
+
+		$(".big_xbox").remove();
+
+	}).mousemove(function(e){
+		$(".big_xbox").css({left:(e.pageX+x)+'px',top:(e.pageY+y)+'px'});
+	});
+	
+   });
+   </script>
+   
