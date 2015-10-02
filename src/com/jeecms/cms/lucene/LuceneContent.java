@@ -60,14 +60,14 @@ public class LuceneContent {
 			doc.add(new Field(CONTENT, c.getTxt(), Field.Store.NO,
 					Field.Index.ANALYZED));
 		}
-		if(StringUtils.isNotBlank(c.getAttr().get("workplace"))){
+/*		if(StringUtils.isNotBlank(c.getAttr().get("workplace"))){
 			doc.add(new Field(WORKPLACE, c.getAttr().get("workplace"), Field.Store.NO,
 					Field.Index.ANALYZED));
 		}
 		if(StringUtils.isNotBlank(c.getAttr().get("category"))){
 			doc.add(new Field(CATEGORY, c.getAttr().get("category"), Field.Store.NO,
 					Field.Index.ANALYZED));
-		}
+		}*/
 		return doc;
 	}
 

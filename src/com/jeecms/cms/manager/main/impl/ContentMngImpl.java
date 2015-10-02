@@ -288,6 +288,7 @@ public class ContentMngImpl implements ContentMng, ChannelDeleteChecker {
 				bean.setStatus(ContentCheck.CHECKING);
 			}
 		}
+		bean.setStatus(ContentCheck.CHECKED);
 		// 是否有标题图
 		bean.setHasTitleImg(!StringUtils.isBlank(ext.getTitleImg()));
 		bean.init();

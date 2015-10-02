@@ -63,32 +63,31 @@ function loginSubmit(){
 	
 	var captcha = $('#captcha').val();  
 	var userName = $('#username').val();
-	var passWord = $('#pass0word').val();
+	var passWord = $('#password').val();
 
 	
 	
 //	$('#btnOK').attr('disabled',"true");
 	
 	$.ajax({
-	            type: "post",//使用get方法访问后台
-	            dataType: "json",//返回json格式的数据
-	            url: "${base}/loginByAjax.jspx",
-	            data: {
-	            	captcha:captcha,
-	            	username:userName,
-	            	password:passWord
-	            },
-	            complete : function(){}, //AJAX请求完成时隐藏loading提示
-                success: function(data){ //msg为返回的数据，在这里做数据绑定
-               // 	$('#btnOK').removeAttr("disabled"); 
-                    if(data.success){
-                         window.location.href='${base}/member/index.jspx';
-                   } else{
-                        alert(data.title);
-                   }
-                 }
-
-       });
+        type: "post",//使用get方法访问后台
+        dataType: "json",//返回json格式的数据
+        url: "${base}/loginByAjax.jspx",
+        data: {
+        	captcha:captcha,
+        	username:userName,
+        	password:passWord
+        },
+        complete : function(){}, //AJAX请求完成时隐藏loading提示
+        success: function(data){ //msg为返回的数据，在这里做数据绑定
+       // 	$('#btnOK').removeAttr("disabled"); 
+            if(data.success){
+                 window.location.href='${base}/member/index.jspx';
+           } else{
+                alert(data.title);
+           }
+         }
+	});
 	
 }
 </script>
@@ -181,7 +180,7 @@ function loginSubmit(){
         <tr>
           <td>验证码</td>
           <td width="94" ><label>
-          <input class="input required" maxlength="5" name="captcha" size="12" type="text" />
+          <input class="input required" maxlength="5" id="captcha" name="captcha" size="12" type="text" />
           </label></td>
           <td width="56"><img id="guestbookCaptcha" height="25px;" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl" /></td>
         </tr>
@@ -306,10 +305,18 @@ function loginSubmit(){
 <div id="sy_zx">
  <div class="sy_zx1" >
 	<div style="height:145px;">
-	a
+  [@cms_channel path='qinzi']
+	 [#if tag_bean.contentImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.contentImg!site.defImg!}" border="0" width="300px" height="145px" /> </a>
+	 [/#if]
+  [/@cms_channel]
 	</div>
 	<div style="height:145px;">
-	b
+  [@cms_channel path='xsjy']
+	 [#if tag_bean.contentImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.contentImg!site.defImg!}"  border="0" width="300px" height="145px"/> </a>
+	 [/#if]
+  [/@cms_channel]
 	</div>
   </div>
   <div class="sy_zx2" >
@@ -354,10 +361,18 @@ function loginSubmit(){
   </div>
  <div class="sy_zx1" >
 	<div style="height:145px;">
-	a
+  [@cms_channel path='hlqg']
+	 [#if tag_bean.contentImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.contentImg!site.defImg!}"  border="0" width="300px" height="145px"/> </a>
+	 [/#if]
+  [/@cms_channel]
 	</div>
 	<div style="height:145px;">
-	b
+  [@cms_channel path='jtjk']
+	 [#if tag_bean.contentImg??]
+	<a href="${tag_bean.url}" target="_blank">  <img src="${tag_bean.contentImg!site.defImg!}"  border="0" width="300px" height="145px"/> </a>
+	 [/#if]
+  [/@cms_channel]
 	</div>
   </div>
   <div class="sy_zx2">
@@ -481,7 +496,12 @@ function loginSubmit(){
   <p align="right" style="padding-top:0px;"><a href="${base}/wjgy/index.htm" style="color:#900;">更多>></a></p>
   </div>
   </div>
-  <div ><img src="../../${res}/img/du.jpg" style="margin-left:3px;" /></div>
+  <div >
+     [@cms_advertising id='9']
+    <a href="${tag_bean.attr.image_link!}" target="_blank"> <img src="${(tag_bean.attr.image_url)!?html}"   width="300" height="454"  border="0" /></a> 
+ 
+   [/@cms_advertising]
+  
 </div>
 [#include "../include/foot.html"/]
 </body>
