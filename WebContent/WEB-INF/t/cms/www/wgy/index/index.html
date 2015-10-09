@@ -11,7 +11,9 @@
 <script src="${resSys}/html5.js" type="text/javascript"></script>
 <![endif]-->
 <style type="text/css">
-
+.jtjk1005 th{ background:#69d0ed; height:30px; line-height:30px; width:50%;}
+.jtjk1005 td{ padding:10px; height:100px;}
+.jtjk1005 td p{ width:286px; height:24px; overflow:hidden;}
 </style>
 <link href="/${res}/css/css.css" rel="stylesheet" type="text/css"/>
 <link href="/${resSys}/front.css" rel="stylesheet" type="text/css"/>
@@ -288,7 +290,7 @@ function loginSubmit(){
    [@cms_content_list count='6' channelId=105 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
      <li>
-         [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         [#if a.user.userImg!=""]  <img src="${a.user.userImg!}" /> [/#if]
          <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
       </li>
            [/#list]
@@ -406,17 +408,34 @@ function loginSubmit(){
     [@cms_channel path='jtjk']
 	<h2><a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a></h2>
   [/@cms_channel]
-  <div class="jtjk">
-     [@cms_channel path='jtjk']
- 
-[#if tag_bean.titleImg??]
-  <a href="${tag_bean.url}" target="_blank"><img src="${tag_bean.titleImg!site.defImg!}" /></a>
- [/#if]
-  [/@cms_channel]
-  </div>
-
-
-  <p style=" width:680px;" align="right"><a href="${base}/jtjk/index.htm" style="color:#900;">更多>></a></p>
+<table width="88%" border="0" cellspacing="0" cellpadding="0" class="jtjk1005">
+  <tr>
+    <th>   
+     [@cms_channel path='qxqth']
+	<a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a>
+  [/@cms_channel]</th>
+    <th style="border-left:2px #fff solid;">   
+     [@cms_channel path='jkys']
+	<a href="${tag_bean.url}" target="_blank">${tag_bean.name}</a>
+  [/@cms_channel]</th>
+  </tr>
+  <tr>
+    <td>
+     [@cms_content_list count='4' channelPath='qxqth' titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+      <p><a href="${a.url}" target="_blank">${a_index+1}、[@text_cut s=a.title len=16 /]</a></p>
+              [/#list]
+    [/@cms_content_list]
+    </td>
+    <td style="border-left:2px #fff solid;">
+     [@cms_content_list count='4' channelPath='jkys' titLen='200' orderBy='4' channelOption='1']
+         [#list tag_list as a]
+      <p><a href="${a.url}" target="_blank">${a_index+1}、[@text_cut s=a.title len=16 /]</a></p>
+              [/#list]
+    [/@cms_content_list]
+    </td>
+  </tr>
+</table>
   </div>
   <div class="sy_zx2">
     [@cms_channel path='eap']

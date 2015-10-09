@@ -8,7 +8,7 @@
    [@cms_content_list count='3' channelId=105 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
      <li>
-         [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         [#if a.user.userImg!=""]  <img src="${a.user.userImg!}" /> [/#if]
          <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
          
       </li>

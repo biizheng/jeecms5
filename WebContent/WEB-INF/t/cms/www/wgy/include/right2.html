@@ -10,7 +10,7 @@
    [@cms_guestbook_list count='4' checked='1']
    [#list tag_list as m]
      <li>
-        [#if m.admin??] <img src="${base}/${m.admin.userImg!}" /> [/#if]
+        [#if m.admin??] <img src="${m.admin.userImg!}" /> [/#if]
          <p><a href="#">成长老师[#if m.admin.comefrom??]（${m.admin.comefrom!}）[/#if]</a></p>
          <p><a href="${base}/guestbook/${m.id}.jspx" target="_blank"><span>解决了：${m.titleHtml!}[${m.ctg.name!}]</span></a></p>
       </li>
@@ -28,7 +28,7 @@
    [@cms_content_list count='3' channelId=105 titLen='200' orderBy='4' channelOption='1']
          [#list tag_list as a]
      <li>
-         [#if a.user.userImg!=""]  <img src="${base}/${a.user.userImg!}" /> [/#if]
+         [#if a.user.userImg!=""]  <img src="${a.user.userImg!}" /> [/#if]
          <p><a href="${a.url}" target="_blank">[@text_cut s=a.title len=16 /]</a></p>
          
       </li>
